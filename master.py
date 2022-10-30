@@ -17,7 +17,7 @@ class BotMaster:
         self.serverSocket.close()
 
     def start(self):
-        self.serverSocket.bind((SERVER, PORT))
+        self.serverSocket.bind(('', PORT))
         self.serverSocket.listen()
         print('The server is ready to receive!')
         self.waitForClient()
