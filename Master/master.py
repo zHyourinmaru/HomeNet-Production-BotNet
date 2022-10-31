@@ -13,7 +13,6 @@ class BotMaster:
         self.start()
 
     def __del__(self):
-        print("BOTMASTER destructed")
         self.serverSocket.close()
 
     def start(self):
@@ -25,7 +24,7 @@ class BotMaster:
     def waitForClient(self):
         while True:
             connection, addr = self.serverSocket.accept()
-            print('The connection has been accepted! \nClient ip address: ', addr[0])
+            print('The connection has been accepted! Client ip address: ', addr[0])
             sentence = connection.recv(HEADER).decode(FORMAT)
             print('\n')
             print(sentence)
