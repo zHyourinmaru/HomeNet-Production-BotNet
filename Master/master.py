@@ -27,8 +27,11 @@ class BotMaster:
             connection, addr = self.serverSocket.accept()
             print('The connection has been accepted! \nClient ip address: ', addr[0])
             sentence = connection.recv(HEADER).decode(FORMAT)
-            capitalizedSentence = sentence.upper()
-            connection.send(capitalizedSentence.encode(FORMAT))
+            print('\n')
+            print(sentence)
+            print('\n')
+            #capitalizedSentence = sentence.upper()
+            #connection.send(capitalizedSentence.encode(FORMAT))
             connection.close()
 
 

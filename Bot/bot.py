@@ -1,4 +1,5 @@
 import socket
+import systemRetrieval
 
 PORT = 12000
 CLIENT = socket.gethostbyname(socket.gethostname())
@@ -13,12 +14,15 @@ class Bot:
         self.requestToServer()
 
     def requestToServer(self):
-        sentence = input('Please insert the lowercase sentence: ')
-        self.clientSocket.send(sentence.encode(FORMAT))
-        modifiedSentence = self.clientSocket.recv(HEADER)
 
-        print('Data received from server: ', modifiedSentence.decode(FORMAT))
-        print('\n')
+        inputSentence = systemRetrieval.systemInformation()
+        sentence = inputSentence._generalInformation
+        self.clientSocket.send(sentence.encode(FORMAT))
+
+        #print('Data received from server: ', modifiedSentence.decode(FORMAT))
+        #print('\n')
+        #print(sentence)
+        #print('\n')
 
         self.clientSocket.close()
 
