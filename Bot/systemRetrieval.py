@@ -2,6 +2,33 @@ import platform
 import psutil
 from datetime import datetime
 
+
+def get_size(b):
+    if b < 1000:
+        return '%i' % b + 'B'
+    elif 1000 <= b < 1000000:
+        return '%.1f' % float(b / 1000) + 'KB'
+    elif 1000000 <= b < 1000000000:
+        return '%.1f' % float(b / 1000000) + 'MB'
+    elif 1000000000 <= b < 1000000000000:
+        return '%.1f' % float(b / 1000000000) + 'GB'
+    elif 1000000000000 <= b:
+        return '%.1f' % float(b / 1000000000000) + 'TB'
+
+"""
+def get_size(bytes, suffix="B"):
+    
+    #Scale bytes to its proper format
+    #e.g:
+    #    1253656 => '1.20MB'
+    #    1253656678 => '1.17GB'
+    
+    factor = 1024
+    for unit in ["", "K", "M", "G", "T", "P"]:
+        if bytes < factor:
+            return f"{bytes:.2f}{unit}{suffix}"
+        bytes /= factor
+"""
 class SystemInformation:
     def __init__(self):
         self._generalInformation = ''
@@ -10,10 +37,12 @@ class SystemInformation:
         self.systemRetrieval()
 
     def systemRetrieval(self):
-        self.gatherGeneralInfo()
-        self.gatherCpuInfo()
-        self.gatherMemoryInfo()
+        #self.gatherGeneralInfo()
+        #self.gatherCpuInfo()
+        #self.gatherMemoryInfo()
+        self.gatherDiskUsage()
         #
+
         self._generalInformation = self._generalInformation + self._cpuInformation + self._memoryInformation # +
 
     # [FUNCTION DESCRIPTION] Procedura utilizzata per il retrieval delle informazioni di base del sistema.
@@ -62,3 +91,29 @@ class SystemInformation:
     """
         Mancano: Disk Usage, Network Information.
     """
+    #[DA VEDERE E FARE PER BENE]
+    def gatherDiskUsage(self):
+        # Disk Information
+        print("=" * 40, "Disk Information", "=" * 40)
+        print("Partitions and Usage:")
+        # get all disk partitions
+        partitions = psutil.disk_partitions()
+        for partition in partitions:
+            print(f"=== Device: {partition.device} ===")
+            print(f"  Mountpoint: {partition.mountpoint}")
+            print(f"  File system type: {partition.fstype}")
+            try:
+                partition_usage = psutil.disk_usage(partition.mountpoint)
+            except PermissionError:
+                # this can be catched due to the disk that
+                # isn't ready
+                continue
+            print(f"  Total Size: {get_size(partition_usage.total)}")
+            print(f"  Used: {get_size(partition_usage.used)}")
+            print(f"  Free: {get_size(partition_usage.free)}")
+            print(f"  Percentage: {partition_usage.percent}%")
+        # get IO statistics since boot
+        disk_io = psutil.disk_io_counters()
+        print(f"Total read: {get_size(disk_io.read_bytes)}")
+        print(f"Total write: {get_size(disk_io.write_bytes)}")
+
