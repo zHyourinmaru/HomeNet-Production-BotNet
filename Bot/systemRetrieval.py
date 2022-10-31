@@ -17,7 +17,7 @@ class systemInformation:
         self._generalInformation = self._generalInformation + deviceName.version + '#' + deviceName.machine + '#'
         self._generalInformation = self._generalInformation + deviceName.processor + '#'
 
-    # Funzione per il retrieval delle informazioni su data e ora
+    # Funzione per il retrieval delle informazioni su data e ora.
     def gatherBootInfo(self):
         boot_time_timestamp = psutil.boot_time()
         boot = datetime.fromtimestamp(boot_time_timestamp)
