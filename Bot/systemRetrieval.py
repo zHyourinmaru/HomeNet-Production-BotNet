@@ -1,8 +1,9 @@
+
 import platform
 import psutil
 from datetime import datetime
 
-
+# [FUNCTION DESCRIPTION] Converte la quantità di bytes nel formato migliore (KB, MB, GB, etc.).
 def get_size(b):
     if b < 1000:
         return '%i' % b + 'B'
@@ -15,20 +16,6 @@ def get_size(b):
     elif 1000000000000 <= b:
         return '%.1f' % float(b / 1000000000000) + 'TB'
 
-"""
-def get_size(bytes, suffix="B"):
-    
-    #Scale bytes to its proper format
-    #e.g:
-    #    1253656 => '1.20MB'
-    #    1253656678 => '1.17GB'
-    
-    factor = 1024
-    for unit in ["", "K", "M", "G", "T", "P"]:
-        if bytes < factor:
-            return f"{bytes:.2f}{unit}{suffix}"
-        bytes /= factor
-"""
 class SystemInformation:
     def __init__(self):
         self._generalInformation = ''
@@ -37,13 +24,11 @@ class SystemInformation:
         self.systemRetrieval()
 
     def systemRetrieval(self):
-        #self.gatherGeneralInfo()
-        #self.gatherCpuInfo()
-        #self.gatherMemoryInfo()
+        self.gatherGeneralInfo()
+        self.gatherCpuInfo()
+        self.gatherMemoryInfo()
         self.gatherDiskUsage()
-        #
-
-        self._generalInformation = self._generalInformation + self._cpuInformation + self._memoryInformation # +
+        self._generalInformation = self._generalInformation + self._cpuInformation + self._memoryInformation
 
     # [FUNCTION DESCRIPTION] Procedura utilizzata per il retrieval delle informazioni di base del sistema.
     def gatherGeneralInfo(self):
@@ -70,28 +55,21 @@ class SystemInformation:
         self._cpuInformation = self._cpuInformation + usage_core + '#'
 
     # [FUNCTION DESCRIPTION] Procedura utilizzata per il retrieval delle informazioni relative all'utilizzo della memoria.
-    """
-        TODO: mem.total -> la quantità è in byte e va scalata in kilobyte, megabyte, etc. 
-    """
     def gatherMemoryInfo(self):
         mem = psutil.virtual_memory()
         swap = psutil.swap_memory()
         """
             psutil.virtual_memory() ritorna le stats relative alle informazioni sull'utilizzo della memoria come una namedtuple.
             La namedtuple conserva campi come 'total physical memory available', 'available memory (i.e not used)', 'used', 'percentage'.
-            
             psutil.swap_memory() è la stessa cosa ma per swap memory.
         """
         self._memoryInformation = self._memoryInformation + '\n'
-        self._memoryInformation = self._memoryInformation + 'Total: ' + str(mem.total) + '#Available: ' + str(mem.available) + '#Used: ' + str(mem.used) + '#Percentage: '
-        self._memoryInformation = self._memoryInformation + str(mem.percent) + '%'
-        self._memoryInformation = self._memoryInformation + '#Swap memory total: ' + str(swap.total) + '#Swap memory free: ' + str(swap.free) + '#Swap memory used: ' + str(swap.used) + '#Swap memory percentage: '
-        self._memoryInformation = self._memoryInformation + str(swap.percent) + '%#'
+        self._memoryInformation = self._memoryInformation + 'Total: ' + str(get_size(mem.total)) + '#Available: ' + str(get_size(mem.available)) + '#Used: ' + str(get_size(mem.used)) + '#Percentage: '
+        self._memoryInformation = self._memoryInformation + str(get_size(mem.percent)) + '%'
+        self._memoryInformation = self._memoryInformation + '#Swap memory total: ' + str(get_size(swap.total)) + '#Swap memory free: ' + str(get_size(swap.free)) + '#Swap memory used: ' + str(get_size(swap.used)) + '#Swap memory percentage: '
+        self._memoryInformation = self._memoryInformation + str(get_size(swap.percent)) + '%#'
 
-    """
-        Mancano: Disk Usage, Network Information.
-    """
-    #[DA VEDERE E FARE PER BENE]
+    #[EDA VEDERE E FARE PER BEN]
     def gatherDiskUsage(self):
         # Disk Information
         print("=" * 40, "Disk Information", "=" * 40)
@@ -117,3 +95,5 @@ class SystemInformation:
         print(f"Total read: {get_size(disk_io.read_bytes)}")
         print(f"Total write: {get_size(disk_io.write_bytes)}")
 
+
+    # Manca: Network Information.
