@@ -1,8 +1,8 @@
 # Questo file rappresenta il server, il BotMaster.
 
 import socket
-
-PORT = 14000
+import fileGenerator
+PORT = 12000
 SERVER = socket.gethostbyname(socket.gethostname())
 HEADER = 1024 # Messaggio di 1024 byte.
 FORMAT = 'utf-8'
@@ -30,6 +30,7 @@ class BotMaster:
             print('\n')
             print(sentence)
             print('\n')
+            fileGenerator.CreateTxt.create(sentence)
             #capitalizedSentence = sentence.upper()
             #connection.send(capitalizedSentence.encode(FORMAT))
             connection.close()

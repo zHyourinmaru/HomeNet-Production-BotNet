@@ -1,7 +1,7 @@
 import socket
 import systemRetrieval
 
-PORT = 14000
+PORT = 12000
 CLIENT = socket.gethostbyname(socket.gethostname())
 HEADER = 1024 # Messaggio di 1024 byte.
 FORMAT = 'utf-8'
