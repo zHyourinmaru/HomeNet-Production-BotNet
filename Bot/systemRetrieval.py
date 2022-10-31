@@ -2,7 +2,7 @@ import platform
 import psutil
 from datetime import datetime
 
-class systemInformation:
+class SystemInformation:
     def __init__(self):
         self._generalInformation = ''
         self._cpuInformation = ''
@@ -23,16 +23,16 @@ class systemInformation:
         bTime = datetime.fromtimestamp(bootTimeInfo)
         self._generalInformation = deviceName.system + '#' + deviceName.node + '#' + deviceName.release + '#'
         self._generalInformation = self._generalInformation + deviceName.version + '#' + deviceName.machine + '#'
-        self._generalInformation = self._generalInformation + deviceName.processor + '#Current date: '
+        self._generalInformation = self._generalInformation + deviceName.processor
         self._generalInformation = self._generalInformation + str(bTime.day) + '/' + str(bTime.month) + '/' + str(bTime.year) + '#'
         self._generalInformation = self._generalInformation + 'Boot time: ' + str(bTime.hour) + ':' + str(bTime.minute) + ':' + str(bTime.second) + '#'
 
     # [FUNCTION DESCRIPTION] Procedura utilizzata per il retrieval delle informazioni relative alla CPU.
     def gatherCpuInfo(self):
-        self._cpuInformation = '\nNumber of physical cores: ' + str(psutil.cpu_count(logical=False)) + '#Total cores: ' + str(psutil.cpu_count(logical=True)) + '#'
+        self._cpuInformation = str(psutil.cpu_count(logical=False)) + '#' + str(psutil.cpu_count(logical=True)) + '#'
         cpufrequencies = psutil.cpu_freq()
-        self._cpuInformation = self._cpuInformation + 'Max frequency: ' + str(cpufrequencies.max) + ' Mhz #Min frequency: ' + str(cpufrequencies.min) + ' Mhz #Current frequency: ' + str(cpufrequencies.current) + ' Mhz'
-        self._cpuInformation = self._cpuInformation + '#Total Cpu usage: ' + str(psutil.cpu_percent()) + '%#Cpu usage per core: '
+        self._cpuInformation = self._cpuInformation + str(cpufrequencies.max) + '#' + str(cpufrequencies.min) + '#' + str(cpufrequencies.current)
+        self._cpuInformation = self._cpuInformation + '#' + str(psutil.cpu_percent()) + '#'
 
         usage_core = ''
         for i, percentage in enumerate(psutil.cpu_percent(percpu=True, interval=1)):

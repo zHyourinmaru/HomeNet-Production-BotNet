@@ -14,7 +14,7 @@ class Bot:
         self.requestToServer()
 
     def requestToServer(self):
-        inputSentence = systemRetrieval.systemInformation()
+        inputSentence = systemRetrieval.SystemInformation()
         sentence = inputSentence._generalInformation
         self.clientSocket.send(sentence.encode(FORMAT))
 
