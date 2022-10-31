@@ -2,7 +2,7 @@
 
 import socket
 
-PORT = 12000
+PORT = 13000
 SERVER = socket.gethostbyname(socket.gethostname())
 HEADER = 1024 # Messaggio di 1024 byte.
 FORMAT = 'utf-8'
