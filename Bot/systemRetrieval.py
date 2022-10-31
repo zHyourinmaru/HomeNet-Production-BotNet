@@ -4,23 +4,30 @@ import psutil
 from datetime import datetime
 
 # [FUNCTION DESCRIPTION] Converte la quantità di bytes nel formato migliore (KB, MB, GB, etc.).
-def get_size(b):
-    if b < 1000:
-        return '%i' % b + 'B'
-    elif 1000 <= b < 1000000:
-        return '%.1f' % float(b / 1000) + 'KB'
-    elif 1000000 <= b < 1000000000:
-        return '%.1f' % float(b / 1000000) + 'MB'
-    elif 1000000000 <= b < 1000000000000:
-        return '%.1f' % float(b / 1000000000) + 'GB'
-    elif 1000000000000 <= b:
-        return '%.1f' % float(b / 1000000000000) + 'TB'
+def get_size(B):
+    B = float(B)
+    KB = float(1024)
+    MB = float(KB ** 2) # 1,048,576
+    GB = float(KB ** 3) # 1,073,741,824
+    TB = float(KB ** 4) # 1,099,511,627,776
+
+    if B < KB:
+        return '{0} {1}'.format(B, 'Bytes' if 0 == B > 1 else 'Byte')
+    elif KB <= B < MB:
+        return '{0:.2f} KB'.format(B / KB)
+    elif MB <= B < GB:
+        return '{0:.2f} MB'.format(B / MB)
+    elif GB <= B < TB:
+        return '{0:.2f} GB'.format(B / GB)
+    elif TB <= B:
+        return '{0:.2f} TB'.format(B / TB)
 
 class SystemInformation:
     def __init__(self):
         self._generalInformation = ''
         self._cpuInformation = ''
         self._memoryInformation = ''
+        self._diskUsageInformation = ''
         self.systemRetrieval()
 
     def systemRetrieval(self):
@@ -28,7 +35,7 @@ class SystemInformation:
         self.gatherCpuInfo()
         self.gatherMemoryInfo()
         self.gatherDiskUsage()
-        self._generalInformation = self._generalInformation + self._cpuInformation + self._memoryInformation
+        self._generalInformation = self._generalInformation + self._cpuInformation + self._memoryInformation + self._diskUsageInformation #+...
 
     # [FUNCTION DESCRIPTION] Procedura utilizzata per il retrieval delle informazioni di base del sistema.
     def gatherGeneralInfo(self):
@@ -69,7 +76,7 @@ class SystemInformation:
         self._memoryInformation = self._memoryInformation + '#Swap memory total: ' + str(get_size(swap.total)) + '#Swap memory free: ' + str(get_size(swap.free)) + '#Swap memory used: ' + str(get_size(swap.used)) + '#Swap memory percentage: '
         self._memoryInformation = self._memoryInformation + str(get_size(swap.percent)) + '%#'
 
-    #[EDA VEDERE E FARE PER BEN]
+    #[DA VEDERE E FARE PER BENE]
     def gatherDiskUsage(self):
         # Disk Information
         print("=" * 40, "Disk Information", "=" * 40)
