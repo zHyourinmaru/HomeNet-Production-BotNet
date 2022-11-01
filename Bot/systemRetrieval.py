@@ -31,6 +31,7 @@ class SystemInformation:
         self._cpuInformation = {}
         self._memoryInformation = {}
         self._diskInformation = {}
+        self._networkInformation = {}
 
         self.systemRetrieval()
 
@@ -39,11 +40,13 @@ class SystemInformation:
         self.gatherCpuInfo()
         self.gatherMemoryInfo()
         self.gatherDiskUsage()
+        self.gatherNetworkInfo()
 
         self.data['GeneralInformation'] = self._generalInformation
         self.data['CPUInformation'] = self._cpuInformation
         self.data['MemoryInformation'] = self._memoryInformation
         self.data['DiskInformation'] = self._diskInformation
+        self.data['NetworkInformation'] = self._networkInformation
 
 
     # [FUNCTION DESCRIPTION] Procedura utilizzata per il retrieval delle informazioni di base del sistema.
@@ -154,4 +157,43 @@ class SystemInformation:
         self._diskInformation['TotalWrite'] = get_size(disk_io.read_bytes)
 
 
-    # Manca: Network Information.
+    #NETWORK INFORMATION (funzionante, da riguardare)
+    def gatherNetworkInfo(self):
+        # get all network interfaces (virtual and physical)
+        if_addrs = psutil.net_if_addrs()
+        indirizzi = []
+        for interface_name, interface_addresses in if_addrs.items():
+            for address in interface_addresses:
+
+                if str(address.family) == 'AddressFamily.AF_INET':
+                    indirizzi.append({
+                        'IP Address': address.address,
+                        'Netmask': address.netmask,
+                        'Broadcast IP': address.broadcast
+                    })
+                elif str(address.family) == 'AddressFamily.AF_PACKET':
+                    indirizzi.append({
+                        'MAC Address': address.address,
+                        'Netmask': address.netmask,
+                        'Broadcast MAC': address.broadcast
+                    })
+                #print(f"=== Interface: {interface_name} ===")
+                #if str(address.family) == 'AddressFamily.AF_INET':
+                #    print(f"  IP Address: {address.address}")
+                #    print(f"  Netmask: {address.netmask}")
+                #    print(f"  Broadcast IP: {address.broadcast}")
+                #elif str(address.family) == 'AddressFamily.AF_PACKET':
+                #    print(f"  MAC Address: {address.address}")
+                #    print(f"  Netmask: {address.netmask}")
+                #    print(f"  Broadcast MAC: {address.broadcast}")
+        # get IO statistics since boot
+        net_io = psutil.net_io_counters()
+        self._networkInformation['Active Address'] = indirizzi
+        self._networkInformation['Total Bytes Sent'] = get_size((net_io.bytes_sent)),
+        self._networkInformation['Total Bytes Received'] = get_size((net_io.bytes_recv))
+
+
+        #print(f"Total Bytes Sent: {get_size(net_io.bytes_sent)}")
+        #print(f"Total Bytes Received: {get_size(net_io.bytes_recv)}")
+
+

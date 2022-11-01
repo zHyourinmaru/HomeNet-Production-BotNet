@@ -1,15 +1,1 @@
-{"GeneralInformation":
-{
-  "System": "Windows",
-  "Node": "DESKTOP-DSS6TDT",
-  "Release": "10",
-  "Version": "10.0.19043",
-  "Machine": "AMD64",
-  "Processor": "Intel64 Family 6 Model 94 Stepping 3, GenuineIntel",
-  "Date": "16/10/2022",
-  "BootTime": "12:43:43"},
-
-  "CPUInformation":
-  {"LogicalFalse": "4",
-    "LogicalTrue": "8",
-    "Max": "4001.0", "Min": "0.0", "Current": "4001.0", "Percentage": "75.0", "Cores": "1) 29.9% -- 2) 10.9% -- 3) 18.8% -- 4) 9.4% -- 5) 14.1% -- 6) 3.1% -- 7) 10.9% -- 8) 21.9% -- "}, "MemoryInformation": {"Total": "15.92 GB", "Available": "6.36 GB", "Used": "9.56 GB", "Percentage": "60.0 Byte", "SwapTotal": "11.50 GB", "SwapFree": "4.24 GB", "SwapUsed": "7.26 GB", "SwapPercentage": "63.1 Byte"}, "DiskInformation": {"Partitions": [{"Device": "C:\\", "Mountpoint": "C:\\", "FStype": "NTFS", "TotalSize": "223.04 GB", "Used": "207.42 GB", "Free": "15.62 GB", "Percentage": 93.0}, {"Device": "D:\\", "Mountpoint": "D:\\", "FStype": "NTFS", "TotalSize": "931.02 GB", "Used": "785.04 GB", "Free": "145.99 GB", "Percentage": 84.3}, {"Device": "E:\\", "Mountpoint": "E:\\", "FStype": ""}, {"Device": "F:\\", "Mountpoint": "F:\\", "FStype": "NTFS", "TotalSize": "1.82 TB", "Used": "620.63 GB", "Free": "1.21 TB", "Percentage": 33.3}], "TotalRead": "585.70 GB", "TotalWrite": "585.70 GB"}}
+{"GeneralInformation": {"System": "Windows", "Node": "LAPTOP-NSFFQA6B", "Release": "10", "Version": "10.0.19044", "Machine": "AMD64", "Processor": "AMD64 Family 23 Model 104 Stepping 1, AuthenticAMD", "Date": "1/11/2022", "BootTime": "9:27:20"}, "CPUInformation": {"LogicalFalse": "8", "LogicalTrue": "16", "Max": "1801.0", "Min": "0.0", "Current": "1801.0", "Percentage": "12.0", "Cores": "1) 21.5% -- 2) 10.8% -- 3) 21.9% -- 4) 10.9% -- 5) 0.0% -- 6) 0.0% -- 7) 0.0% -- 8) 0.0% -- 9) 0.0% -- 10) 0.0% -- 11) 0.0% -- 12) 0.0% -- 13) 0.0% -- 14) 0.0% -- 15) 0.0% -- 16) 0.0% -- "}, "MemoryInformation": {"Total": "15.34 GB", "Available": "5.93 GB", "Used": "9.41 GB", "Percentage": "61.4 Byte", "SwapTotal": "2.38 GB", "SwapFree": "-2330898432.0 Byte", "SwapUsed": "4.55 GB", "SwapPercentage": "191.4 Byte"}, "DiskInformation": {"Partitions": [{"Device": "C:\\", "Mountpoint": "C:\\", "FStype": "NTFS", "TotalSize": "476.14 GB", "Used": "219.10 GB", "Free": "257.04 GB", "Percentage": 46.0}], "TotalRead": "42.72 GB", "TotalWrite": "42.72 GB"}, "NetworkInformation": {}}
