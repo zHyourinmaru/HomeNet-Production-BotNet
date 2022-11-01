@@ -21,11 +21,6 @@ class Bot:
         sentence = json.dumps(inputSentence.data)
         self.clientSocket.send(sentence.encode(FORMAT))
 
-        #print('Data received from server: ', modifiedSentence.decode(FORMAT))
-        #print('\n')
-        #print(sentence)
-        #print('\n')
-
         self.clientSocket.close()
 
 

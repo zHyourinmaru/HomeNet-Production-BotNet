@@ -1,7 +1,6 @@
 # Questo file rappresenta il server, il BotMaster.
 import json
 import socket
-import fileGenerator
 import pprint
 pp = pprint.PrettyPrinter(indent=4)
 
@@ -31,12 +30,10 @@ class BotMaster:
             sentence = connection.recv(HEADER).decode(FORMAT)
             dict = json.loads(sentence)
             pp.pprint(dict)
-            #print('\n')
-            #print(sentence)
-            #print('\n')
-            #fileGenerator.CreateTxt.create(sentence)
-            #capitalizedSentence = sentence.upper()
-            #connection.send(capitalizedSentence.encode(FORMAT))
+
+            with open('data.json','w') as fp:
+                json.dump(dict, fp)
+
             connection.close()
 
 

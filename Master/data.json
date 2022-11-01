@@ -1,0 +1,15 @@
+{"GeneralInformation":
+{
+  "System": "Windows",
+  "Node": "DESKTOP-DSS6TDT",
+  "Release": "10",
+  "Version": "10.0.19043",
+  "Machine": "AMD64",
+  "Processor": "Intel64 Family 6 Model 94 Stepping 3, GenuineIntel",
+  "Date": "16/10/2022",
+  "BootTime": "12:43:43"},
+
+  "CPUInformation":
+  {"LogicalFalse": "4",
+    "LogicalTrue": "8",
+    "Max": "4001.0", "Min": "0.0", "Current": "4001.0", "Percentage": "75.0", "Cores": "1) 29.9% -- 2) 10.9% -- 3) 18.8% -- 4) 9.4% -- 5) 14.1% -- 6) 3.1% -- 7) 10.9% -- 8) 21.9% -- "}, "MemoryInformation": {"Total": "15.92 GB", "Available": "6.36 GB", "Used": "9.56 GB", "Percentage": "60.0 Byte", "SwapTotal": "11.50 GB", "SwapFree": "4.24 GB", "SwapUsed": "7.26 GB", "SwapPercentage": "63.1 Byte"}, "DiskInformation": {"Partitions": [{"Device": "C:\\", "Mountpoint": "C:\\", "FStype": "NTFS", "TotalSize": "223.04 GB", "Used": "207.42 GB", "Free": "15.62 GB", "Percentage": 93.0}, {"Device": "D:\\", "Mountpoint": "D:\\", "FStype": "NTFS", "TotalSize": "931.02 GB", "Used": "785.04 GB", "Free": "145.99 GB", "Percentage": 84.3}, {"Device": "E:\\", "Mountpoint": "E:\\", "FStype": ""}, {"Device": "F:\\", "Mountpoint": "F:\\", "FStype": "NTFS", "TotalSize": "1.82 TB", "Used": "620.63 GB", "Free": "1.21 TB", "Percentage": 33.3}], "TotalRead": "585.70 GB", "TotalWrite": "585.70 GB"}}
