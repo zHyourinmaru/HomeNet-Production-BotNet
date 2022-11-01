@@ -1,11 +1,13 @@
 # Questo file rappresenta il server, il BotMaster.
-
+import json
 import socket
 import fileGenerator
+import pprint
+pp = pprint.PrettyPrinter(indent=4)
 
 PORT = 14000
 SERVER = socket.gethostbyname(socket.gethostname())
-HEADER = 1024 # Messaggio di 1024 byte.
+HEADER = 2048 # Messaggio di 1024 byte.
 FORMAT = 'utf-8'
 
 class BotMaster:
@@ -27,10 +29,12 @@ class BotMaster:
             connection, addr = self.serverSocket.accept()
             print('The connection has been accepted! Client ip address: ', addr[0])
             sentence = connection.recv(HEADER).decode(FORMAT)
-            print('\n')
-            print(sentence)
-            print('\n')
-            fileGenerator.CreateTxt.create(sentence)
+            dict = json.loads(sentence)
+            pp.pprint(dict)
+            #print('\n')
+            #print(sentence)
+            #print('\n')
+            #fileGenerator.CreateTxt.create(sentence)
             #capitalizedSentence = sentence.upper()
             #connection.send(capitalizedSentence.encode(FORMAT))
             connection.close()
