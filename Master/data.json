@@ -1,32 +1,32 @@
 {
     "GeneralInformation": {
         "System": "Windows",
-        "Node": "LAPTOP-0F7TKMH7",
+        "Node": "DESKTOP-4DH6DNP",
         "Release": "10",
-        "Version": "10.0.19044",
+        "Version": "10.0.19045",
         "Machine": "AMD64",
-        "Processor": "AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD",
-        "Date": "31/10/2022",
-        "BootTime": "17:25:35"
+        "Processor": "Intel64 Family 6 Model 158 Stepping 9, GenuineIntel",
+        "Date": "2/11/2022",
+        "BootTime": "17:22:10"
     },
     "CPUInformation": {
-        "LogicalFalse": "4",
-        "LogicalTrue": "8",
-        "Max": "2100.0",
+        "PhysicalCores": "4",
+        "TotalCores": "4",
+        "Max": "3000.0",
         "Min": "0.0",
-        "Current": "2100.0",
-        "Percentage": "41.7",
-        "Cores": "1) 21.5% -- 2) 18.8% -- 3) 17.2% -- 4) 20.3% -- 5) 0.0% -- 6) 6.2% -- 7) 0.0% -- 8) 1.6% -- "
+        "Current": "3000.0",
+        "Percentage": "75.0",
+        "Cores": "1) 14.9% -- 2) 32.3% -- 3) 41.8% -- 4) 18.5% -- "
     },
     "MemoryInformation": {
-        "Total": "6.94 GB",
-        "Available": "1.03 GB",
-        "Used": "5.91 GB",
-        "Percentage": "85.1 Byte",
-        "SwapTotal": "10.03 GB",
-        "SwapFree": "1.99 GB",
-        "SwapUsed": "8.04 GB",
-        "SwapPercentage": "80.2 Byte"
+        "Total": "15.96 GB",
+        "Available": "9.04 GB",
+        "Used": "6.93 GB",
+        "Percentage": "43.4 Byte",
+        "SwapTotal": "2.38 GB",
+        "SwapFree": "-2649378816.0 Byte",
+        "SwapUsed": "4.84 GB",
+        "SwapPercentage": "203.9 Byte"
     },
     "DiskInformation": {
         "Partitions": [
@@ -34,40 +34,34 @@
                 "Device": "C:\\",
                 "Mountpoint": "C:\\",
                 "FStype": "NTFS",
-                "TotalSize": "222.86 GB",
-                "Used": "157.95 GB",
-                "Free": "64.91 GB",
-                "Percentage": 70.9
+                "TotalSize": "222.50 GB",
+                "Used": "156.04 GB",
+                "Free": "66.46 GB",
+                "Percentage": 70.1
+            },
+            {
+                "Device": "N:\\",
+                "Mountpoint": "N:\\",
+                "FStype": "NTFS",
+                "TotalSize": "1.82 TB",
+                "Used": "90.26 GB",
+                "Free": "1.73 TB",
+                "Percentage": 4.8
             }
         ],
-        "TotalRead": "44.73 GB",
-        "TotalWrite": "44.73 GB"
+        "TotalRead": "13.50 GB",
+        "TotalWrite": "13.50 GB"
     },
     "NetworkInformation": {
         "Active Address": [
             {
-                "IP Address": "192.168.56.1",
+                "IP Address": "192.168.1.8",
                 "Netmask": "255.255.255.0",
                 "Broadcast IP": null
             },
             {
-                "IP Address": "169.254.149.63",
-                "Netmask": "255.255.0.0",
-                "Broadcast IP": null
-            },
-            {
-                "IP Address": "169.254.41.249",
-                "Netmask": "255.255.0.0",
-                "Broadcast IP": null
-            },
-            {
-                "IP Address": "100.102.25.91",
-                "Netmask": "255.255.0.0",
-                "Broadcast IP": null
-            },
-            {
-                "IP Address": "169.254.54.145",
-                "Netmask": "255.255.0.0",
+                "IP Address": "192.168.56.1",
+                "Netmask": "255.255.255.0",
                 "Broadcast IP": null
             },
             {
@@ -77,8 +71,8 @@
             }
         ],
         "Total Bytes Sent": [
-            "429.76 KB"
+            "674.27 MB"
         ],
-        "Total Bytes Received": "1.41 MB"
+        "Total Bytes Received": "426.31 MB"
     }
 }

@@ -2,16 +2,17 @@
 import json
 import socket
 import pprint
+
 pp = pprint.PrettyPrinter(indent=4)
 
 PORT = 14000
 SERVER = socket.gethostbyname(socket.gethostname())
-HEADER = 2048 # Messaggio di 1024 byte.
 FORMAT = 'utf-8'
+
 
 class BotMaster:
     def __init__(self):
-        self.serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # SOCK_STREAM -> socket TCP.
+        self.serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # SOCK_STREAM -> socket TCP.
         self.start()
 
     def __del__(self):
@@ -27,11 +28,21 @@ class BotMaster:
         while True:
             connection, addr = self.serverSocket.accept()
             print('The connection has been accepted! Client ip address: ', addr[0])
-            sentence = connection.recv(HEADER).decode(FORMAT)
-            dict = json.loads(sentence)
+            data_dim = 0
+            while data_dim == 0:
+                data_dim = int(connection.recv(1024).decode(FORMAT))
+
+            # il server ora deve dire ok al client della ricevuta della dimensione
+            message_received = 'ok'
+            connection.send(message_received.encode(FORMAT)) # il server comunica direttamente sulla socket del client e non tramite la sua
+
+            print("Header dimension received: ", data_dim)
+
+            data = connection.recv(data_dim).decode(FORMAT)
+            dict = json.loads(data)
             pp.pprint(dict)
 
-            with open('data.json','w') as fp:
+            with open('data.json', 'w') as fp:
                 json.dump(dict, fp, indent=4)
 
             connection.close()

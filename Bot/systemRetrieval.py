@@ -72,8 +72,12 @@ class SystemInformation:
 
     # [FUNCTION DESCRIPTION] Procedura utilizzata per il retrieval delle informazioni relative alla CPU.
     def gatherCpuInfo(self):
-        self._cpuInformation['LogicalFalse'] = str(psutil.cpu_count(logical=False)) # core
-        self._cpuInformation['LogicalTrue'] = str(psutil.cpu_count(logical=True)) # nel caso thread chiediamo a simone
+        """
+        Procedura utilizzata per il retrieval delle informazioni relative alla CPU.
+        :return: None
+        """
+        self._cpuInformation['PhysicalCores'] = str(psutil.cpu_count(logical=False)) # core
+        self._cpuInformation['TotalCores'] = str(psutil.cpu_count(logical=True)) # nel caso thread chiediamo a simone
 
         #self._cpuInformation = str(psutil.cpu_count(logical=False)) + '#' + str(psutil.cpu_count(logical=True)) + '#'
         cpufrequencies = psutil.cpu_freq()
