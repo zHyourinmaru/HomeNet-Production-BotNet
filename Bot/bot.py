@@ -1,5 +1,6 @@
 import socket
 import systemRetrieval
+from time import sleep
 import json
 
 
@@ -12,7 +13,9 @@ MASTER_ADDRESS = 'localhost'
 class Bot:
     def __init__(self):
         self.clientSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.clientSocket.connect((MASTER_ADDRESS, PORT))
+        #self.clientSocket.connect((MASTER_ADDRESS, PORT))
+        while self.clientSocket.connect_ex((MASTER_ADDRESS, PORT)) != 0:
+            sleep(10)
         self.requestToServer()
 
     def requestToServer(self):

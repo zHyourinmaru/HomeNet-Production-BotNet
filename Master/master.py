@@ -32,7 +32,7 @@ class BotMaster:
             pp.pprint(dict)
 
             with open('data.json','w') as fp:
-                json.dump(dict, fp)
+                json.dump(dict, fp, indent=4)
 
             connection.close()
 
