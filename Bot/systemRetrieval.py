@@ -3,8 +3,13 @@ import psutil
 
 from datetime import datetime
 
-# [FUNCTION DESCRIPTION] Converte la quantità di bytes nel formato migliore (KB, MB, GB, etc.).
+
 def get_size(B):
+    """
+    Procedura per la rappresentazione della quantità espressa in bytes nel formato migliore (KB, MB, GB, etc.).
+    :param B: rappresenta la quantità in byte da rappresentare nel giusto formato.
+    :return: string
+    """
     B = float(B)
     KB = float(1024)
     MB = float(KB ** 2)  # 1,048,576
@@ -24,8 +29,9 @@ def get_size(B):
 
 class SystemInformation:
     def __init__(self):
-        self.data = {}
+        self.data = {} # Rappresenta la collezione di dati nella sua interezza. E' composta da tante piccole "sotto-collezioni".
 
+        # Sotto-collezioni che compongono data:
         self._generalInformation = {}
         self._generalInformation = {}
         self._cpuInformation = {}
@@ -36,6 +42,10 @@ class SystemInformation:
         self.systemRetrieval()
 
     def systemRetrieval(self):
+        """
+        In tale procedura si raccolgono i dati che poi comporranno il file .json
+        :return: None
+        """
         self.gatherGeneralInfo()
         self.gatherCpuInfo()
         self.gatherMemoryInfo()
@@ -49,8 +59,12 @@ class SystemInformation:
         self.data['NetworkInformation'] = self._networkInformation
 
 
-    # [FUNCTION DESCRIPTION] Procedura utilizzata per il retrieval delle informazioni di base del sistema.
     def gatherGeneralInfo(self):
+        """
+        Procedura nella quale si effettua retrieval delle informazioni di base (generali) del sistema.
+        Si compone la sotto-collezione '_generalInformation' da poi inserire in 'data'.
+        :return: None
+        """
         deviceName = platform.uname()
         bootTimeInfo = psutil.boot_time()
         bTime = datetime.fromtimestamp(bootTimeInfo)
@@ -64,42 +78,36 @@ class SystemInformation:
         self._generalInformation['Date'] = str(bTime.day) + '/' + str(bTime.month) + '/' + str(bTime.year)
         self._generalInformation['BootTime'] = str(bTime.hour) + ':' + str(bTime.minute) + ':' + str(bTime.second)
 
-        #self._generalInformation = deviceName.system + '#' + deviceName.node + '#' + deviceName.release + '#'
-        #self._generalInformation = self._generalInformation + deviceName.version + '#' + deviceName.machine + '#'
-        #self._generalInformation = self._generalInformation + deviceName.processor
-        #self._generalInformation = self._generalInformation + str(bTime.day) + '/' + str(bTime.month) + '/' + str(bTime.year) + '#'
-        #self._generalInformation = self._generalInformation + 'Boot time: ' + str(bTime.hour) + ':' + str(bTime.minute) + ':' + str(bTime.second) + '#'
 
-    # [FUNCTION DESCRIPTION] Procedura utilizzata per il retrieval delle informazioni relative alla CPU.
     def gatherCpuInfo(self):
         """
-        Procedura utilizzata per il retrieval delle informazioni relative alla CPU.
+        Procedura nella quale si effettua il retrieval delle informazioni relative alla CPU.
+        Si compone la sotto-collezione '_cpuInformation' da poi inserire in 'data'.
         :return: None
         """
-        self._cpuInformation['PhysicalCores'] = str(psutil.cpu_count(logical=False)) # core
-        self._cpuInformation['TotalCores'] = str(psutil.cpu_count(logical=True)) # nel caso thread chiediamo a simone
+        self._cpuInformation['PhysicalCores'] = str(psutil.cpu_count(logical=False))
+        self._cpuInformation['TotalCores'] = str(psutil.cpu_count(logical=True))
 
-        #self._cpuInformation = str(psutil.cpu_count(logical=False)) + '#' + str(psutil.cpu_count(logical=True)) + '#'
         cpufrequencies = psutil.cpu_freq()
 
         self._cpuInformation['Max'] = str(cpufrequencies.max)
         self._cpuInformation['Min'] = str(cpufrequencies.min)
         self._cpuInformation['Current'] = str(cpufrequencies.max)
-
         self._cpuInformation['Percentage'] = str(psutil.cpu_percent())
-
-        #self._cpuInformation = self._cpuInformation + str(cpufrequencies.max) + '#' + str(cpufrequencies.min) + '#' + str(cpufrequencies.current)
-        #self._cpuInformation = self._cpuInformation + '#' + str(psutil.cpu_percent()) + '#'
 
         usage_core = ''
         for i, percentage in enumerate(psutil.cpu_percent(percpu=True, interval=1)):
             usage_core = usage_core + '' + str(i+1) + ') ' + str(percentage) + '%' + ' -- '
 
         self._cpuInformation['Cores'] = str(usage_core)
-        #self._cpuInformation = self._cpuInformation + usage_core + '#'
 
-    # [FUNCTION DESCRIPTION] Procedura utilizzata per il retrieval delle informazioni relative all'utilizzo della memoria.
+
     def gatherMemoryInfo(self):
+        """
+        Procedura nella quale si effettua il retrieval delle informazioni relative all'utilizzo della memoria.
+        Si compone la sotto-collezione '_memoryInformation' da poi inserire in 'data'.
+        :return: None
+        """
         mem = psutil.virtual_memory()
         swap = psutil.swap_memory()
         """
@@ -107,7 +115,6 @@ class SystemInformation:
             La namedtuple conserva campi come 'total physical memory available', 'available memory (i.e not used)', 'used', 'percentage'.
             psutil.swap_memory() è la stessa cosa ma per swap memory.
         """
-
         self._memoryInformation['Total'] = str(get_size(mem.total))
         self._memoryInformation['Available'] = str(get_size(mem.available))
         self._memoryInformation['Used'] = str(get_size(mem.used))
@@ -119,17 +126,14 @@ class SystemInformation:
         self._memoryInformation['SwapPercentage'] = str(get_size(swap.percent))
 
 
-        #self._memoryInformation = self._memoryInformation + '\n'
-        #self._memoryInformation = self._memoryInformation + 'Total: ' + str(get_size(mem.total)) + '#Available: ' + str(get_size(mem.available)) + '#Used: ' + str(get_size(mem.used)) + '#Percentage: '
-        #self._memoryInformation = self._memoryInformation + str(get_size(mem.percent)) + '%'
-        #self._memoryInformation = self._memoryInformation + '#Swap memory total: ' + str(get_size(swap.total)) + '#Swap memory free: ' + str(get_size(swap.free)) + '#Swap memory used: ' + str(get_size(swap.used)) + '#Swap memory percentage: '
-        #self._memoryInformation = self._memoryInformation + str(get_size(swap.percent)) + '%#'
+    def gatherDiskUsage(self): # [FUNZIONANTE MA DA RIGUARDARE]
+        """
+        Procedura nella quale si effettua il retrieval delle informazioni relative all'utilizzo del disco.
+        Si compone la sotto-collezione '_diskInformation' da poi inserire in 'data'.
+        :return: None
+        """
 
-    #[DA VEDERE E FARE PER BENE]
-    def gatherDiskUsage(self):
-        # Disk Information
-
-        # get all disk partitions
+        # otteniamo tutte le partizioni.
         partition_Informations = psutil.disk_partitions()
         partitions = []
 
@@ -143,8 +147,7 @@ class SystemInformation:
             try:
                 partition_usage = psutil.disk_usage(partition.mountpoint)
             except PermissionError:
-                # this can be catched due to the disk that
-                # isn't ready
+                # potrebbe generarsi un'eccezione nel caso in cui il disco non sia pronto.
                 print("Permission error")
                 continue
 
@@ -153,7 +156,7 @@ class SystemInformation:
             partitions[i]['Free'] = get_size(partition_usage.free)
             partitions[i]['Percentage'] = partition_usage.percent
 
-        # get IO statistics since boot
+        # IO statistics a partire dal boot.
         disk_io = psutil.disk_io_counters()
 
         self._diskInformation['Partitions'] = partitions
@@ -161,11 +164,17 @@ class SystemInformation:
         self._diskInformation['TotalWrite'] = get_size(disk_io.read_bytes)
 
 
-    #NETWORK INFORMATION (funzionante, da riguardare)
-    def gatherNetworkInfo(self):
-        # get all network interfaces (virtual and physical)
+    def gatherNetworkInfo(self): # [FUNZIONANTE MA DA RIGUARDARE E SISTEMARE IL COMMENTO DELLA PROCEDURA]
+        """
+        Procedura nella quale si effettua il retrieval delle informazioni relative alle informazioni di rete.
+        Si compone la sotto-collezione '_networkInformation' da poi inserire in 'data'.
+        :return: None
+        """
+
+        # otteniamo le interfacce di rete (virtuali and fisiche)
         if_addrs = psutil.net_if_addrs()
         indirizzi = []
+
         for interface_name, interface_addresses in if_addrs.items():
             for address in interface_addresses:
 
@@ -190,14 +199,8 @@ class SystemInformation:
                 #    print(f"  MAC Address: {address.address}")
                 #    print(f"  Netmask: {address.netmask}")
                 #    print(f"  Broadcast MAC: {address.broadcast}")
-        # get IO statistics since boot
+        # IO statistics a partire dal boot.
         net_io = psutil.net_io_counters()
         self._networkInformation['Active Address'] = indirizzi
-        self._networkInformation['Total Bytes Sent'] = get_size((net_io.bytes_sent)),
+        self._networkInformation['Total Bytes Sent'] = get_size((net_io.bytes_sent))
         self._networkInformation['Total Bytes Received'] = get_size((net_io.bytes_recv))
-
-
-        #print(f"Total Bytes Sent: {get_size(net_io.bytes_sent)}")
-        #print(f"Total Bytes Received: {get_size(net_io.bytes_recv)}")
-
-

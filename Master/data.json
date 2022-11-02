@@ -15,18 +15,18 @@
         "Max": "3000.0",
         "Min": "0.0",
         "Current": "3000.0",
-        "Percentage": "75.0",
-        "Cores": "1) 14.9% -- 2) 32.3% -- 3) 41.8% -- 4) 18.5% -- "
+        "Percentage": "100.0",
+        "Cores": "1) 28.4% -- 2) 43.1% -- 3) 36.9% -- 4) 27.7% -- "
     },
     "MemoryInformation": {
         "Total": "15.96 GB",
-        "Available": "9.04 GB",
-        "Used": "6.93 GB",
-        "Percentage": "43.4 Byte",
+        "Available": "9.32 GB",
+        "Used": "6.64 GB",
+        "Percentage": "41.6 Byte",
         "SwapTotal": "2.38 GB",
-        "SwapFree": "-2649378816.0 Byte",
-        "SwapUsed": "4.84 GB",
-        "SwapPercentage": "203.9 Byte"
+        "SwapFree": "-1787883520.0 Byte",
+        "SwapUsed": "4.04 GB",
+        "SwapPercentage": "170.1 Byte"
     },
     "DiskInformation": {
         "Partitions": [
@@ -35,8 +35,8 @@
                 "Mountpoint": "C:\\",
                 "FStype": "NTFS",
                 "TotalSize": "222.50 GB",
-                "Used": "156.04 GB",
-                "Free": "66.46 GB",
+                "Used": "156.06 GB",
+                "Free": "66.45 GB",
                 "Percentage": 70.1
             },
             {
@@ -49,8 +49,8 @@
                 "Percentage": 4.8
             }
         ],
-        "TotalRead": "13.50 GB",
-        "TotalWrite": "13.50 GB"
+        "TotalRead": "14.01 GB",
+        "TotalWrite": "14.01 GB"
     },
     "NetworkInformation": {
         "Active Address": [
@@ -70,9 +70,7 @@
                 "Broadcast IP": null
             }
         ],
-        "Total Bytes Sent": [
-            "674.27 MB"
-        ],
-        "Total Bytes Received": "426.31 MB"
+        "Total Bytes Sent": "704.61 MB",
+        "Total Bytes Received": "945.25 MB"
     }
 }
