@@ -1,5 +1,6 @@
 import platform
 import psutil
+import gputil
 
 from datetime import datetime
 
@@ -38,6 +39,7 @@ class SystemInformation:
         self._memoryInformation = {}
         self._diskInformation = {}
         self._networkInformation = {}
+        self._gpuInformation = {}
 
         self.systemRetrieval()
 
@@ -51,12 +53,14 @@ class SystemInformation:
         self.gatherMemoryInfo()
         self.gatherDiskUsage()
         self.gatherNetworkInfo()
+        self.gatherGpuInfo()
 
         self.data['GeneralInformation'] = self._generalInformation
         self.data['CPUInformation'] = self._cpuInformation
         self.data['MemoryInformation'] = self._memoryInformation
         self.data['DiskInformation'] = self._diskInformation
         self.data['NetworkInformation'] = self._networkInformation
+        self.data['GpuInformation'] = self._gpuInformation
 
 
     def gatherGeneralInfo(self):
@@ -166,12 +170,12 @@ class SystemInformation:
 
     def gatherNetworkInfo(self): # [FUNZIONANTE MA DA RIGUARDARE E SISTEMARE IL COMMENTO DELLA PROCEDURA]
         """
-        Procedura nella quale si effettua il retrieval delle informazioni relative alle informazioni di rete.
+        Procedura nella quale si effettua il retrieval delle informazioni relative alla rete.
         Si compone la sotto-collezione '_networkInformation' da poi inserire in 'data'.
         :return: None
         """
 
-        # otteniamo le interfacce di rete (virtuali and fisiche)
+        # otteniamo le interfacce di rete (virtuali e fisiche)
         if_addrs = psutil.net_if_addrs()
         indirizzi = []
 
@@ -204,3 +208,34 @@ class SystemInformation:
         self._networkInformation['Active Address'] = indirizzi
         self._networkInformation['Total Bytes Sent'] = get_size((net_io.bytes_sent))
         self._networkInformation['Total Bytes Received'] = get_size((net_io.bytes_recv))
+
+    def gatherGpuInfo(self):
+        """
+        Procedura nella quale si effettua il retrieval delle informazioni relative alla scheda grafica.
+        Si compone la sotto-collezione '_gpuInformation' da poi inserire in 'data'.
+        :return: None
+        """
+
+        deviceGpu = GPUtil.getGPUs()
+        listGpu = []
+
+        for i,gpu in enumerate(deviceGpu):
+            listGpu.append({
+                'Id': gpu.id,
+                'Name': gpu.name,
+                'Load': f"{gpu.load*100}%",
+                'Free Memory': f"{gpu.memoryFree}MB",
+                'Used Memory': f"{gpu.memoryUsed}MB",
+                'Total Memory': f"{gpu.memoryTotal}MB",
+                'Temperature': f"{gpu.temperature} °C",
+                'UUID': gpu.uuid
+            })
+
+        self._gpuInformation['Gpu'] = listGpu
+
+
+
+
+
+
+
