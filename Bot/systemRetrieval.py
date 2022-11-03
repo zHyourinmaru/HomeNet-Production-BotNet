@@ -1,6 +1,6 @@
 import platform
 import psutil
-import gputil
+import GPUtil
 
 from datetime import datetime
 
