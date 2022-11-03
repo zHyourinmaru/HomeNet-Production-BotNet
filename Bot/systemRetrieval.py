@@ -1,6 +1,7 @@
 import platform
 import psutil
 import GPUtil
+import os
 
 from datetime import datetime
 
@@ -232,6 +233,16 @@ class SystemInformation:
             })
 
         self._gpuInformation['Gpu'] = listGpu
+
+    #[DA FAR FUNZIONARE] funzione per la lista di file e directory
+    def osinformation(self):
+        path = "/"
+        dir_list = os.listdir(path)
+
+        print("Files and directories in '", path, "' :")
+
+        # print the list
+        print(dir_list)
 
 
 
