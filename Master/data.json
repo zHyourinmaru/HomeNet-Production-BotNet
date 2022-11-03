@@ -7,7 +7,7 @@
         "Machine": "AMD64",
         "Processor": "AMD64 Family 23 Model 104 Stepping 1, AuthenticAMD",
         "Date": "3/11/2022",
-        "BootTime": "10:35:50"
+        "BootTime": "10:35:49"
     },
     "CPUInformation": {
         "PhysicalCores": "8",
@@ -15,18 +15,18 @@
         "Max": "1801.0",
         "Min": "0.0",
         "Current": "1801.0",
-        "Percentage": "15.5",
-        "Cores": "1) 28.8% -- 2) 9.4% -- 3) 9.4% -- 4) 9.4% -- 5) 7.8% -- 6) 9.4% -- 7) 0.0% -- 8) 0.0% -- 9) 0.0% -- 10) 0.0% -- 11) 0.0% -- 12) 0.0% -- 13) 0.0% -- 14) 0.0% -- 15) 0.0% -- 16) 0.0% -- "
+        "Percentage": "10.0",
+        "Cores": "1) 15.4% -- 2) 0.0% -- 3) 4.7% -- 4) 1.6% -- 5) 3.1% -- 6) 0.0% -- 7) 1.6% -- 8) 4.7% -- 9) 6.2% -- 10) 4.7% -- 11) 3.1% -- 12) 3.1% -- 13) 3.1% -- 14) 6.2% -- 15) 3.1% -- 16) 3.1% -- "
     },
     "MemoryInformation": {
         "Total": "15.34 GB",
-        "Available": "6.41 GB",
-        "Used": "8.94 GB",
-        "Percentage": "58.3 Byte",
+        "Available": "6.21 GB",
+        "Used": "9.13 GB",
+        "Percentage": "59.5 Byte",
         "SwapTotal": "2.38 GB",
-        "SwapFree": "-500350976.0 Byte",
-        "SwapUsed": "2.84 GB",
-        "SwapPercentage": "119.6 Byte"
+        "SwapFree": "-224931840.0 Byte",
+        "SwapUsed": "2.58 GB",
+        "SwapPercentage": "108.8 Byte"
     },
     "DiskInformation": {
         "Partitions": [
@@ -35,20 +35,21 @@
                 "Mountpoint": "C:\\",
                 "FStype": "NTFS",
                 "TotalSize": "476.14 GB",
-                "Used": "231.17 GB",
-                "Free": "244.97 GB",
-                "Percentage": 48.6
+                "Used": "231.16 GB",
+                "Free": "244.98 GB",
+                "Percentage": 48.5
             }
         ],
-        "TotalRead": "10.63 GB",
-        "TotalWrite": "10.63 GB"
+        "TotalRead": "14.89 GB",
+        "TotalWrite": "14.89 GB"
     },
     "NetworkInformation": {
         "Active Address": [],
-        "Total Bytes Sent": "257.00 MB",
-        "Total Bytes Received": "894.03 MB"
+        "Total Bytes Sent": "474.50 MB",
+        "Total Bytes Received": "975.84 MB"
     },
     "GpuInformation": {
         "Gpu": []
-    }
+    },
+    "FileInformation": {}
 }

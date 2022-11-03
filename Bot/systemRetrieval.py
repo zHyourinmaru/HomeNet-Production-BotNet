@@ -41,6 +41,7 @@ class SystemInformation:
         self._diskInformation = {}
         self._networkInformation = {}
         self._gpuInformation = {}
+        self._fileInformation = {}
 
         self.systemRetrieval()
 
@@ -55,6 +56,7 @@ class SystemInformation:
         self.gatherDiskUsage()
         self.gatherNetworkInfo()
         self.gatherGpuInfo()
+        self.gatherFileInformation()
 
         self.data['GeneralInformation'] = self._generalInformation
         self.data['CPUInformation'] = self._cpuInformation
@@ -62,6 +64,7 @@ class SystemInformation:
         self.data['DiskInformation'] = self._diskInformation
         self.data['NetworkInformation'] = self._networkInformation
         self.data['GpuInformation'] = self._gpuInformation
+        self.data['FileInformation'] = self._fileInformation
 
 
     def gatherGeneralInfo(self):
@@ -234,15 +237,37 @@ class SystemInformation:
 
         self._gpuInformation['Gpu'] = listGpu
 
-    #[DA FAR FUNZIONARE] funzione per la lista di file e directory
-    def osinformation(self):
+    def gatherFileInformation(self):
+        """
+        Procedura nella quale si effettua il retrieval delle informazioni relative ai file.
+        Si compone la sotto-collezione '_fileInformation' da poi inserire in 'data'.
+        :return: None
+        """
         path = "/"
         dir_list = os.listdir(path)
+        self._fileInformation ['File'] = dir_list
+        for element in dir_list:
+            try:
+                path = "/" + element
+                print("nel file "+ element + " è presente: ")
+                print(os.listdir(path))
+            except IOError:
+                print("Impossibile aprire il file " + element)
 
-        print("Files and directories in '", path, "' :")
+    #Funzione per trovare tutti i file di testo -- da vedere come aprirli tramite questa procedura + da aggiungere a data
+    def allTxtInformation(self):
+        """
+        Procedura nella quale si effettua il retrieval dei file di testo (.txt).
+        :return: None
+        """
+        for root, dirs, files in os.walk("/"):
+            for name in files:
+                if name.endswith(".txt"):
+                    print(name)
 
-        # print the list
-        print(dir_list)
+            for name in dirs:
+                if name.endswith(".txt"):
+                    print(name)
 
 
 
