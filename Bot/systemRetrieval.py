@@ -249,11 +249,13 @@ class SystemInformation:
         for element in dir_list:
             try:
                 path = "/" + element
-                if os.path.isdir((path)):
+                if os.path.isdir(path):
                     print("nel file "+ element + " è presente: ")
                     print(os.listdir(path))
-                else:
+                elif os.path.isfile(path):
                     print(element + " e' un file.")
+                else:
+                    print(element + " e' un file speciale, come una Socket o Device File.")
             except IOError:
                 print("Impossibile aprire il file " + element)
 
