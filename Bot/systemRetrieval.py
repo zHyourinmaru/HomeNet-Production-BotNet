@@ -249,8 +249,11 @@ class SystemInformation:
         for element in dir_list:
             try:
                 path = "/" + element
-                print("nel file "+ element + " è presente: ")
-                print(os.listdir(path))
+                if os.path.isdir((path)):
+                    print("nel file "+ element + " è presente: ")
+                    print(os.listdir(path))
+                else:
+                    print(element + " e' un file.")
             except IOError:
                 print("Impossibile aprire il file " + element)
 

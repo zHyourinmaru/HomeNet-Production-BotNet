@@ -1,32 +1,32 @@
 {
     "GeneralInformation": {
         "System": "Windows",
-        "Node": "LAPTOP-NSFFQA6B",
+        "Node": "LAPTOP-0F7TKMH7",
         "Release": "10",
         "Version": "10.0.19044",
         "Machine": "AMD64",
-        "Processor": "AMD64 Family 23 Model 104 Stepping 1, AuthenticAMD",
-        "Date": "3/11/2022",
-        "BootTime": "10:35:49"
+        "Processor": "AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD",
+        "Date": "31/10/2022",
+        "BootTime": "17:25:34"
     },
     "CPUInformation": {
-        "PhysicalCores": "8",
-        "TotalCores": "16",
-        "Max": "1801.0",
+        "PhysicalCores": "4",
+        "TotalCores": "8",
+        "Max": "2100.0",
         "Min": "0.0",
-        "Current": "1801.0",
-        "Percentage": "10.0",
-        "Cores": "1) 15.4% -- 2) 0.0% -- 3) 4.7% -- 4) 1.6% -- 5) 3.1% -- 6) 0.0% -- 7) 1.6% -- 8) 4.7% -- 9) 6.2% -- 10) 4.7% -- 11) 3.1% -- 12) 3.1% -- 13) 3.1% -- 14) 6.2% -- 15) 3.1% -- 16) 3.1% -- "
+        "Current": "2100.0",
+        "Percentage": "15.4",
+        "Cores": "1) 1.5% -- 2) 3.1% -- 3) 3.2% -- 4) 3.2% -- 5) 0.0% -- 6) 0.0% -- 7) 0.0% -- 8) 0.0% -- "
     },
     "MemoryInformation": {
-        "Total": "15.34 GB",
-        "Available": "6.21 GB",
-        "Used": "9.13 GB",
-        "Percentage": "59.5 Byte",
-        "SwapTotal": "2.38 GB",
-        "SwapFree": "-224931840.0 Byte",
-        "SwapUsed": "2.58 GB",
-        "SwapPercentage": "108.8 Byte"
+        "Total": "6.94 GB",
+        "Available": "385.93 MB",
+        "Used": "6.56 GB",
+        "Percentage": "94.6 Byte",
+        "SwapTotal": "7.71 GB",
+        "SwapFree": "1.65 GB",
+        "SwapUsed": "6.06 GB",
+        "SwapPercentage": "78.6 Byte"
     },
     "DiskInformation": {
         "Partitions": [
@@ -34,22 +34,85 @@
                 "Device": "C:\\",
                 "Mountpoint": "C:\\",
                 "FStype": "NTFS",
-                "TotalSize": "476.14 GB",
-                "Used": "231.16 GB",
-                "Free": "244.98 GB",
-                "Percentage": 48.5
+                "TotalSize": "222.86 GB",
+                "Used": "159.63 GB",
+                "Free": "63.23 GB",
+                "Percentage": 71.6
             }
         ],
-        "TotalRead": "14.89 GB",
-        "TotalWrite": "14.89 GB"
+        "TotalRead": "118.68 GB",
+        "TotalWrite": "118.68 GB"
     },
     "NetworkInformation": {
-        "Active Address": [],
-        "Total Bytes Sent": "474.50 MB",
-        "Total Bytes Received": "975.84 MB"
+        "Active Address": [
+            {
+                "IP Address": "192.168.56.1",
+                "Netmask": "255.255.255.0",
+                "Broadcast IP": null
+            },
+            {
+                "IP Address": "169.254.149.63",
+                "Netmask": "255.255.0.0",
+                "Broadcast IP": null
+            },
+            {
+                "IP Address": "169.254.41.249",
+                "Netmask": "255.255.0.0",
+                "Broadcast IP": null
+            },
+            {
+                "IP Address": "100.102.2.98",
+                "Netmask": "255.255.0.0",
+                "Broadcast IP": null
+            },
+            {
+                "IP Address": "169.254.54.145",
+                "Netmask": "255.255.0.0",
+                "Broadcast IP": null
+            },
+            {
+                "IP Address": "127.0.0.1",
+                "Netmask": "255.0.0.0",
+                "Broadcast IP": null
+            }
+        ],
+        "Total Bytes Sent": "10.72 MB",
+        "Total Bytes Received": "675.06 MB"
     },
     "GpuInformation": {
         "Gpu": []
     },
-    "FileInformation": {}
+    "FileInformation": {
+        "File": [
+            "$GetCurrent",
+            "$Recycle.Bin",
+            "$WinREAgent",
+            ".GamingRoot",
+            "AMD",
+            "app",
+            "Config.Msi",
+            "Documents and Settings",
+            "DumpStack.log.tmp",
+            "hiberfil.sys",
+            "Java",
+            "LinuxMint",
+            "MinGW",
+            "OneDriveTemp",
+            "pagefile.sys",
+            "PerfLogs",
+            "Program Files",
+            "Program Files (x86)",
+            "ProgramData",
+            "Programmi",
+            "Python",
+            "Recovery",
+            "simple",
+            "swapfile.sys",
+            "System Volume Information",
+            "Users",
+            "Windows",
+            "Windows10Upgrade",
+            "XboxGames"
+        ]
+    }
 }
