@@ -7,7 +7,7 @@
         "Machine": "AMD64",
         "Processor": "AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD",
         "Date": "31/10/2022",
-        "BootTime": "17:25:33"
+        "BootTime": "17:25:34"
     },
     "CPUInformation": {
         "PhysicalCores": "4",
@@ -15,18 +15,18 @@
         "Max": "2100.0",
         "Min": "0.0",
         "Current": "2100.0",
-        "Percentage": "22.1",
-        "Cores": "1) 25.0% -- 2) 9.2% -- 3) 18.5% -- 4) 6.2% -- 5) 1.5% -- 6) 0.0% -- 7) 0.0% -- 8) 3.0% -- "
+        "Percentage": "17.4",
+        "Cores": "1) 15.4% -- 2) 10.8% -- 3) 20.0% -- 4) 12.3% -- 5) 0.0% -- 6) 0.0% -- 7) 0.0% -- 8) 0.0% -- "
     },
     "MemoryInformation": {
         "Total": "6.94 GB",
-        "Available": "1.82 GB",
-        "Used": "5.12 GB",
-        "Percentage": "73.7 Byte",
-        "SwapTotal": "6.24 GB",
-        "SwapFree": "917.76 MB",
-        "SwapUsed": "5.35 GB",
-        "SwapPercentage": "85.6 Byte"
+        "Available": "1.65 GB",
+        "Used": "5.29 GB",
+        "Percentage": "76.2 Byte",
+        "SwapTotal": "6.09 GB",
+        "SwapFree": "965.82 MB",
+        "SwapUsed": "5.15 GB",
+        "SwapPercentage": "84.5 Byte"
     },
     "DiskInformation": {
         "Partitions": [
@@ -35,13 +35,13 @@
                 "Mountpoint": "C:\\",
                 "FStype": "NTFS",
                 "TotalSize": "222.86 GB",
-                "Used": "157.66 GB",
-                "Free": "65.20 GB",
+                "Used": "157.51 GB",
+                "Free": "65.35 GB",
                 "Percentage": 70.7
             }
         ],
-        "TotalRead": "119.49 GB",
-        "TotalWrite": "119.49 GB"
+        "TotalRead": "119.80 GB",
+        "TotalWrite": "119.80 GB"
     },
     "NetworkInformation": {
         "Active Address": [
@@ -76,8 +76,8 @@
                 "Broadcast IP": null
             }
         ],
-        "Total Bytes Sent": "10.86 MB",
-        "Total Bytes Received": "675.23 MB"
+        "Total Bytes Sent": "12.81 MB",
+        "Total Bytes Received": "685.64 MB"
     },
     "GpuInformation": {
         "Gpu": []

@@ -2,9 +2,21 @@ import platform
 import psutil
 import GPUtil
 import os
+import ctypes
 
 from datetime import datetime
 
+# Classe sottostante completamente copiata, serve per far leggere alcune directory che hanno un problema, per via di
+# windows che fa funziona un "redirector", non so che spaccetta sia, capiamo.
+class disable_file_system_redirection:
+    _disable = ctypes.windll.kernel32.Wow64DisableWow64FsRedirection
+    _revert = ctypes.windll.kernel32.Wow64RevertWow64FsRedirection
+    def __enter__(self):
+        self.old_value = ctypes.c_long()
+        self.success = self._disable(ctypes.byref(self.old_value))
+    def __exit__(self, type, value, traceback):
+        if self.success:
+            self._revert(self.old_value)
 
 def get_size(B):
     """
@@ -243,7 +255,7 @@ class SystemInformation:
         Si compone la sotto-collezione '_fileInformation' da poi inserire in 'data'.
         :return: None
         """
-        path = "/"
+        path = "\\"
         dir_list = os.listdir(path)
         self._fileInformation ['File'] = dir_list
         for element in dir_list:
@@ -251,7 +263,8 @@ class SystemInformation:
                 path = "/" + element
                 if os.path.isdir(path):
                     print("nel file "+ element + " è presente: ")
-                    print(os.listdir(path))
+                    with disable_file_system_redirection():
+                        print(os.listdir(path))
                 elif os.path.isfile(path):
                     print(element + " e' un file.")
                 else:
