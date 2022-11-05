@@ -235,7 +235,7 @@ class SystemInformation:
         deviceGpu = GPUtil.getGPUs()
         listGpu = []
 
-        for i,gpu in enumerate(deviceGpu):
+        for gpu in deviceGpu:
             listGpu.append({
                 'Id': gpu.id,
                 'Name': gpu.name,
@@ -247,7 +247,7 @@ class SystemInformation:
                 'UUID': gpu.uuid
             })
 
-        self._gpuInformation['Gpu'] = listGpu
+        self._gpuInformation['Gpu'] = listGpu if len(listGpu) > 0 else "No video card detected"
 
     def gatherFileInformation(self):
         """
@@ -257,6 +257,7 @@ class SystemInformation:
         """
         path = "\\"
         dir_list = os.listdir(path)
+        print("\n\n\n ", dir_list, "\n\n\n")
         self._fileInformation ['File'] = dir_list
         for element in dir_list:
             try:
