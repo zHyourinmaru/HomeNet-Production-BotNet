@@ -254,11 +254,12 @@ class SystemInformation:
         Procedura nella quale si effettua il retrieval delle informazioni relative ai file.
         Si compone la sotto-collezione '_fileInformation' da poi inserire in 'data'.
         :return: None
-        """
+
         path = "\\"
         dir_list = os.listdir(path)
         print("\n\n\n ", dir_list, "\n\n\n")
         self._fileInformation ['File'] = dir_list
+
         for element in dir_list:
             try:
                 path = "/" + element
@@ -272,6 +273,19 @@ class SystemInformation:
                     print(element + " e' un file speciale, come una Socket o Device File.")
             except IOError:
                 print("Impossibile aprire il file " + element)
+                """
+        from os import walk
+        #dir_path = ""
+        #res = []
+        for (root,dirs,files) in walk('\\', topdown=True):
+            print(root)
+            print(dirs)
+            print(files)
+            print('--------------------------------')
+            #res.extend(file_names)
+            # don't look inside any subdirectory
+            #break
+        #print(res)
 
     #Funzione per trovare tutti i file di testo -- da vedere come aprirli tramite questa procedura + da aggiungere a data
     def allTxtInformation(self):
