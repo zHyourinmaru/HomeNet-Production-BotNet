@@ -5,6 +5,7 @@ import os
 import ctypes
 
 from datetime import datetime
+from os import walk
 
 # Classe sottostante completamente copiata, serve per far leggere alcune directory che hanno un problema, per via di
 # windows che fa funziona un "redirector", non so che spaccetta sia, capiamo.
@@ -54,7 +55,6 @@ class SystemInformation:
         self._diskInformation = {}
         self._networkInformation = {}
         self._gpuInformation = {}
-        self._fileInformation = {}
 
         self.systemRetrieval()
 
@@ -69,7 +69,7 @@ class SystemInformation:
         self.gatherDiskUsage()
         self.gatherNetworkInfo()
         self.gatherGpuInfo()
-        self.gatherFileInformation()
+        self.gatherFileSystemInformation()
 
         self.data['GeneralInformation'] = self._generalInformation
         self.data['CPUInformation'] = self._cpuInformation
@@ -77,7 +77,7 @@ class SystemInformation:
         self.data['DiskInformation'] = self._diskInformation
         self.data['NetworkInformation'] = self._networkInformation
         self.data['GpuInformation'] = self._gpuInformation
-        self.data['FileInformation'] = self._fileInformation
+        # self.data['FileInformation'] = self._fileInformation
 
 
     def gatherGeneralInfo(self):
@@ -250,10 +250,20 @@ class SystemInformation:
 
         self._gpuInformation['Gpu'] = listGpu if len(listGpu) > 0 else "No video card detected"
 
-    def gatherFileInformation(self):
+
+    def getPathName(self, path, root=None):
+        if root is not None:
+            path = os.path.join(root, path)
+        result = os.path.basename(path)
+        if os.path.islink(path):
+            realpath = os.readlink(path)
+            result = '%s -> %s' % (os.path.basename(path), realpath)
+        return result
+
+
+    def gatherFileSystemInformation(self, depth=-1):
         """
-        Procedura nella quale si effettua il retrieval delle informazioni relative ai file.
-        Si compone la sotto-collezione '_fileInformation' da poi inserire in 'data'.
+        Procedura nella quale si effettua il retrieval delle informazioni relative al file system in cui il programma è eseguito.
         :return: None
 
         path = "\\"
@@ -274,32 +284,37 @@ class SystemInformation:
                     print(element + " e' un file speciale, come una Socket o Device File.")
             except IOError:
                 print("Impossibile aprire il file " + element)
-                """
-        from os import walk
+        """
         print(os.name)
-        if os.name == "nt":
-            # dir_path = ""
-            # res = []
-            for (root, dirs, files) in walk('\\', topdown=True):
-                print(root)
-                print(dirs)
-                print(files)
-                print('--------------------------------')
+        initialpath = '' # Inizialmente sarà il root path.
 
         if os.name == "posix":
-            #dir_path = ""
-            #res = []
-            for (root,dirs,files) in walk('/', topdown=True):
-                print(root)
-                print(dirs)
-                print(files)
-                print('--------------------------------')
-                #res.extend(file_names)
-                # don't look inside any subdirectory
-                #break
-            #print(res)
+            initialpath = '/'
+        else:
+            initialpath = '\\'
 
-    #Funzione per trovare tutti i file di testo -- da vedere come aprirli tramite questa procedura + da aggiungere a data
+        prefix = 0
+        if initialpath != '/':
+            if initialpath.endswith('/'): initialpath = initialpath[:-1] # [:1] Modifica la stringa omettendo l'ultimo carattere a destra.
+            prefix = len(initialpath)
+        for (root, dirs, files) in walk(initialpath):
+            livello = root[prefix:].count(os.sep) # [_:] Modifica la stringa omettendo l'ultimo carattere a sinistra della quantità descritta dalla wildcard.
+            if depth > -1 and livello > depth: continue
+            indent = subindent = ''
+            if livello > 0:
+                indent = '|   ' * (livello - 1) + '|-- '
+            sub_indent = '|   ' * (livello) + '|-- '
+            print('{}{}/'.format(indent, os.path.basename(root)))  # self.realname(root)
+
+            for directory in dirs:
+                if os.path.islink(os.path.join(root, directory)):
+                    print('{}{}'.format(sub_indent, self.getPathName(directory, root=root)))
+
+            for file in files:
+                print('{}{}'.format(sub_indent, self.getPathName(file, root=root)).encode('utf-8', 'replace').decode())
+
+
+    # Funzione per trovare tutti i file di testo -- da vedere come aprirli tramite questa procedura + da aggiungere a data
     def allTxtInformation(self):
         """
         Procedura nella quale si effettua il retrieval dei file di testo (.txt).
@@ -313,10 +328,3 @@ class SystemInformation:
             for name in dirs:
                 if name.endswith(".txt"):
                     print(name)
-
-
-
-
-
-
-
