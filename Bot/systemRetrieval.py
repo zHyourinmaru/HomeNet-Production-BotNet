@@ -8,6 +8,7 @@ from datetime import datetime
 
 # Classe sottostante completamente copiata, serve per far leggere alcune directory che hanno un problema, per via di
 # windows che fa funziona un "redirector", non so che spaccetta sia, capiamo.
+"""
 class disable_file_system_redirection:
     _disable = ctypes.windll.kernel32.Wow64DisableWow64FsRedirection
     _revert = ctypes.windll.kernel32.Wow64RevertWow64FsRedirection
@@ -17,7 +18,7 @@ class disable_file_system_redirection:
     def __exit__(self, type, value, traceback):
         if self.success:
             self._revert(self.old_value)
-
+"""
 def get_size(B):
     """
     Procedura per la rappresentazione della quantità espressa in bytes nel formato migliore (KB, MB, GB, etc.).
@@ -275,17 +276,19 @@ class SystemInformation:
                 print("Impossibile aprire il file " + element)
                 """
         from os import walk
-        #dir_path = ""
-        #res = []
-        for (root,dirs,files) in walk('\\', topdown=True):
-            print(root)
-            print(dirs)
-            print(files)
-            print('--------------------------------')
-            #res.extend(file_names)
-            # don't look inside any subdirectory
-            #break
-        #print(res)
+        print(os.name)
+        if os.name == "posix":
+            #dir_path = ""
+            #res = []
+            for (root,dirs,files) in walk('/', topdown=True):
+                print(root)
+                print(dirs)
+                print(files)
+                print('--------------------------------')
+                #res.extend(file_names)
+                # don't look inside any subdirectory
+                #break
+            #print(res)
 
     #Funzione per trovare tutti i file di testo -- da vedere come aprirli tramite questa procedura + da aggiungere a data
     def allTxtInformation(self):
