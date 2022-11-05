@@ -1,652 +1,79 @@
 {
     "GeneralInformation": {
-        "System": "Linux",
-        "Node": "carmine-VirtualBox",
-        "Release": "5.4.0-91-generic",
-        "Version": "#102-Ubuntu SMP Fri Nov 5 16:31:28 UTC 2021",
-        "Machine": "x86_64",
-        "Processor": "",
+        "System": "Windows",
+        "Node": "DESKTOP-4DH6DNP",
+        "Release": "10",
+        "Version": "10.0.19045",
+        "Machine": "AMD64",
+        "Processor": "Intel64 Family 6 Model 158 Stepping 9, GenuineIntel",
         "Date": "5/11/2022",
-        "BootTime": "13:27:49"
+        "BootTime": "11:33:45"
     },
     "CPUInformation": {
-        "PhysicalCores": "1",
-        "TotalCores": "1",
-        "Max": "0.0",
+        "PhysicalCores": "4",
+        "TotalCores": "4",
+        "Max": "3000.0",
         "Min": "0.0",
-        "Current": "0.0",
-        "Percentage": "97.2",
-        "Cores": "1) 77.6% -- "
+        "Current": "3000.0",
+        "Percentage": "68.9",
+        "Cores": "1) 3.0% -- 2) 6.2% -- 3) 4.6% -- 4) 4.6% -- "
     },
     "MemoryInformation": {
-        "Total": "5.90 GB",
-        "Available": "3.23 GB",
-        "Used": "2.41 GB",
-        "Percentage": "45.3 Byte",
-        "SwapTotal": "1.17 GB",
-        "SwapFree": "1.17 GB",
-        "SwapUsed": "0.0 Byte",
-        "SwapPercentage": "0.0 Byte"
+        "Total": "15.96 GB",
+        "Available": "8.85 GB",
+        "Used": "7.11 GB",
+        "Percentage": "44.5 Byte",
+        "SwapTotal": "2.38 GB",
+        "SwapFree": "-1659322368.0 Byte",
+        "SwapUsed": "3.92 GB",
+        "SwapPercentage": "165.1 Byte"
     },
     "DiskInformation": {
         "Partitions": [
             {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/usr",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/app",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/usr/lib/x86_64-linux-gnu/GL/default",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/usr/lib/x86_64-linux-gnu/openh264",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/usr/share/runtime/locale",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/usr/share/runtime/share/themes/Mint-Y/gtk-3.0",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/machine-id",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/profile.d",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/rpc",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/appstream.conf",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/ssh_config",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/udev",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/mke2fs.conf",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/xml",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/pulse",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/e2scrub.conf",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/fonts",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/man_db.conf",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/flatpak-builder",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/slsh.rc",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/init.d",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/ld.so.conf",
-                "FStype": "ext4",
-                "TotalSize": "2.95 GB",
-                "Used": "116.00 KB",
-                "Free": "2.95 GB",
-                "Percentage": 0.0
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/pki",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/xdg",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/alsa",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/xattr.conf",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/bash_completion.d",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/services",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/debuginfod",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/rc_keymaps",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/issue.net",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/rc_maps.cfg",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/protocols",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/ssl",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/vdpau_wrapper.cfg",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/dbus-1",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/issue",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/nsswitch.conf",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/geoclue",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/gtk-3.0",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/etc/moduli",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/var/cache",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/var/data",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/var/config",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/var/tmp",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/usr/share/zoneinfo",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/cdrom",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/home",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/home/carmine/.var/app/com.jetbrains.PyCharm-Professional",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/lost+found",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/media",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/mnt",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/opt",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/srv",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/swapfile",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/run/host/usr",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/run/host/etc",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/run/host/os-release",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/home/carmine/.var/app/com.jetbrains.PyCharm-Professional/config/user-dirs.dirs",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/tmp/.X11-unix/X99",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/run/host/fonts",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/run/host/local-fonts",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/run/host/fonts-cache",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/run/host/user-fonts-cache",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
-            },
-            {
-                "Device": "/dev/sda2",
-                "Mountpoint": "/run/host/share/icons",
-                "FStype": "ext4",
-                "TotalSize": "24.73 GB",
-                "Used": "16.09 GB",
-                "Free": "7.36 GB",
-                "Percentage": 68.6
+                "Device": "C:\\",
+                "Mountpoint": "C:\\",
+                "FStype": "NTFS",
+                "TotalSize": "222.50 GB",
+                "Used": "157.07 GB",
+                "Free": "65.43 GB",
+                "Percentage": 70.6
+            },
+            {
+                "Device": "N:\\",
+                "Mountpoint": "N:\\",
+                "FStype": "NTFS",
+                "TotalSize": "1.82 TB",
+                "Used": "90.58 GB",
+                "Free": "1.73 TB",
+                "Percentage": 4.9
             }
         ],
-        "TotalRead": "1.54 GB",
-        "TotalWrite": "1.54 GB"
+        "TotalRead": "14.58 GB",
+        "TotalWrite": "14.58 GB"
     },
     "NetworkInformation": {
         "Active Address": [
             {
-                "IP Address": "127.0.0.1",
-                "Netmask": "255.0.0.0",
+                "IP Address": "192.168.1.8",
+                "Netmask": "255.255.255.0",
                 "Broadcast IP": null
             },
             {
-                "MAC Address": "00:00:00:00:00:00",
-                "Netmask": null,
-                "Broadcast MAC": null
-            },
-            {
-                "IP Address": "10.0.2.15",
+                "IP Address": "192.168.56.1",
                 "Netmask": "255.255.255.0",
-                "Broadcast IP": "10.0.2.255"
+                "Broadcast IP": null
             },
             {
-                "MAC Address": "08:00:27:71:b2:2f",
-                "Netmask": null,
-                "Broadcast MAC": "ff:ff:ff:ff:ff:ff"
+                "IP Address": "127.0.0.1",
+                "Netmask": "255.0.0.0",
+                "Broadcast IP": null
             }
         ],
-        "Total Bytes Sent": "248.40 KB",
-        "Total Bytes Received": "11.30 MB"
+        "Total Bytes Sent": "706.86 MB",
+        "Total Bytes Received": "4.68 GB"
     },
     "GpuInformation": {
         "Gpu": "No video card detected"
-    },
-    "FileInformation": {}
+    }
 }

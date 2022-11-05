@@ -7,8 +7,8 @@ import ctypes
 from datetime import datetime
 from os import walk
 
-# Classe sottostante completamente copiata, serve per far leggere alcune directory che hanno un problema, per via di
-# windows che fa funziona un "redirector", non so che spaccetta sia, capiamo.
+# [CLASS DESCRIPTION] Ha il compito di permettere la lettura di alcune directory che altrimenti darebbero problemi.
+# Ciò a causa di Windows, il quale svolge una sorta di "redirector", non so che cosa significhi.
 if os.name == "nt":
     class disable_file_system_redirection:
         _disable = ctypes.windll.kernel32.Wow64DisableWow64FsRedirection
@@ -158,7 +158,7 @@ class SystemInformation:
         partition_Informations = psutil.disk_partitions()
         partitions = []
 
-        for i,partition in enumerate(partition_Informations):
+        for i, partition in enumerate(partition_Informations):
             partitions.append({
                 'Device': partition.device,
                 'Mountpoint': partition.mountpoint,
@@ -225,6 +225,7 @@ class SystemInformation:
         self._networkInformation['Active Address'] = indirizzi
         self._networkInformation['Total Bytes Sent'] = get_size((net_io.bytes_sent))
         self._networkInformation['Total Bytes Received'] = get_size((net_io.bytes_recv))
+
 
     def gatherGpuInfo(self):
         """

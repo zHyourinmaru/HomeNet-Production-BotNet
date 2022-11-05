@@ -1,3 +1,4 @@
+
 # Questo file rappresenta il server, il BotMaster.
 import json
 import socket
