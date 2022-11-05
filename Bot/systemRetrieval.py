@@ -8,7 +8,7 @@ from datetime import datetime
 
 # Classe sottostante completamente copiata, serve per far leggere alcune directory che hanno un problema, per via di
 # windows che fa funziona un "redirector", non so che spaccetta sia, capiamo.
-"""
+
 class disable_file_system_redirection:
     _disable = ctypes.windll.kernel32.Wow64DisableWow64FsRedirection
     _revert = ctypes.windll.kernel32.Wow64RevertWow64FsRedirection
@@ -18,7 +18,7 @@ class disable_file_system_redirection:
     def __exit__(self, type, value, traceback):
         if self.success:
             self._revert(self.old_value)
-"""
+
 def get_size(B):
     """
     Procedura per la rappresentazione della quantità espressa in bytes nel formato migliore (KB, MB, GB, etc.).
@@ -277,6 +277,15 @@ class SystemInformation:
                 """
         from os import walk
         print(os.name)
+        if os.name == "nt":
+            # dir_path = ""
+            # res = []
+            for (root, dirs, files) in walk('\\', topdown=True):
+                print(root)
+                print(dirs)
+                print(files)
+                print('--------------------------------')
+
         if os.name == "posix":
             #dir_path = ""
             #res = []
