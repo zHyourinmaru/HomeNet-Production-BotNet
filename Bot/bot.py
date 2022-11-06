@@ -76,7 +76,10 @@ class Bot:
         # 7. Possiamo ora inviare i dati raccolti in formato .json
         self.sendToServer()
 
+        self.clientSocket.close()
+
         print("thread_connection terminated")
+
 
     def dataScavange(self):
         """
@@ -95,6 +98,7 @@ class Bot:
         self.fileSystem_sentence = inputSentence
         self.send_sentence = self.fileSystem_sentence
         self.header_dim = sys.getsizeof(self.send_sentence.encode(FORMAT))
+        print(self.header_dim)
         print("thread_fileSystem terminated.")
 
 
@@ -113,7 +117,7 @@ class Bot:
         """
         print("Data dimension in bytes (header): ", self.header_dim)
         self.clientSocket.send(self.send_sentence.encode(FORMAT))
-        self.clientSocket.close()
+
 
 
 if __name__ == '__main__':
