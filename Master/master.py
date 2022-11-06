@@ -1,4 +1,3 @@
-
 # Questo file rappresenta il server, il BotMaster.
 import json
 import socket
@@ -9,6 +8,7 @@ pp = pprint.PrettyPrinter(indent=4)
 PORT = 14000
 SERVER = socket.gethostbyname(socket.gethostname())
 FORMAT = 'utf-8'
+SUCCESSFUL_RESPONSE = 'ok'
 
 
 class BotMaster:
@@ -44,7 +44,7 @@ class BotMaster:
                 data_dim = int(connection.recv(1024).decode(FORMAT))
 
             # Il server manderà una riposta del tipo 'ok' al client per confermare la corretta ricevuta della dimensione dei dati.
-            message_received = 'ok'
+            message_received = SUCCESSFUL_RESPONSE
             # Comunica direttamente sulla socket del client e non tramite la sua.
             connection.send(message_received.encode(FORMAT))
 

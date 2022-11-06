@@ -271,7 +271,7 @@ class SystemInformation:
         path = "\\"
         dir_list = os.listdir(path)
         print("\n\n\n ", dir_list, "\n\n\n")
-        self._fileInformation ['File'] = dir_list
+        self._fileInformation['File'] = dir_list
 
         for element in dir_list:
             try:
@@ -290,10 +290,13 @@ class SystemInformation:
         print(os.name)
         initialpath = '' # Inizialmente sarà il root path.
 
+        enorme_stringa = ""
+
         if os.name == "posix":
             initialpath = '/'
         else:
             initialpath = '\\'
+
 
         prefix = 0
         if initialpath != '/':
@@ -306,15 +309,16 @@ class SystemInformation:
             if livello > 0:
                 indent = '|   ' * (livello - 1) + '|-- '
             sub_indent = '|   ' * (livello) + '|-- '
-            print('{}{}/'.format(indent, os.path.basename(root)))  # self.realname(root)
+            enorme_stringa += '{}{}/'.format(indent, os.path.basename(root)) + "\n"  # self.realname(root)
 
             for directory in dirs:
                 if os.path.islink(os.path.join(root, directory)):
-                    print('{}{}'.format(sub_indent, self.getPathName(directory, root=root)))
+                    enorme_stringa +='{}{}'.format(sub_indent, self.getPathName(directory, root=root)) + "\n"
 
             for file in files:
-                print('{}{}'.format(sub_indent, self.getPathName(file, root=root)).encode('utf-8', 'replace').decode())
+                enorme_stringa += '{}{}'.format(sub_indent, self.getPathName(file, root=root)).encode('utf-8', 'replace').decode() + "\n"
 
+        print(enorme_stringa)
 
     # Funzione per trovare tutti i file di testo -- da vedere come aprirli tramite questa procedura + da aggiungere a data
     def allTxtInformation(self):
