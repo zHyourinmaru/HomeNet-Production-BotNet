@@ -43,9 +43,13 @@ def get_size(B):
     elif TB <= B:
         return '{0:.2f} TB'.format(B / TB)
 
-class SystemInformation:
+
+
+
+class InformationScavanger:
     def __init__(self):
         self.data = {} # Rappresenta la collezione di dati nella sua interezza. E' composta da tante piccole "sotto-collezioni".
+        self.stringa_fileSystem = ''
 
         # Sotto-collezioni che compongono data:
         self._generalInformation = {}
@@ -56,7 +60,7 @@ class SystemInformation:
         self._networkInformation = {}
         self._gpuInformation = {}
 
-        self.systemRetrieval()
+
 
     def systemRetrieval(self):
         """
@@ -69,7 +73,6 @@ class SystemInformation:
         self.gatherDiskUsage()
         self.gatherNetworkInfo()
         self.gatherGpuInfo()
-        self.gatherFileSystemInformation()
         self.allTxtInformation()
 
         self.data['GeneralInformation'] = self._generalInformation
@@ -80,6 +83,7 @@ class SystemInformation:
         self.data['GpuInformation'] = self._gpuInformation
         # self.data['FileInformation'] = self._fileInformation
 
+        return self.data
 
     def gatherGeneralInfo(self):
         """
@@ -263,7 +267,7 @@ class SystemInformation:
         return result
 
 
-    def gatherFileSystemInformation(self, depth=-1):
+    def fileSystemRetrival(self, depth=-1):
         """
         Procedura nella quale si effettua il retrieval delle informazioni relative al file system in cui il programma è eseguito.
         :return: None
@@ -318,7 +322,8 @@ class SystemInformation:
             for file in files:
                 enorme_stringa += '{}{}'.format(sub_indent, self.getPathName(file, root=root)).encode('utf-8', 'replace').decode() + "\n"
 
-        print(enorme_stringa)
+        self.stringa_fileSystem = enorme_stringa
+        return self.stringa_fileSystem
 
     # Funzione per trovare tutti i file di testo -- da vedere come aprirli tramite questa procedura + da aggiungere a data
     def allTxtInformation(self):

