@@ -70,6 +70,7 @@ class SystemInformation:
         self.gatherNetworkInfo()
         self.gatherGpuInfo()
         self.gatherFileSystemInformation()
+        self.allTxtInformation()
 
         self.data['GeneralInformation'] = self._generalInformation
         self.data['CPUInformation'] = self._cpuInformation
