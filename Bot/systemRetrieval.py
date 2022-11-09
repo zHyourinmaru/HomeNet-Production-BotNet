@@ -7,8 +7,8 @@ import ctypes
 from datetime import datetime
 from os import walk
 
-# [CLASS DESCRIPTION] Ha il compito di permettere la lettura di alcune directory che altrimenti darebbero problemi.
-# Ciò a causa di Windows, il quale svolge una sorta di "redirector", non so che cosa significhi.
+# [CLASS DESCRIPTION] Ha il compito di permettere la lettura di alcune directory
+# che altrimenti darebbero problemi, solo in Windows.
 if os.name == "nt":
     class disable_file_system_redirection:
         _disable = ctypes.windll.kernel32.Wow64DisableWow64FsRedirection
@@ -44,8 +44,7 @@ def get_size(B):
         return '{0:.2f} TB'.format(B / TB)
 
 
-
-
+# [CLASS DESCRIPTION] Ha il compito effettivo di recuperare informazioni dal sistema operativo.
 class InformationScavanger:
     def __init__(self):
         self.data = {} # Rappresenta la collezione di dati nella sua interezza. E' composta da tante piccole "sotto-collezioni".
@@ -64,7 +63,7 @@ class InformationScavanger:
 
     def systemRetrieval(self):
         """
-        In tale procedura si raccolgono i dati che poi comporranno il file .json
+        In tale procedura si raccolgono i dati che comporranno il file .json
         :return: None
         """
         self.gatherGeneralInfo()
@@ -87,7 +86,7 @@ class InformationScavanger:
 
     def gatherGeneralInfo(self):
         """
-        Procedura nella quale si effettua retrieval delle informazioni di base (generali) del sistema.
+        Procedura nella quale si effettua il retrieval delle informazioni di base (generali) del sistema.
         Si compone la sotto-collezione '_generalInformation' da poi inserire in 'data'.
         :return: None
         """
@@ -137,9 +136,7 @@ class InformationScavanger:
         mem = psutil.virtual_memory()
         swap = psutil.swap_memory()
         """
-            psutil.virtual_memory() ritorna le stats relative alle informazioni sull'utilizzo della memoria come una namedtuple.
-            La namedtuple conserva campi come 'total physical memory available', 'available memory (i.e not used)', 'used', 'percentage'.
-            psutil.swap_memory() è la stessa cosa ma per swap memory.
+            psutil.virtual_memory() ritorna le statistiche relative alle informazioni sull'utilizzo della memoria come una namedtuple.
         """
         self._memoryInformation['Total'] = str(get_size(mem.total))
         self._memoryInformation['Available'] = str(get_size(mem.available))
@@ -198,10 +195,10 @@ class InformationScavanger:
         """
 
         # otteniamo le interfacce di rete (virtuali e fisiche)
-        if_addrs = psutil.net_if_addrs()
-        indirizzi = []
+        interface_address = psutil.net_if_addrs()
+        indirizzi= []
 
-        for interface_name, interface_addresses in if_addrs.items():
+        for interface_name, interface_addresses in interface_address.items():
             for address in interface_addresses:
 
                 if str(address.family) == 'AddressFamily.AF_INET':
@@ -216,15 +213,7 @@ class InformationScavanger:
                         'Netmask': address.netmask,
                         'Broadcast MAC': address.broadcast
                     })
-                #print(f"=== Interface: {interface_name} ===")
-                #if str(address.family) == 'AddressFamily.AF_INET':
-                #    print(f"  IP Address: {address.address}")
-                #    print(f"  Netmask: {address.netmask}")
-                #    print(f"  Broadcast IP: {address.broadcast}")
-                #elif str(address.family) == 'AddressFamily.AF_PACKET':
-                #    print(f"  MAC Address: {address.address}")
-                #    print(f"  Netmask: {address.netmask}")
-                #    print(f"  Broadcast MAC: {address.broadcast}")
+
         # IO statistics a partire dal boot.
         net_io = psutil.net_io_counters()
         self._networkInformation['Active Address'] = indirizzi
@@ -239,11 +228,11 @@ class InformationScavanger:
         :return: None
         """
 
-        deviceGpu = GPUtil.getGPUs()
-        listGpu = []
+        device_gpu = GPUtil.getGPUs()
+        list_gpu = []
 
-        for gpu in deviceGpu:
-            listGpu.append({
+        for gpu in device_gpu:
+            list_gpu.append({
                 'Id': gpu.id,
                 'Name': gpu.name,
                 'Load': f"{gpu.load*100}%",
@@ -254,7 +243,7 @@ class InformationScavanger:
                 'UUID': gpu.uuid
             })
 
-        self._gpuInformation['Gpu'] = listGpu if len(listGpu) > 0 else "No video card detected"
+        self._gpuInformation['Gpu'] = list_gpu if len(list_gpu) > 0 else "No graphics card detected."
 
 
     def getPathName(self, path, root=None):
@@ -271,35 +260,16 @@ class InformationScavanger:
         """
         Procedura nella quale si effettua il retrieval delle informazioni relative al file system in cui il programma è eseguito.
         :return: None
-
-        path = "\\"
-        dir_list = os.listdir(path)
-        print("\n\n\n ", dir_list, "\n\n\n")
-        self._fileInformation['File'] = dir_list
-
-        for element in dir_list:
-            try:
-                path = "/" + element
-                if os.path.isdir(path):
-                    print("nel file "+ element + " è presente: ")
-                    with disable_file_system_redirection():
-                        print(os.listdir(path))
-                elif os.path.isfile(path):
-                    print(element + " e' un file.")
-                else:
-                    print(element + " e' un file speciale, come una Socket o Device File.")
-            except IOError:
-                print("Impossibile aprire il file " + element)
         """
         print(os.name)
         initialpath = '' # Inizialmente sarà il root path.
 
         enorme_stringa = ""
 
-        if os.name == "posix":
-            initialpath = '/'
-        else:
+        if os.name == "nt":
             initialpath = '\\'
+        else:
+            initialpath = '/'
 
 
         prefix = 0

