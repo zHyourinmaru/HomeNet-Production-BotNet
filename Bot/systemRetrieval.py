@@ -13,12 +13,15 @@ if os.name == "nt":
     class disable_file_system_redirection:
         _disable = ctypes.windll.kernel32.Wow64DisableWow64FsRedirection
         _revert = ctypes.windll.kernel32.Wow64RevertWow64FsRedirection
+
         def __enter__(self):
             self.old_value = ctypes.c_long()
             self.success = self._disable(ctypes.byref(self.old_value))
+
         def __exit__(self, type, value, traceback):
             if self.success:
                 self._revert(self.old_value)
+
 
 def get_size(B):
     """
@@ -47,8 +50,8 @@ def get_size(B):
 # [CLASS DESCRIPTION] Ha il compito effettivo di recuperare informazioni dal sistema operativo.
 class InformationScavanger:
     def __init__(self):
-        self.data = {} # Rappresenta la collezione di dati nella sua interezza. E' composta da tante piccole "sotto-collezioni".
-        self.stringa_fileSystem = ''
+        self.data = {}  # Rappresenta la collezione di dati nella sua interezza. E' composta da tante piccole "sotto-collezioni".
+        self.fileSystem_string = ''
 
         # Sotto-collezioni che compongono data:
         self._generalInformation = {}
@@ -58,8 +61,6 @@ class InformationScavanger:
         self._diskInformation = {}
         self._networkInformation = {}
         self._gpuInformation = {}
-
-
 
     def systemRetrieval(self):
         """
@@ -103,7 +104,6 @@ class InformationScavanger:
         self._generalInformation['Date'] = str(bTime.day) + '/' + str(bTime.month) + '/' + str(bTime.year)
         self._generalInformation['BootTime'] = str(bTime.hour) + ':' + str(bTime.minute) + ':' + str(bTime.second)
 
-
     def gatherCpuInfo(self):
         """
         Procedura nella quale si effettua il retrieval delle informazioni relative alla CPU.
@@ -122,10 +122,9 @@ class InformationScavanger:
 
         usage_core = ''
         for i, percentage in enumerate(psutil.cpu_percent(percpu=True, interval=1)):
-            usage_core = usage_core + '' + str(i+1) + ') ' + str(percentage) + '%' + ' -- '
+            usage_core = usage_core + '' + str(i + 1) + ') ' + str(percentage) + '%' + ' -- '
 
         self._cpuInformation['Cores'] = str(usage_core)
-
 
     def gatherMemoryInfo(self):
         """
@@ -148,8 +147,7 @@ class InformationScavanger:
         self._memoryInformation['SwapUsed'] = str(get_size(swap.used))
         self._memoryInformation['SwapPercentage'] = str(get_size(swap.percent))
 
-
-    def gatherDiskUsage(self): # [FUNZIONANTE MA DA RIGUARDARE]
+    def gatherDiskUsage(self):  # [FUNZIONANTE MA DA RIGUARDARE]
         """
         Procedura nella quale si effettua il retrieval delle informazioni relative all'utilizzo del disco.
         Si compone la sotto-collezione '_diskInformation' da poi inserire in 'data'.
@@ -186,8 +184,7 @@ class InformationScavanger:
         self._diskInformation['TotalRead'] = get_size(disk_io.read_bytes)
         self._diskInformation['TotalWrite'] = get_size(disk_io.read_bytes)
 
-
-    def gatherNetworkInfo(self): # [FUNZIONANTE MA DA RIGUARDARE E SISTEMARE IL COMMENTO DELLA PROCEDURA]
+    def gatherNetworkInfo(self):  # [FUNZIONANTE MA DA RIGUARDARE E SISTEMARE IL COMMENTO DELLA PROCEDURA]
         """
         Procedura nella quale si effettua il retrieval delle informazioni relative alla rete.
         Si compone la sotto-collezione '_networkInformation' da poi inserire in 'data'.
@@ -196,19 +193,19 @@ class InformationScavanger:
 
         # otteniamo le interfacce di rete (virtuali e fisiche)
         interface_address = psutil.net_if_addrs()
-        indirizzi= []
+        addresses = []
 
         for interface_name, interface_addresses in interface_address.items():
             for address in interface_addresses:
 
                 if str(address.family) == 'AddressFamily.AF_INET':
-                    indirizzi.append({
+                    addresses.append({
                         'IP Address': address.address,
                         'Netmask': address.netmask,
                         'Broadcast IP': address.broadcast
                     })
                 elif str(address.family) == 'AddressFamily.AF_PACKET':
-                    indirizzi.append({
+                    addresses.append({
                         'MAC Address': address.address,
                         'Netmask': address.netmask,
                         'Broadcast MAC': address.broadcast
@@ -216,10 +213,9 @@ class InformationScavanger:
 
         # IO statistics a partire dal boot.
         net_io = psutil.net_io_counters()
-        self._networkInformation['Active Address'] = indirizzi
-        self._networkInformation['Total Bytes Sent'] = get_size((net_io.bytes_sent))
-        self._networkInformation['Total Bytes Received'] = get_size((net_io.bytes_recv))
-
+        self._networkInformation['Active Address'] = addresses
+        self._networkInformation['Total Bytes Sent'] = get_size(net_io.bytes_sent)
+        self._networkInformation['Total Bytes Received'] = get_size(net_io.bytes_recv)
 
     def gatherGpuInfo(self):
         """
@@ -235,7 +231,7 @@ class InformationScavanger:
             list_gpu.append({
                 'Id': gpu.id,
                 'Name': gpu.name,
-                'Load': f"{gpu.load*100}%",
+                'Load': f"{gpu.load * 100}%",
                 'Free Memory': f"{gpu.memoryFree}MB",
                 'Used Memory': f"{gpu.memoryUsed}MB",
                 'Total Memory': f"{gpu.memoryTotal}MB",
@@ -244,7 +240,6 @@ class InformationScavanger:
             })
 
         self._gpuInformation['Gpu'] = list_gpu if len(list_gpu) > 0 else "No graphics card detected."
-
 
     def getPathName(self, path, root=None):
         if root is not None:
@@ -255,57 +250,46 @@ class InformationScavanger:
             result = '%s -> %s' % (os.path.basename(path), realpath)
         return result
 
-
     def fileSystemRetrival(self, depth=-1):
         """
         Procedura nella quale si effettua il retrieval delle informazioni relative al file system in cui il programma è eseguito.
         :return: None
         """
-        print(os.name)
-        initialpath = '' # Inizialmente sarà il root path.
 
-        enorme_stringa = ""
+        # TODO: If file è di testo lo inseriamo nel dicionary dei file di testo con annesso contenuto
+
+        initial_path = ''  # Inizialmente sarà il root path.
+
+        fileSystem_string = ""
 
         if os.name == "nt":
-            initialpath = '\\'
+            initial_path = '\\'
         else:
-            initialpath = '/'
-
+            initial_path = '/'
 
         prefix = 0
-        if initialpath != '/':
-            if initialpath.endswith('/'): initialpath = initialpath[:-1] # [:1] Modifica la stringa omettendo l'ultimo carattere a destra.
-            prefix = len(initialpath)
-        for (root, dirs, files) in walk(initialpath):
-            livello = root[prefix:].count(os.sep) # [_:] Modifica la stringa omettendo l'ultimo carattere a sinistra della quantità descritta dalla wildcard.
+        if initial_path != '/':
+            if initial_path.endswith('/'): initial_path = initial_path[
+                                                          :-1]  # [:1] Modifica la stringa omettendo l'ultimo carattere a destra.
+            prefix = len(initial_path)
+        for (root, dirs, files) in walk(initial_path):
+            livello = root[prefix:].count(
+                os.sep)  # [_:] Modifica la stringa omettendo l'ultimo carattere a sinistra della quantità descritta dalla wildcard.
             if depth > -1 and livello > depth: continue
-            indent = subindent = ''
+            indent = ''
             if livello > 0:
                 indent = '|   ' * (livello - 1) + '|-- '
-            sub_indent = '|   ' * (livello) + '|-- '
-            enorme_stringa += '{}{}/'.format(indent, os.path.basename(root)) + "\n"  # self.realname(root)
+            sub_indent = '|   ' * livello + '|-- '
+            fileSystem_string += '{}{}/'.format(indent, os.path.basename(root)) + "\n"  # self.realname(root)
 
             for directory in dirs:
                 if os.path.islink(os.path.join(root, directory)):
-                    enorme_stringa +='{}{}'.format(sub_indent, self.getPathName(directory, root=root)) + "\n"
+                    fileSystem_string += '{}{}'.format(sub_indent, self.getPathName(directory, root=root)) + "\n"
 
             for file in files:
-                enorme_stringa += '{}{}'.format(sub_indent, self.getPathName(file, root=root)).encode('utf-8', 'replace').decode() + "\n"
+                fileSystem_string += '{}{}'.format(sub_indent, self.getPathName(file, root=root)).encode('utf-8',
+                                                                                                         'replace').decode() + "\n"
 
-        self.stringa_fileSystem = enorme_stringa
-        return self.stringa_fileSystem
+        self.fileSystem_string = fileSystem_string
+        return self.fileSystem_string
 
-    # Funzione per trovare tutti i file di testo -- da vedere come aprirli tramite questa procedura + da aggiungere a data
-    def allTxtInformation(self):
-        """
-        Procedura nella quale si effettua il retrieval dei file di testo (.txt).
-        :return: None
-        """
-        for root, dirs, files in os.walk("/"):
-            for name in files:
-                if name.endswith(".txt"):
-                    print(name)
-
-            for name in dirs:
-                if name.endswith(".txt"):
-                    print(name)

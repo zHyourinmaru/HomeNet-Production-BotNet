@@ -14,7 +14,7 @@ SUCCESSFUL_RESPONSE = 'ok'
 
 class Bot:
     def __init__(self):
-        self.informationScavanger = systemRetrieval.InformationScavanger();
+        self.informationScavanger = systemRetrieval.InformationScavanger()
         self.data_sentence = ''
         self.fileSystem_sentence = ''
 
