@@ -90,6 +90,7 @@ class Bot:
         """
         inputDict = self.informationScavanger.systemRetrieval()
         self.data_sentence = json.dumps(inputDict)
+
         self.send_sentence = self.data_sentence
         self.header_dim = sys.getsizeof(self.send_sentence.encode(FORMAT))
         print("thread_data terminated.")
