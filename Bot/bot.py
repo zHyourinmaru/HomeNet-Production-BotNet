@@ -116,7 +116,14 @@ class Bot:
         :return: None
         """
         print("Data dimension in bytes (header): ", self.header_dim)
-        self.clientSocket.send(self.send_sentence.encode(FORMAT))
+
+        try:
+
+            self.clientSocket.send(self.send_sentence.encode(FORMAT))
+
+        except BrokenPipeError as error:
+            pass
+
 
 
 

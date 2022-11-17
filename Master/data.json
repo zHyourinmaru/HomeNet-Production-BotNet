@@ -1,79 +1,144 @@
 {
     "GeneralInformation": {
-        "System": "Windows",
-        "Node": "DESKTOP-4DH6DNP",
-        "Release": "10",
-        "Version": "10.0.19045",
-        "Machine": "AMD64",
-        "Processor": "Intel64 Family 6 Model 158 Stepping 9, GenuineIntel",
-        "Date": "5/11/2022",
-        "BootTime": "11:33:45"
-    },
-    "CPUInformation": {
-        "PhysicalCores": "4",
-        "TotalCores": "4",
-        "Max": "3000.0",
-        "Min": "0.0",
-        "Current": "3000.0",
-        "Percentage": "68.9",
-        "Cores": "1) 3.0% -- 2) 6.2% -- 3) 4.6% -- 4) 4.6% -- "
+        "System": "Darwin",
+        "Node": "Antonios-MBP.homenet.telecomitalia.it",
+        "Release": "22.1.0",
+        "Version": "Darwin Kernel Version 22.1.0: Sun Oct  9 20:14:30 PDT 2022; root:xnu-8792.41.9~2/RELEASE_ARM64_T8103",
+        "Machine": "arm64",
+        "Processor": "arm",
+        "Date": "17/11/2022",
+        "BootTime": "10:46:40"
     },
     "MemoryInformation": {
-        "Total": "15.96 GB",
-        "Available": "8.85 GB",
-        "Used": "7.11 GB",
-        "Percentage": "44.5 Byte",
-        "SwapTotal": "2.38 GB",
-        "SwapFree": "-1659322368.0 Byte",
-        "SwapUsed": "3.92 GB",
-        "SwapPercentage": "165.1 Byte"
+        "Total": "8.00 GB",
+        "Available": "1.92 GB",
+        "Used": "3.39 GB",
+        "Percentage": "76.0 Byte",
+        "SwapTotal": "3.00 GB",
+        "SwapFree": "646.75 MB",
+        "SwapUsed": "2.37 GB",
+        "SwapPercentage": "78.9 Byte"
     },
     "DiskInformation": {
         "Partitions": [
             {
-                "Device": "C:\\",
-                "Mountpoint": "C:\\",
-                "FStype": "NTFS",
-                "TotalSize": "222.50 GB",
-                "Used": "157.07 GB",
-                "Free": "65.43 GB",
-                "Percentage": 70.6
+                "Device": "/dev/disk3s1s1",
+                "Mountpoint": "/",
+                "FStype": "apfs",
+                "TotalSize": "460.43 GB",
+                "Used": "8.22 GB",
+                "Free": "372.87 GB",
+                "Percentage": 2.2
             },
             {
-                "Device": "N:\\",
-                "Mountpoint": "N:\\",
-                "FStype": "NTFS",
-                "TotalSize": "1.82 TB",
-                "Used": "90.58 GB",
-                "Free": "1.73 TB",
-                "Percentage": 4.9
+                "Device": "/dev/disk3s6",
+                "Mountpoint": "/System/Volumes/VM",
+                "FStype": "apfs",
+                "TotalSize": "460.43 GB",
+                "Used": "3.00 GB",
+                "Free": "372.87 GB",
+                "Percentage": 0.8
+            },
+            {
+                "Device": "/dev/disk3s2",
+                "Mountpoint": "/System/Volumes/Preboot",
+                "FStype": "apfs",
+                "TotalSize": "460.43 GB",
+                "Used": "4.45 GB",
+                "Free": "372.87 GB",
+                "Percentage": 1.2
+            },
+            {
+                "Device": "/dev/disk3s4",
+                "Mountpoint": "/System/Volumes/Update",
+                "FStype": "apfs",
+                "TotalSize": "460.43 GB",
+                "Used": "10.29 MB",
+                "Free": "372.87 GB",
+                "Percentage": 0.0
+            },
+            {
+                "Device": "/dev/disk2s2",
+                "Mountpoint": "/System/Volumes/xarts",
+                "FStype": "apfs",
+                "TotalSize": "500.00 MB",
+                "Used": "6.02 MB",
+                "Free": "482.80 MB",
+                "Percentage": 1.2
+            },
+            {
+                "Device": "/dev/disk2s1",
+                "Mountpoint": "/System/Volumes/iSCPreboot",
+                "FStype": "apfs",
+                "TotalSize": "500.00 MB",
+                "Used": "6.07 MB",
+                "Free": "482.80 MB",
+                "Percentage": 1.2
+            },
+            {
+                "Device": "/dev/disk2s3",
+                "Mountpoint": "/System/Volumes/Hardware",
+                "FStype": "apfs",
+                "TotalSize": "500.00 MB",
+                "Used": "376.00 KB",
+                "Free": "482.80 MB",
+                "Percentage": 0.1
+            },
+            {
+                "Device": "/dev/disk3s5",
+                "Mountpoint": "/System/Volumes/Data",
+                "FStype": "apfs",
+                "TotalSize": "460.43 GB",
+                "Used": "70.91 GB",
+                "Free": "372.87 GB",
+                "Percentage": 16.0
+            },
+            {
+                "Device": "/dev/disk4s1",
+                "Mountpoint": "/Volumes/Miro",
+                "FStype": "hfs",
+                "TotalSize": "354.46 MB",
+                "Used": "223.82 MB",
+                "Free": "130.64 MB",
+                "Percentage": 63.1
+            },
+            {
+                "Device": "/dev/disk5s2",
+                "Mountpoint": "/Volumes/PyCharm",
+                "FStype": "hfs",
+                "TotalSize": "2.03 GB",
+                "Used": "2.02 GB",
+                "Free": "10.61 MB",
+                "Percentage": 99.5
+            },
+            {
+                "Device": "/dev/disk6s2",
+                "Mountpoint": "/Volumes/Android Studio - Dolphin | 2021.3.1 Patch 1",
+                "FStype": "hfs",
+                "TotalSize": "2.68 GB",
+                "Used": "2.17 GB",
+                "Free": "518.26 MB",
+                "Percentage": 81.1
+            },
+            {
+                "Device": "/dev/disk7s2",
+                "Mountpoint": "/Volumes/PyCharm 1",
+                "FStype": "hfs",
+                "TotalSize": "2.03 GB",
+                "Used": "2.02 GB",
+                "Free": "10.61 MB",
+                "Percentage": 99.5
             }
         ],
-        "TotalRead": "14.58 GB",
-        "TotalWrite": "14.58 GB"
+        "TotalRead": "84.29 GB",
+        "TotalWrite": "84.29 GB"
     },
     "NetworkInformation": {
-        "Active Address": [
-            {
-                "IP Address": "192.168.1.8",
-                "Netmask": "255.255.255.0",
-                "Broadcast IP": null
-            },
-            {
-                "IP Address": "192.168.56.1",
-                "Netmask": "255.255.255.0",
-                "Broadcast IP": null
-            },
-            {
-                "IP Address": "127.0.0.1",
-                "Netmask": "255.0.0.0",
-                "Broadcast IP": null
-            }
-        ],
-        "Total Bytes Sent": "706.86 MB",
-        "Total Bytes Received": "4.68 GB"
+        "Active Address": [],
+        "Total Bytes Sent": "227.12 MB",
+        "Total Bytes Received": "3.52 GB"
     },
     "GpuInformation": {
-        "Gpu": "No video card detected"
+        "Gpu": "No graphics card detected."
     }
 }
