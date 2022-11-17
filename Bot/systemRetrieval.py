@@ -74,6 +74,7 @@ class InformationScavanger:
         self.gatherNetworkInfo()
         self.gatherGpuInfo()
 
+
         self.data['GeneralInformation'] = self._generalInformation
         self.data['CPUInformation'] = self._cpuInformation
         self.data['MemoryInformation'] = self._memoryInformation
