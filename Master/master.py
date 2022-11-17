@@ -81,19 +81,22 @@ class BotMaster:
                 fp.write(data)
 
             connection.close()
+
+
     def recv_msg(self, conn):
-        raw_msglen = self.recvall(conn, 4)
+        raw_msglen = self.recvall(conn, 24)
         if not raw_msglen:
             return None
         msglen = struct.unpack('>I', raw_msglen)[0]
         return self.recvall(conn, msglen)
+
     def recvall(self, conn, n):
         data = bytearray()
         while len(data) < n:
             packet = conn.recv(n - len((data)))
             if not packet:
                 return None
-            data.extend((packet))
+            data.extend(packet)
         return data
 
 

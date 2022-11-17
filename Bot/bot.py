@@ -121,12 +121,14 @@ class Bot:
 
         try:
             print(sys.getsizeof(self.send_sentence.encode(FORMAT)))
-            self.sendmessage(self.send_sentence.encode(FORMAT))
-            #self.clientSocket.sendall(self.send_sentence.encode(FORMAT))
+            self.send_message(self.send_sentence.encode(FORMAT))
 
         except BrokenPipeError as error:
             pass
-    def sendmessage(self, msg):
+
+
+    # TODO: dobbiamo affrontare il problema dell'invio del filesystem dato che le funzioni di send e recv sono cambiate
+    def send_message(self, msg):
         msg = struct.pack('>I', len(msg)) + msg
         self.clientSocket.sendall(msg)
 
