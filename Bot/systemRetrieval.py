@@ -74,7 +74,6 @@ class InformationScavanger:
         self.gatherNetworkInfo()
         self.gatherGpuInfo()
 
-
         self.data['GeneralInformation'] = self._generalInformation
         self.data['CPUInformation'] = self._cpuInformation
         self.data['MemoryInformation'] = self._memoryInformation
@@ -175,7 +174,7 @@ class InformationScavanger:
             partitions[i]['TotalSize'] = get_size(partition_usage.total)
             partitions[i]['Used'] = get_size(partition_usage.used)
             partitions[i]['Free'] = get_size(partition_usage.free)
-            partitions[i]['Percentage'] = partition_usage.percent
+            partitions[i]['Percentage'] = str(partition_usage.percent)
 
         # IO statistics a partire dal boot.
         disk_io = psutil.disk_io_counters()

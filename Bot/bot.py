@@ -1,14 +1,16 @@
 import socket
+import struct
+
 import systemRetrieval
 from time import sleep
 import json
 import sys
 import threading
 
-PORT = 14000
+PORT = 6969
 CLIENT = socket.gethostbyname(socket.gethostname())
 FORMAT = 'utf-8'
-MASTER_ADDRESS = 'localhost' # Inserire ip del master
+MASTER_ADDRESS = '192.168.1.19' # Inserire ip del master
 SUCCESSFUL_RESPONSE = 'ok'
 
 
@@ -118,11 +120,15 @@ class Bot:
         print("Data dimension in bytes (header): ", self.header_dim)
 
         try:
-
-            self.clientSocket.sendall(self.send_sentence.encode(FORMAT))
+            print(sys.getsizeof(self.send_sentence.encode(FORMAT)))
+            self.sendmessage(self.send_sentence.encode(FORMAT))
+            #self.clientSocket.sendall(self.send_sentence.encode(FORMAT))
 
         except BrokenPipeError as error:
             pass
+    def sendmessage(self, msg):
+        msg = struct.pack('>I', len(msg)) + msg
+        self.clientSocket.sendall(msg)
 
 
 
