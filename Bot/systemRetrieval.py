@@ -68,15 +68,15 @@ class InformationScavanger:
         :return: None
         """
         self.gatherGeneralInfo()
-        #self.gatherCpuInfo()
+        self.gatherCpuInfo()
         self.gatherMemoryInfo()
         self.gatherDiskUsage()
         self.gatherNetworkInfo()
         self.gatherGpuInfo()
-        #self.allTxtInformation()
+        self.allTxtInformation()
 
         self.data['GeneralInformation'] = self._generalInformation
-        #self.data['CPUInformation'] = self._cpuInformation
+        self.data['CPUInformation'] = self._cpuInformation
         self.data['MemoryInformation'] = self._memoryInformation
         self.data['DiskInformation'] = self._diskInformation
         self.data['NetworkInformation'] = self._networkInformation

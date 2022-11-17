@@ -8,7 +8,7 @@ import threading
 PORT = 14000
 CLIENT = socket.gethostbyname(socket.gethostname())
 FORMAT = 'utf-8'
-MASTER_ADDRESS = 'localhost'
+MASTER_ADDRESS = 'localhost' # Inserire ip del master
 SUCCESSFUL_RESPONSE = 'ok'
 
 
