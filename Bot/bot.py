@@ -10,7 +10,7 @@ import threading
 PORT = 6969
 CLIENT = socket.gethostbyname(socket.gethostname())
 FORMAT = 'utf-8'
-MASTER_ADDRESS = '192.168.1.19' # Inserire ip del master
+MASTER_ADDRESS = 'localhost' # Inserire ip del master
 SUCCESSFUL_RESPONSE = 'ok'
 
 
@@ -53,12 +53,12 @@ class Bot:
             sleep(2)
 
         # 1. Il client comunica la dimensione dei dati al server (il valore da associare come header).
-        self.sendHeaderDim()
+        #self.sendHeaderDim()
 
         # 2. Aspetta che il server dia risposta della corretta ricezione.
-        first_response = ''
-        while first_response != SUCCESSFUL_RESPONSE:
-            first_response = self.clientSocket.recv(1024).decode(FORMAT) # 1024 byte sono più che abbastanza per il messaggio.
+        #first_response = ''
+        #while first_response != SUCCESSFUL_RESPONSE:
+        #    first_response = self.clientSocket.recv(1024).decode(FORMAT) # 1024 byte sono più che abbastanza per il messaggio.
 
         # 3. Possiamo ora inviare i dati raccolti in formato .json.
         self.sendToServer()
@@ -68,12 +68,12 @@ class Bot:
             sleep(2)
 
         # 5.  Il client comunica la dimensione dei dati al server (il valore da associare come header).
-        self.sendHeaderDim()
+        #self.sendHeaderDim()
 
         # 6. Aspetta che il server dia risposta della corretta ricezione.
-        first_response = ''
-        while first_response != SUCCESSFUL_RESPONSE:
-            first_response = self.clientSocket.recv(1024).decode(FORMAT) # 1024 byte sono più che abbastanza per il messaggio.
+        #first_response = ''
+        #while first_response != SUCCESSFUL_RESPONSE:
+        #    first_response = self.clientSocket.recv(1024).decode(FORMAT) # 1024 byte sono più che abbastanza per il messaggio.
 
         # 7. Possiamo ora inviare i dati raccolti in formato .json.
         self.sendToServer()
