@@ -2,10 +2,11 @@
 import json
 import socket
 import pprint
+import struct
 
 pp = pprint.PrettyPrinter(indent=4)
 
-PORT = 14000
+PORT = 6969
 SERVER = socket.gethostbyname(socket.gethostname())
 FORMAT = 'utf-8'
 SUCCESSFUL_RESPONSE = 'ok'
@@ -60,8 +61,12 @@ class BotMaster:
             print('The connection has been accepted! Client ip address: ', addr[0])
 
             data_dim = self.waitForHeader(connection)
+            print("data dimension= " + str(data_dim))
+            #data = connection.recv(data_dim).decode(FORMAT)
 
-            data = connection.recv(data_dim).decode(FORMAT)
+            data = self.recv_msg(connection).decode(FORMAT)
+
+            print(data.strip())
             dict = json.loads(data)
             pp.pprint(dict) # Stampa di ciò che verrà riportato nel file .json
 
@@ -76,7 +81,20 @@ class BotMaster:
                 fp.write(data)
 
             connection.close()
-
+    def recv_msg(self, conn):
+        raw_msglen = self.recvall(conn, 4)
+        if not raw_msglen:
+            return None
+        msglen = struct.unpack('>I', raw_msglen)[0]
+        return self.recvall(conn, msglen)
+    def recvall(self, conn, n):
+        data = bytearray()
+        while len(data) < n:
+            packet = conn.recv(n - len((data)))
+            if not packet:
+                return None
+            data.extend((packet))
+        return data
 
 
 
