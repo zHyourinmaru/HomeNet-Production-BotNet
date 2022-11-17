@@ -44,7 +44,7 @@ class BotMaster:
         # Il server manderà una riposta al client per confermare la corretta ricevuta della dimensione dei dati.
         message_received = SUCCESSFUL_RESPONSE
         # Comunica direttamente sulla socket del client.
-        connection.send(message_received.encode(FORMAT))
+        connection.sendall(message_received.encode(FORMAT))
 
         print("System Information Header dimension received: ", data_dim)
 

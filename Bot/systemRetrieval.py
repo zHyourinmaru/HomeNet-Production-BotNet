@@ -73,7 +73,6 @@ class InformationScavanger:
         self.gatherDiskUsage()
         self.gatherNetworkInfo()
         self.gatherGpuInfo()
-        self.allTxtInformation()
 
         self.data['GeneralInformation'] = self._generalInformation
         self.data['CPUInformation'] = self._cpuInformation

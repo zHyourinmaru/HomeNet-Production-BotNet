@@ -107,7 +107,7 @@ class Bot:
         Il client invia al server la dimensione dei dati recuperati.
         :return: None
         """
-        self.clientSocket.send(str(self.header_dim).encode(FORMAT))
+        self.clientSocket.sendall(str(self.header_dim).encode(FORMAT))
 
 
     def sendToServer(self):
@@ -119,7 +119,7 @@ class Bot:
 
         try:
 
-            self.clientSocket.send(self.send_sentence.encode(FORMAT))
+            self.clientSocket.sendall(self.send_sentence.encode(FORMAT))
 
         except BrokenPipeError as error:
             pass

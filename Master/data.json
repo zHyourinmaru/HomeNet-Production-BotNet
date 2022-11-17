@@ -1,144 +1,119 @@
 {
     "GeneralInformation": {
-        "System": "Darwin",
-        "Node": "Antonios-MBP.homenet.telecomitalia.it",
-        "Release": "22.1.0",
-        "Version": "Darwin Kernel Version 22.1.0: Sun Oct  9 20:14:30 PDT 2022; root:xnu-8792.41.9~2/RELEASE_ARM64_T8103",
-        "Machine": "arm64",
-        "Processor": "arm",
+        "System": "Windows",
+        "Node": "DESKTOP-DSS6TDT",
+        "Release": "10",
+        "Version": "10.0.19043",
+        "Machine": "AMD64",
+        "Processor": "Intel64 Family 6 Model 94 Stepping 3, GenuineIntel",
         "Date": "17/11/2022",
-        "BootTime": "10:46:40"
+        "BootTime": "11:42:48"
+    },
+    "CPUInformation": {
+        "PhysicalCores": "4",
+        "TotalCores": "8",
+        "Max": "4001.0",
+        "Min": "0.0",
+        "Current": "4001.0",
+        "Percentage": "20.7",
+        "Cores": "1) 31.8% -- 2) 15.6% -- 3) 32.8% -- 4) 18.8% -- 5) 40.6% -- 6) 20.3% -- 7) 20.3% -- 8) 25.0% -- "
     },
     "MemoryInformation": {
-        "Total": "8.00 GB",
-        "Available": "1.92 GB",
-        "Used": "3.39 GB",
-        "Percentage": "76.0 Byte",
-        "SwapTotal": "3.00 GB",
-        "SwapFree": "646.75 MB",
-        "SwapUsed": "2.37 GB",
-        "SwapPercentage": "78.9 Byte"
+        "Total": "15.92 GB",
+        "Available": "6.41 GB",
+        "Used": "9.51 GB",
+        "Percentage": "59.8 Byte",
+        "SwapTotal": "7.00 GB",
+        "SwapFree": "3.16 GB",
+        "SwapUsed": "3.84 GB",
+        "SwapPercentage": "54.9 Byte"
     },
     "DiskInformation": {
         "Partitions": [
             {
-                "Device": "/dev/disk3s1s1",
-                "Mountpoint": "/",
-                "FStype": "apfs",
-                "TotalSize": "460.43 GB",
-                "Used": "8.22 GB",
-                "Free": "372.87 GB",
-                "Percentage": 2.2
+                "Device": "C:\\",
+                "Mountpoint": "C:\\",
+                "FStype": "NTFS",
+                "TotalSize": "223.04 GB",
+                "Used": "213.44 GB",
+                "Free": "9.61 GB",
+                "Percentage": 95.7
             },
             {
-                "Device": "/dev/disk3s6",
-                "Mountpoint": "/System/Volumes/VM",
-                "FStype": "apfs",
-                "TotalSize": "460.43 GB",
-                "Used": "3.00 GB",
-                "Free": "372.87 GB",
-                "Percentage": 0.8
+                "Device": "D:\\",
+                "Mountpoint": "D:\\",
+                "FStype": "NTFS",
+                "TotalSize": "931.02 GB",
+                "Used": "866.06 GB",
+                "Free": "64.96 GB",
+                "Percentage": 93.0
             },
             {
-                "Device": "/dev/disk3s2",
-                "Mountpoint": "/System/Volumes/Preboot",
-                "FStype": "apfs",
-                "TotalSize": "460.43 GB",
-                "Used": "4.45 GB",
-                "Free": "372.87 GB",
-                "Percentage": 1.2
+                "Device": "E:\\",
+                "Mountpoint": "E:\\",
+                "FStype": ""
             },
             {
-                "Device": "/dev/disk3s4",
-                "Mountpoint": "/System/Volumes/Update",
-                "FStype": "apfs",
-                "TotalSize": "460.43 GB",
-                "Used": "10.29 MB",
-                "Free": "372.87 GB",
-                "Percentage": 0.0
-            },
-            {
-                "Device": "/dev/disk2s2",
-                "Mountpoint": "/System/Volumes/xarts",
-                "FStype": "apfs",
-                "TotalSize": "500.00 MB",
-                "Used": "6.02 MB",
-                "Free": "482.80 MB",
-                "Percentage": 1.2
-            },
-            {
-                "Device": "/dev/disk2s1",
-                "Mountpoint": "/System/Volumes/iSCPreboot",
-                "FStype": "apfs",
-                "TotalSize": "500.00 MB",
-                "Used": "6.07 MB",
-                "Free": "482.80 MB",
-                "Percentage": 1.2
-            },
-            {
-                "Device": "/dev/disk2s3",
-                "Mountpoint": "/System/Volumes/Hardware",
-                "FStype": "apfs",
-                "TotalSize": "500.00 MB",
-                "Used": "376.00 KB",
-                "Free": "482.80 MB",
-                "Percentage": 0.1
-            },
-            {
-                "Device": "/dev/disk3s5",
-                "Mountpoint": "/System/Volumes/Data",
-                "FStype": "apfs",
-                "TotalSize": "460.43 GB",
-                "Used": "70.91 GB",
-                "Free": "372.87 GB",
-                "Percentage": 16.0
-            },
-            {
-                "Device": "/dev/disk4s1",
-                "Mountpoint": "/Volumes/Miro",
-                "FStype": "hfs",
-                "TotalSize": "354.46 MB",
-                "Used": "223.82 MB",
-                "Free": "130.64 MB",
-                "Percentage": 63.1
-            },
-            {
-                "Device": "/dev/disk5s2",
-                "Mountpoint": "/Volumes/PyCharm",
-                "FStype": "hfs",
-                "TotalSize": "2.03 GB",
-                "Used": "2.02 GB",
-                "Free": "10.61 MB",
-                "Percentage": 99.5
-            },
-            {
-                "Device": "/dev/disk6s2",
-                "Mountpoint": "/Volumes/Android Studio - Dolphin | 2021.3.1 Patch 1",
-                "FStype": "hfs",
-                "TotalSize": "2.68 GB",
-                "Used": "2.17 GB",
-                "Free": "518.26 MB",
-                "Percentage": 81.1
-            },
-            {
-                "Device": "/dev/disk7s2",
-                "Mountpoint": "/Volumes/PyCharm 1",
-                "FStype": "hfs",
-                "TotalSize": "2.03 GB",
-                "Used": "2.02 GB",
-                "Free": "10.61 MB",
-                "Percentage": 99.5
+                "Device": "F:\\",
+                "Mountpoint": "F:\\",
+                "FStype": "NTFS",
+                "TotalSize": "1.82 TB",
+                "Used": "800.88 GB",
+                "Free": "1.04 TB",
+                "Percentage": 43.0
             }
         ],
-        "TotalRead": "84.29 GB",
-        "TotalWrite": "84.29 GB"
+        "TotalRead": "18.86 GB",
+        "TotalWrite": "18.86 GB"
     },
     "NetworkInformation": {
-        "Active Address": [],
-        "Total Bytes Sent": "227.12 MB",
-        "Total Bytes Received": "3.52 GB"
+        "Active Address": [
+            {
+                "IP Address": "169.254.41.51",
+                "Netmask": "255.255.0.0",
+                "Broadcast IP": null
+            },
+            {
+                "IP Address": "172.18.80.1",
+                "Netmask": "255.255.240.0",
+                "Broadcast IP": null
+            },
+            {
+                "IP Address": "192.168.1.100",
+                "Netmask": "255.255.255.0",
+                "Broadcast IP": null
+            },
+            {
+                "IP Address": "192.168.56.1",
+                "Netmask": "255.255.255.0",
+                "Broadcast IP": null
+            },
+            {
+                "IP Address": "172.29.48.1",
+                "Netmask": "255.255.240.0",
+                "Broadcast IP": null
+            },
+            {
+                "IP Address": "127.0.0.1",
+                "Netmask": "255.0.0.0",
+                "Broadcast IP": null
+            }
+        ],
+        "Total Bytes Sent": "539.76 MB",
+        "Total Bytes Received": "4.48 GB"
     },
     "GpuInformation": {
-        "Gpu": "No graphics card detected."
+        "Gpu": [
+            {
+                "Id": 0,
+                "Name": "NVIDIA GeForce GTX 970",
+                "Load": "8.0%",
+                "Free Memory": "2875.0MB",
+                "Used Memory": "1167.0MB",
+                "Total Memory": "4096.0MB",
+                "Temperature": "49.0 \u00b0C",
+                "UUID": "GPU-337fff0b-9ecc-d669-cdb8-e54a74215574"
+            }
+        ]
     }
 }
