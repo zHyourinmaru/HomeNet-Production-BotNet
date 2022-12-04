@@ -3,11 +3,11 @@
         "System": "Windows",
         "Node": "DESKTOP-DSS6TDT",
         "Release": "10",
-        "Version": "10.0.19043",
+        "Version": "10.0.19045",
         "Machine": "AMD64",
         "Processor": "Intel64 Family 6 Model 94 Stepping 3, GenuineIntel",
-        "Date": "17/11/2022",
-        "BootTime": "11:42:48"
+        "Date": "1/12/2022",
+        "BootTime": "22:51:9"
     },
     "CPUInformation": {
         "PhysicalCores": "4",
@@ -15,18 +15,18 @@
         "Max": "4001.0",
         "Min": "0.0",
         "Current": "4001.0",
-        "Percentage": "29.9",
-        "Cores": "1) 25.8% -- 2) 21.9% -- 3) 23.4% -- 4) 28.1% -- 5) 23.4% -- 6) 17.2% -- 7) 37.5% -- 8) 21.5% -- "
+        "Percentage": "24.1",
+        "Cores": "1) 21.5% -- 2) 23.4% -- 3) 28.1% -- 4) 20.3% -- 5) 15.6% -- 6) 25.0% -- 7) 37.5% -- 8) 9.4% -- "
     },
     "MemoryInformation": {
         "Total": "15.92 GB",
-        "Available": "1.90 GB",
-        "Used": "14.02 GB",
-        "Percentage": "88.1 Byte",
-        "SwapTotal": "7.00 GB",
-        "SwapFree": "1.18 GB",
-        "SwapUsed": "5.82 GB",
-        "SwapPercentage": "83.2 Byte"
+        "Available": "4.96 GB",
+        "Used": "10.96 GB",
+        "Percentage": "68.8 Byte",
+        "SwapTotal": "8.50 GB",
+        "SwapFree": "4.13 GB",
+        "SwapUsed": "4.37 GB",
+        "SwapPercentage": "51.4 Byte"
     },
     "DiskInformation": {
         "Partitions": [
@@ -35,18 +35,18 @@
                 "Mountpoint": "C:\\",
                 "FStype": "NTFS",
                 "TotalSize": "223.04 GB",
-                "Used": "214.00 GB",
-                "Free": "9.05 GB",
-                "Percentage": "95.9"
+                "Used": "221.31 GB",
+                "Free": "1.74 GB",
+                "Percentage": "99.2"
             },
             {
                 "Device": "D:\\",
                 "Mountpoint": "D:\\",
                 "FStype": "NTFS",
                 "TotalSize": "931.02 GB",
-                "Used": "865.96 GB",
-                "Free": "65.07 GB",
-                "Percentage": "93.0"
+                "Used": "901.90 GB",
+                "Free": "29.12 GB",
+                "Percentage": "96.9"
             },
             {
                 "Device": "E:\\",
@@ -58,24 +58,19 @@
                 "Mountpoint": "F:\\",
                 "FStype": "NTFS",
                 "TotalSize": "1.82 TB",
-                "Used": "800.91 GB",
-                "Free": "1.04 TB",
-                "Percentage": "43.0"
+                "Used": "1006.97 GB",
+                "Free": "856.04 GB",
+                "Percentage": "54.1"
             }
         ],
-        "TotalRead": "22.02 GB",
-        "TotalWrite": "22.02 GB"
+        "TotalRead": "209.01 GB",
+        "TotalWrite": "209.01 GB"
     },
     "NetworkInformation": {
         "Active Address": [
             {
                 "IP Address": "169.254.41.51",
                 "Netmask": "255.255.0.0",
-                "Broadcast IP": null
-            },
-            {
-                "IP Address": "172.18.80.1",
-                "Netmask": "255.255.240.0",
                 "Broadcast IP": null
             },
             {
@@ -89,7 +84,12 @@
                 "Broadcast IP": null
             },
             {
-                "IP Address": "172.29.48.1",
+                "IP Address": "172.26.32.1",
+                "Netmask": "255.255.240.0",
+                "Broadcast IP": null
+            },
+            {
+                "IP Address": "172.26.192.1",
                 "Netmask": "255.255.240.0",
                 "Broadcast IP": null
             },
@@ -99,19 +99,19 @@
                 "Broadcast IP": null
             }
         ],
-        "Total Bytes Sent": "2.14 GB",
-        "Total Bytes Received": "6.09 GB"
+        "Total Bytes Sent": "7.36 GB",
+        "Total Bytes Received": "101.80 GB"
     },
     "GpuInformation": {
         "Gpu": [
             {
                 "Id": 0,
                 "Name": "NVIDIA GeForce GTX 970",
-                "Load": "11.0%",
-                "Free Memory": "2494.0MB",
-                "Used Memory": "1549.0MB",
+                "Load": "5.0%",
+                "Free Memory": "2794.0MB",
+                "Used Memory": "1243.0MB",
                 "Total Memory": "4096.0MB",
-                "Temperature": "54.0 \u00b0C",
+                "Temperature": "58.0 \u00b0C",
                 "UUID": "GPU-337fff0b-9ecc-d669-cdb8-e54a74215574"
             }
         ]
