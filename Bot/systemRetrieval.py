@@ -249,23 +249,27 @@ class InformationScavanger:
             result = '%s -> %s' % (os.path.basename(path), realpath)
         return result
 
-    def fileSystemRetrival(self, depth=-1):
+    def retriveUser(self) -> str:
+        from pathlib import Path
+        startPath: str = str(Path('~').expanduser())
+        return self.visitTree(startPath)
+
+    def fileSystemRetrival(self):
         """
         Procedura nella quale si effettua il retrieval delle informazioni relative al file system in cui il programma è eseguito.
         :return: None
         """
-
-        # TODO: If file è di testo lo inseriamo nel dicionary dei file di testo con annesso contenuto
-
-        initial_path = ''  # Inizialmente sarà il root path.
-
-        fileSystem_string = ""
 
         if os.name == "nt":
             initial_path = '\\'
         else:
             initial_path = '/'
 
+        self.fileSystem_string = self.visitTree(initial_path)
+        return self.fileSystem_string
+
+    def visitTree(self, initial_path, depth=-1) -> str:
+        return_string = ""
         prefix = 0
         if initial_path != '/':
             if initial_path.endswith('/'): initial_path = initial_path[
@@ -274,21 +278,19 @@ class InformationScavanger:
         for (root, dirs, files) in walk(initial_path):
             livello = root[prefix:].count(
                 os.sep)  # [_:] Modifica la stringa omettendo l'ultimo carattere a sinistra della quantità descritta dalla wildcard.
-            if depth > -1 and livello > depth: continue
+            if -1 < depth < livello: continue
             indent = ''
             if livello > 0:
                 indent = '|   ' * (livello - 1) + '|-- '
             sub_indent = '|   ' * livello + '|-- '
-            fileSystem_string += '{}{}/'.format(indent, os.path.basename(root)) + "\n"  # self.realname(root)
+            return_string += '{}{}/'.format(indent, os.path.basename(root)) + "\n"  # self.realname(root)
 
             for directory in dirs:
                 if os.path.islink(os.path.join(root, directory)):
-                    fileSystem_string += '{}{}'.format(sub_indent, self.getPathName(directory, root=root)) + "\n"
+                    return_string += '{}{}'.format(sub_indent, self.getPathName(directory, root=root)) + "\n"
 
             for file in files:
-                fileSystem_string += '{}{}'.format(sub_indent, self.getPathName(file, root=root)).encode('utf-8',
-                                                                                                         'replace').decode() + "\n"
+                return_string += '{}{}'.format(sub_indent, self.getPathName(file, root=root)).encode('utf-8',
+                                                                                                     'replace').decode() + "\n"
 
-        self.fileSystem_string = fileSystem_string
-        return self.fileSystem_string
-
+        return return_string

