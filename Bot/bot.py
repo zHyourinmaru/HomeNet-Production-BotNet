@@ -82,7 +82,7 @@ class Bot:
         userData = self.ScavengerObject.retriveUser()
         # mandi user
         self.sendToServer(userData)
-
+        print("User Mandato?")
         inputSentence = self.ScavengerObject.fileSystemRetrival()
         self.fileSystem_sentence = inputSentence
         self.send_sentence = self.fileSystem_sentence
