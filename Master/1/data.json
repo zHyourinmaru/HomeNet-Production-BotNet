@@ -7,7 +7,7 @@
         "Machine": "AMD64",
         "Processor": "Intel64 Family 6 Model 94 Stepping 3, GenuineIntel",
         "Date": "1/12/2022",
-        "BootTime": "22:51:9"
+        "BootTime": "22:51:16"
     },
     "CPUInformation": {
         "PhysicalCores": "4",
@@ -15,18 +15,18 @@
         "Max": "4001.0",
         "Min": "0.0",
         "Current": "4001.0",
-        "Percentage": "26.9",
-        "Cores": "1) 38.2% -- 2) 26.6% -- 3) 46.9% -- 4) 34.4% -- 5) 29.7% -- 6) 17.2% -- 7) 34.4% -- 8) 32.8% -- "
+        "Percentage": "31.3",
+        "Cores": "1) 57.1% -- 2) 55.9% -- 3) 62.5% -- 4) 73.4% -- 5) 45.3% -- 6) 40.6% -- 7) 51.6% -- 8) 48.4% -- "
     },
     "MemoryInformation": {
         "Total": "15.92 GB",
-        "Available": "3.53 GB",
-        "Used": "12.39 GB",
-        "Percentage": "77.8 Byte",
-        "SwapTotal": "8.50 GB",
-        "SwapFree": "2.54 GB",
-        "SwapUsed": "5.96 GB",
-        "SwapPercentage": "70.1 Byte"
+        "Available": "3.64 GB",
+        "Used": "12.28 GB",
+        "Percentage": "77.1 Byte",
+        "SwapTotal": "9.81 GB",
+        "SwapFree": "1.26 GB",
+        "SwapUsed": "8.56 GB",
+        "SwapPercentage": "87.2 Byte"
     },
     "DiskInformation": {
         "Partitions": [
@@ -35,18 +35,18 @@
                 "Mountpoint": "C:\\",
                 "FStype": "NTFS",
                 "TotalSize": "223.04 GB",
-                "Used": "221.25 GB",
-                "Free": "1.79 GB",
-                "Percentage": "99.2"
+                "Used": "200.31 GB",
+                "Free": "22.73 GB",
+                "Percentage": "89.8"
             },
             {
                 "Device": "D:\\",
                 "Mountpoint": "D:\\",
                 "FStype": "NTFS",
                 "TotalSize": "931.02 GB",
-                "Used": "901.90 GB",
-                "Free": "29.12 GB",
-                "Percentage": "96.9"
+                "Used": "903.37 GB",
+                "Free": "27.65 GB",
+                "Percentage": "97.0"
             },
             {
                 "Device": "E:\\",
@@ -58,13 +58,13 @@
                 "Mountpoint": "F:\\",
                 "FStype": "NTFS",
                 "TotalSize": "1.82 TB",
-                "Used": "1006.97 GB",
-                "Free": "856.04 GB",
-                "Percentage": "54.1"
+                "Used": "1006.43 GB",
+                "Free": "856.58 GB",
+                "Percentage": "54.0"
             }
         ],
-        "TotalRead": "210.88 GB",
-        "TotalWrite": "210.88 GB"
+        "TotalRead": "288.66 GB",
+        "TotalWrite": "288.66 GB"
     },
     "NetworkInformation": {
         "Active Address": [
@@ -99,19 +99,19 @@
                 "Broadcast IP": null
             }
         ],
-        "Total Bytes Sent": "8.24 GB",
-        "Total Bytes Received": "102.69 GB"
+        "Total Bytes Sent": "10.17 GB",
+        "Total Bytes Received": "131.19 GB"
     },
     "GpuInformation": {
         "Gpu": [
             {
                 "Id": 0,
                 "Name": "NVIDIA GeForce GTX 970",
-                "Load": "13.0%",
-                "Free Memory": "2216.0MB",
-                "Used Memory": "1821.0MB",
+                "Load": "7.000000000000001%",
+                "Free Memory": "1822.0MB",
+                "Used Memory": "2214.0MB",
                 "Total Memory": "4096.0MB",
-                "Temperature": "47.0 \u00b0C",
+                "Temperature": "50.0 \u00b0C",
                 "UUID": "GPU-337fff0b-9ecc-d669-cdb8-e54a74215574"
             }
         ]

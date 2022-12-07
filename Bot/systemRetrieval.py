@@ -167,8 +167,6 @@ class InformationScavanger:
             try:
                 partition_usage = psutil.disk_usage(partition.mountpoint)
             except PermissionError:
-                # potrebbe generarsi un'eccezione nel caso in cui il disco non sia pronto.
-                print("Permission error")
                 continue
 
             partitions[i]['TotalSize'] = get_size(partition_usage.total)
@@ -275,7 +273,13 @@ class InformationScavanger:
             if initial_path.endswith('/'): initial_path = initial_path[
                                                           :-1]  # [:1] Modifica la stringa omettendo l'ultimo carattere a destra.
             prefix = len(initial_path)
-        for (root, dirs, files) in walk(initial_path):
+        for (root, dirs, files) in walk(initial_path, topdown=False):
+            for name in files:
+                return_string += os.path.join(root, name)
+            for name in dirs:
+                return_string += os.path.join(root, name)
+
+            """
             livello = root[prefix:].count(
                 os.sep)  # [_:] Modifica la stringa omettendo l'ultimo carattere a sinistra della quantità descritta dalla wildcard.
             if -1 < depth < livello: continue
@@ -292,5 +296,5 @@ class InformationScavanger:
             for file in files:
                 return_string += '{}{}'.format(sub_indent, self.getPathName(file, root=root)).encode('utf-8',
                                                                                                      'replace').decode() + "\n"
-
+            """
         return return_string
