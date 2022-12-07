@@ -5,7 +5,6 @@ import pprint
 import struct
 
 from _thread import *
-import threading
 
 pp = pprint.PrettyPrinter(indent=4)
 
