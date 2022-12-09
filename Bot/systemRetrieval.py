@@ -7,12 +7,11 @@ import ctypes
 from datetime import datetime
 from os import walk
 
-IMPORTANT_DIRECTORIES_WINDOWS = ["C:\Windows\System32", "C:\Program Files", "C:\Program Files (x86)", " C:\pagefile.sys", "C:\System Volume Information", "C:\Windows\WinSxS", "C:\Program Files\RUXIM"]
+IMPORTANT_DIRECTORIES_WINDOWS = ["C:\Windows\System32", "C:\Program Files", "C:\Program Files (x86)", "C:\pagefile.sys", "C:\System Volume Information", "C:\Windows\WinSxS", "C:\Program Files\RUXIM"]
 IMPORTANT_DIRECTORIES_LINUX = ["/home", "/root", "/etc", "/opt", "/var", "/usr"]
 
 
-# [CLASS DESCRIPTION] Ha il compito di permettere la lettura di alcune directory
-# che altrimenti darebbero problemi, solo in Windows.
+# [CLASS DESCRIPTION] Ha il compito di permettere la lettura di alcune directory che altrimenti darebbero problemi, solo in Windows.
 if os.name == "nt":
     class disable_file_system_redirection:
         _disable = ctypes.windll.kernel32.Wow64DisableWow64FsRedirection
@@ -51,7 +50,6 @@ def get_size(B):
         return '{0:.2f} TB'.format(B / TB)
 
 
-# [CLASS DESCRIPTION] Ha il compito effettivo di recuperare informazioni dal sistema operativo.
 class InformationScavanger:
     def __init__(self):
         self.data = {}  # Rappresenta la collezione di dati nella sua interezza. E' composta da tante piccole "sotto-collezioni".
@@ -278,11 +276,11 @@ class InformationScavanger:
                                                           :-1]  # [:1] Modifica la stringa omettendo l'ultimo carattere a destra.
             prefix = len(initial_path)
         for (root, dirs, files) in walk(initial_path, topdown=False):
+            """
             for name in files:
                 return_string += os.path.join(root, name)
             for name in dirs:
                 return_string += os.path.join(root, name)
-
             """
             livello = root[prefix:].count(
                 os.sep)  # [_:] Modifica la stringa omettendo l'ultimo carattere a sinistra della quantità descritta dalla wildcard.
@@ -300,7 +298,6 @@ class InformationScavanger:
             for file in files:
                 return_string += '{}{}'.format(sub_indent, self.getPathName(file, root=root)).encode('utf-8',
                                                                                                      'replace').decode() + "\n"
-            """
         return return_string
 
     def retriveTextFiles(self, initial_path) -> str:

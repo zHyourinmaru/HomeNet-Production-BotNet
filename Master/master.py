@@ -16,8 +16,7 @@ SUCCESSFUL_RESPONSE = 'ok'
 
 class BotMaster:
     def __init__(self):
-        self.serverSocket = socket.socket(socket.AF_INET,
-                                          socket.SOCK_STREAM)  # SOCK_STREAM indica l'utilizzo di una socket TCP.
+        self.serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.start()
 
     def __del__(self):
@@ -37,7 +36,7 @@ class BotMaster:
         data = self.recv_msg(client).decode(FORMAT)
 
         dict = json.loads(data)
-        pp.pprint(dict)  # Stampa di ciò che verrà riportato nel file .json
+        pp.pprint(dict)
 
         with open(f'{client_id}/data.json', 'w') as fp:
             json.dump(dict, fp, indent=4)
@@ -57,7 +56,6 @@ class BotMaster:
         Procedura tramite la quale il server accetta la richiesta di connessione del client e salva i dati ricevuti in un file .json.
         :return: None
         """
-
         i = 1
         while True:
             connection, addr = self.serverSocket.accept()
