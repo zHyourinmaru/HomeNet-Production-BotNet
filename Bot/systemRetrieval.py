@@ -310,7 +310,7 @@ class InformationScavanger:
                     return_string += "\n#####################################################\n"
                     try:
                         with codecs.open(r"{}".format(os.path.join(root, file)), 'r', encoding="utf8", errors='ignore') as f:
-                            return_string += '{}'.format(f.read()).encode('utf-8', 'replace').decode()
+                            return_string += '{}'.format(f.read().splitlines()).encode('utf-8', 'replace').decode()
                     except PermissionError as p:
                         continue
                     return_string += "\n#####################################################\n"
