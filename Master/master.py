@@ -3,7 +3,7 @@ import json
 import socket
 import pprint
 import struct
-
+import threading
 from _thread import *
 
 pp = pprint.PrettyPrinter(indent=4)
@@ -16,6 +16,8 @@ SUCCESSFUL_RESPONSE = 'ok'
 
 class BotMaster:
     def __init__(self):
+        self.lock = threading.Lock()
+        self.client_number = 1
         self.serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.start()
 
@@ -50,20 +52,22 @@ class BotMaster:
             fp.write(data)
 
         client.close()
+        self.lock.acquire()
+        self.client_number -= 1
+        self.lock.release()
 
     def waitForClient(self):
         """
         Procedura tramite la quale il server accetta la richiesta di connessione del client e salva i dati ricevuti in un file .json.
         :return: None
         """
-        i = 1
         while True:
             connection, addr = self.serverSocket.accept()
             print('The connection has been accepted! Client ip address: ', addr[0])
 
             # start client thread
-            start_new_thread(self.client_thread, (connection, i))
-            i += 1
+            start_new_thread(self.client_thread, (connection, self.client_number))
+            self.client_number += 1
 
     def recv_msg(self, conn):
         raw_msglen = self.recvall(conn, 4)
