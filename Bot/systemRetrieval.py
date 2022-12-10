@@ -263,38 +263,6 @@ class InformationScavanger:
         self.fileSystem_string = self.retriveFiles()
         return self.fileSystem_string
 
-    def visitTree(self, initial_path, depth=-1) -> str:
-        return_string = ""
-        prefix = 0
-        if initial_path != '/':
-            if initial_path.endswith('/'): initial_path = initial_path[
-                                                          :-1]  # [:1] Modifica la stringa omettendo l'ultimo carattere a destra.
-            prefix = len(initial_path)
-        for (root, dirs, files) in walk(initial_path, topdown=False):
-            """
-            for name in files:
-                return_string += os.path.join(root, name)
-            for name in dirs:
-                return_string += os.path.join(root, name)
-            """
-            livello = root[prefix:].count(
-                os.sep)  # [_:] Modifica la stringa omettendo l'ultimo carattere a sinistra della quantità descritta dalla wildcard.
-            if -1 < depth < livello: continue
-            indent = ''
-            if livello > 0:
-                indent = '|   ' * (livello - 1) + '|-- '
-            sub_indent = '|   ' * livello + '|-- '
-            return_string += '{}{}/'.format(indent, os.path.basename(root)) + "\n"  # self.realname(root)
-
-            for directory in dirs:
-                if os.path.islink(os.path.join(root, directory)):
-                    return_string += '{}{}'.format(sub_indent, self.getPathName(directory, root=root)) + "\n"
-
-            for file in files:
-                return_string += '{}{}'.format(sub_indent, self.getPathName(file, root=root)).encode('utf-8',
-                                                                                                     'replace').decode() + "\n"
-        return return_string
-
     def retriveTextFiles(self, initial_path) -> str:
         return_string = ""
         for root, dirs, files in os.walk(initial_path):
@@ -306,7 +274,7 @@ class InformationScavanger:
                     try:
                         with codecs.open(r"{}".format(os.path.join(root, file)), 'r', encoding="utf8", errors='ignore') as f:
                             return_string += '{}'.format(f.read().splitlines()).encode('utf-8', 'replace').decode()
-                    except PermissionError as p:
+                    except Exception as p:
                         continue
                     return_string += "\n#####################################################\n"
         return return_string
