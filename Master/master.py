@@ -52,6 +52,7 @@ class BotMaster:
             fp.write(data)
 
         client.close()
+        print("Connessione {} terminata".format(self.client_number))
         self.lock.acquire()
         self.client_number -= 1
         self.lock.release()
@@ -79,7 +80,7 @@ class BotMaster:
     def recvall(self, conn, n):
         data = bytearray()
         while len(data) < n:
-            packet = conn.recv(n - len((data)))
+            packet = conn.recv(n - len(data))
             if not packet:
                 return None
             data.extend(packet)

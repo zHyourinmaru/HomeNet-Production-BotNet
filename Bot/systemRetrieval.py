@@ -86,7 +86,6 @@ class InformationScavanger:
         self.data['NetworkInformation'] = self._networkInformation
         self.data['GpuInformation'] = self._gpuInformation
         self.data['ProcessInformation'] = self._processInformation
-        # self.data['FileInformation'] = self._fileInformation
 
         return self.data
 
