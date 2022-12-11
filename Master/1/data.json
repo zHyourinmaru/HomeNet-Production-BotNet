@@ -1,0 +1,1604 @@
+{
+    "GeneralInformation": {
+        "System": "Windows",
+        "Node": "DESKTOP-DSS6TDT",
+        "Release": "10",
+        "Version": "10.0.19045",
+        "Machine": "AMD64",
+        "Processor": "Intel64 Family 6 Model 94 Stepping 3, GenuineIntel",
+        "Date": "1/12/2022",
+        "BootTime": "22:51:20"
+    },
+    "CPUInformation": {
+        "PhysicalCores": "4",
+        "TotalCores": "8",
+        "Max": "4001.0",
+        "Min": "0.0",
+        "Current": "4001.0",
+        "Percentage": "48.9",
+        "Cores": "1) 18.8% -- 2) 15.6% -- 3) 26.6% -- 4) 18.8% -- 5) 28.1% -- 6) 43.8% -- 7) 29.7% -- 8) 28.1% -- "
+    },
+    "MemoryInformation": {
+        "Total": "15.92 GB",
+        "Available": "5.42 GB",
+        "Used": "10.51 GB",
+        "Percentage": "66.0 Byte",
+        "SwapTotal": "12.02 GB",
+        "SwapFree": "5.76 GB",
+        "SwapUsed": "6.26 GB",
+        "SwapPercentage": "52.0 Byte"
+    },
+    "DiskInformation": {
+        "Partitions": [
+            {
+                "Device": "C:\\",
+                "Mountpoint": "C:\\",
+                "FStype": "NTFS",
+                "TotalSize": "223.04 GB",
+                "Used": "205.63 GB",
+                "Free": "17.41 GB",
+                "Percentage": "92.2"
+            },
+            {
+                "Device": "D:\\",
+                "Mountpoint": "D:\\",
+                "FStype": "NTFS",
+                "TotalSize": "931.02 GB",
+                "Used": "903.92 GB",
+                "Free": "27.10 GB",
+                "Percentage": "97.1"
+            },
+            {
+                "Device": "E:\\",
+                "Mountpoint": "E:\\",
+                "FStype": ""
+            },
+            {
+                "Device": "F:\\",
+                "Mountpoint": "F:\\",
+                "FStype": "NTFS",
+                "TotalSize": "1.82 TB",
+                "Used": "1006.16 GB",
+                "Free": "856.86 GB",
+                "Percentage": "54.0"
+            }
+        ],
+        "TotalRead": "398.02 GB",
+        "TotalWrite": "398.02 GB"
+    },
+    "NetworkInformation": {
+        "Active Address": [],
+        "Total Bytes Sent": "18.40 GB",
+        "Total Bytes Received": "201.90 GB"
+    },
+    "GpuInformation": {
+        "Gpu": [
+            {
+                "Id": 0,
+                "Name": "NVIDIA GeForce GTX 970",
+                "Load": "3.0%",
+                "Free Memory": "2813.0MB",
+                "Used Memory": "1224.0MB",
+                "Total Memory": "4096.0MB",
+                "Temperature": "57.0 \u00b0C",
+                "UUID": "GPU-337fff0b-9ecc-d669-cdb8-e54a74215574"
+            }
+        ]
+    },
+    "ProcessInformation": {
+        "all-active-processes": [
+            {
+                "username": null,
+                "pid": 6868,
+                "name": "oracle.exe",
+                "vms": 1955.34765625
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 36412,
+                "name": "pycharm64.exe",
+                "vms": 1732.58203125
+            },
+            {
+                "username": null,
+                "pid": 5292,
+                "name": "GameManagerService.exe",
+                "vms": 1504.4140625
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 39756,
+                "name": "Discord.exe",
+                "vms": 457.1171875
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 32700,
+                "name": "chrome.exe",
+                "vms": 377.609375
+            },
+            {
+                "username": null,
+                "pid": 48240,
+                "name": "MsMpEng.exe",
+                "vms": 351.00390625
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 46196,
+                "name": "SearchApp.exe",
+                "vms": 307.16796875
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 47008,
+                "name": "explorer.exe",
+                "vms": 186.5625
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 47072,
+                "name": "SearchApp.exe",
+                "vms": 183.8125
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 45116,
+                "name": "chrome.exe",
+                "vms": 180.78125
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 39464,
+                "name": "chrome.exe",
+                "vms": 180.49609375
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 22580,
+                "name": "EpicGamesLauncher.exe",
+                "vms": 167.09765625
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 21244,
+                "name": "chrome.exe",
+                "vms": 161.13671875
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 50848,
+                "name": "SteelSeriesSonar.exe",
+                "vms": 153.70703125
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 45176,
+                "name": "chrome.exe",
+                "vms": 142.78515625
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 50060,
+                "name": "Razer Synapse 3.exe",
+                "vms": 132.87890625
+            },
+            {
+                "username": null,
+                "pid": 36608,
+                "name": "Razer Synapse Service.exe",
+                "vms": 122.46484375
+            },
+            {
+                "username": null,
+                "pid": 50664,
+                "name": "dwm.exe",
+                "vms": 117.09375
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 30204,
+                "name": "Discord.exe",
+                "vms": 111.0234375
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 30504,
+                "name": "GalaxyClient Helper.exe",
+                "vms": 110.34765625
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 36676,
+                "name": "GalaxyClient Helper.exe",
+                "vms": 109.53515625
+            },
+            {
+                "username": null,
+                "pid": 5108,
+                "name": "RzSDKService.exe",
+                "vms": 108.12109375
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 9924,
+                "name": "chrome.exe",
+                "vms": 104.48828125
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 13580,
+                "name": "Razer Central.exe",
+                "vms": 89.80859375
+            },
+            {
+                "username": null,
+                "pid": 5212,
+                "name": "RazerCentralService.exe",
+                "vms": 80.08984375
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 40772,
+                "name": "chrome.exe",
+                "vms": 71.3046875
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 34136,
+                "name": "SteelSeriesEngine.exe",
+                "vms": 66.703125
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 32128,
+                "name": "Battle.net.exe",
+                "vms": 64.3984375
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 35216,
+                "name": "chrome.exe",
+                "vms": 58.78515625
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 40992,
+                "name": "chrome.exe",
+                "vms": 58.484375
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 26776,
+                "name": "CefSharp.BrowserSubprocess.exe",
+                "vms": 58.0234375
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 5956,
+                "name": "Discord.exe",
+                "vms": 57.8359375
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 8992,
+                "name": "StartMenuExperienceHost.exe",
+                "vms": 57.64453125
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 5852,
+                "name": "Battle.net.exe",
+                "vms": 53.27734375
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 48392,
+                "name": "Cortana.exe",
+                "vms": 53.15625
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 14692,
+                "name": "EpicWebHelper.exe",
+                "vms": 52.11328125
+            },
+            {
+                "username": null,
+                "pid": 49564,
+                "name": "OfficeClickToRun.exe",
+                "vms": 51.8984375
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 36988,
+                "name": "chrome.exe",
+                "vms": 46.1328125
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 27188,
+                "name": "nvcontainer.exe",
+                "vms": 45.8515625
+            },
+            {
+                "username": null,
+                "pid": 132,
+                "name": "Registry",
+                "vms": 45.15625
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 13808,
+                "name": "ShellExperienceHost.exe",
+                "vms": 44.453125
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 5912,
+                "name": "CefSharp.BrowserSubprocess.exe",
+                "vms": 44.17578125
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 9620,
+                "name": "GOG Galaxy Notifications Renderer.exe",
+                "vms": 44.109375
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 26432,
+                "name": "Razer Synapse Service Process.exe",
+                "vms": 43.31640625
+            },
+            {
+                "username": null,
+                "pid": 2236,
+                "name": "vmms.exe",
+                "vms": 43.14453125
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 41936,
+                "name": "chrome.exe",
+                "vms": 41.21875
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 44340,
+                "name": "Agent.exe",
+                "vms": 40.13671875
+            },
+            {
+                "username": null,
+                "pid": 34436,
+                "name": "SearchIndexer.exe",
+                "vms": 38.1640625
+            },
+            {
+                "username": null,
+                "pid": 3960,
+                "name": "NVDisplay.Container.exe",
+                "vms": 37.953125
+            },
+            {
+                "username": null,
+                "pid": 4620,
+                "name": "svchost.exe",
+                "vms": 37.26953125
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 48488,
+                "name": "msedge.exe",
+                "vms": 35.953125
+            },
+            {
+                "username": null,
+                "pid": 48252,
+                "name": "audiodg.exe",
+                "vms": 35.60546875
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 13744,
+                "name": "NVIDIA Web Helper.exe",
+                "vms": 35.25
+            },
+            {
+                "username": null,
+                "pid": 20552,
+                "name": "MoUsoCoreWorker.exe",
+                "vms": 34.7578125
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 44100,
+                "name": "chrome.exe",
+                "vms": 34.23828125
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 45788,
+                "name": "TextInputHost.exe",
+                "vms": 33.59765625
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 46148,
+                "name": "msedge.exe",
+                "vms": 32.81640625
+            },
+            {
+                "username": null,
+                "pid": 4648,
+                "name": "svchost.exe",
+                "vms": 32.8046875
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 39724,
+                "name": "GalaxyClient.exe",
+                "vms": 32.46484375
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 39548,
+                "name": "chrome.exe",
+                "vms": 31.1796875
+            },
+            {
+                "username": null,
+                "pid": 5968,
+                "name": "com.docker.service",
+                "vms": 30.8046875
+            },
+            {
+                "username": null,
+                "pid": 2092,
+                "name": "svchost.exe",
+                "vms": 30.61328125
+            },
+            {
+                "username": null,
+                "pid": 17636,
+                "name": "steamcmd.exe",
+                "vms": 29.9609375
+            },
+            {
+                "username": null,
+                "pid": 952,
+                "name": "lsass.exe",
+                "vms": 27.8984375
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 44360,
+                "name": "SteelSeriesGG.exe",
+                "vms": 27.6171875
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 40776,
+                "name": "chrome.exe",
+                "vms": 27.23828125
+            },
+            {
+                "username": null,
+                "pid": 1200,
+                "name": "svchost.exe",
+                "vms": 27.05078125
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 46552,
+                "name": "EpicWebHelper.exe",
+                "vms": 25.34765625
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 51536,
+                "name": "python.exe",
+                "vms": 24.81640625
+            },
+            {
+                "username": null,
+                "pid": 52172,
+                "name": "svchost.exe",
+                "vms": 24.58203125
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 8712,
+                "name": "chrome.exe",
+                "vms": 23.765625
+            },
+            {
+                "username": null,
+                "pid": 47828,
+                "name": "WmiPrvSE.exe",
+                "vms": 22.66015625
+            },
+            {
+                "username": null,
+                "pid": 560,
+                "name": "svchost.exe",
+                "vms": 21.7734375
+            },
+            {
+                "username": null,
+                "pid": 11168,
+                "name": "isa.exe",
+                "vms": 20.796875
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 51824,
+                "name": "SteelSeriesPrismSync.exe",
+                "vms": 20.546875
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 44468,
+                "name": "CefSharp.BrowserSubprocess.exe",
+                "vms": 20.4921875
+            },
+            {
+                "username": null,
+                "pid": 1860,
+                "name": "svchost.exe",
+                "vms": 18.8359375
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 39540,
+                "name": "chrome.exe",
+                "vms": 17.84765625
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 33692,
+                "name": "CefSharp.BrowserSubprocess.exe",
+                "vms": 17.4609375
+            },
+            {
+                "username": null,
+                "pid": 2996,
+                "name": "svchost.exe",
+                "vms": 16.9921875
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 25296,
+                "name": "CefSharp.BrowserSubprocess.exe",
+                "vms": 16.31640625
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 40744,
+                "name": "Discord.exe",
+                "vms": 16.2578125
+            },
+            {
+                "username": null,
+                "pid": 5032,
+                "name": "nvcontainer.exe",
+                "vms": 15.54296875
+            },
+            {
+                "username": null,
+                "pid": 1772,
+                "name": "svchost.exe",
+                "vms": 15.37890625
+            },
+            {
+                "username": null,
+                "pid": 7712,
+                "name": "gamingservices.exe",
+                "vms": 14.265625
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 32248,
+                "name": "Discord.exe",
+                "vms": 13.4765625
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 48116,
+                "name": "Discord.exe",
+                "vms": 12.1484375
+            },
+            {
+                "username": null,
+                "pid": 2492,
+                "name": "svchost.exe",
+                "vms": 12.0
+            },
+            {
+                "username": null,
+                "pid": 5116,
+                "name": "tnslsnr.exe",
+                "vms": 11.984375
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 23940,
+                "name": "svchost.exe",
+                "vms": 10.984375
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 39560,
+                "name": "RuntimeBroker.exe",
+                "vms": 10.9375
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 30656,
+                "name": "msedge.exe",
+                "vms": 10.87109375
+            },
+            {
+                "username": null,
+                "pid": 3104,
+                "name": "svchost.exe",
+                "vms": 10.859375
+            },
+            {
+                "username": null,
+                "pid": 4572,
+                "name": "svchost.exe",
+                "vms": 10.79296875
+            },
+            {
+                "username": null,
+                "pid": 7280,
+                "name": "svchost.exe",
+                "vms": 10.7890625
+            },
+            {
+                "username": null,
+                "pid": 1716,
+                "name": "svchost.exe",
+                "vms": 10.453125
+            },
+            {
+                "username": null,
+                "pid": 3140,
+                "name": "SecurityHealthService.exe",
+                "vms": 10.4140625
+            },
+            {
+                "username": null,
+                "pid": 920,
+                "name": "services.exe",
+                "vms": 10.390625
+            },
+            {
+                "username": null,
+                "pid": 9164,
+                "name": "svchost.exe",
+                "vms": 10.171875
+            },
+            {
+                "username": null,
+                "pid": 5092,
+                "name": "svchost.exe",
+                "vms": 9.83203125
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 12520,
+                "name": "svchost.exe",
+                "vms": 9.56640625
+            },
+            {
+                "username": null,
+                "pid": 2456,
+                "name": "NVDisplay.Container.exe",
+                "vms": 9.37109375
+            },
+            {
+                "username": null,
+                "pid": 12972,
+                "name": "SgrmBroker.exe",
+                "vms": 9.36328125
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 37800,
+                "name": "chrome.exe",
+                "vms": 9.30078125
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 51040,
+                "name": "taskhostw.exe",
+                "vms": 9.09375
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 27304,
+                "name": "msedge.exe",
+                "vms": 9.03515625
+            },
+            {
+                "username": null,
+                "pid": 4312,
+                "name": "spoolsv.exe",
+                "vms": 8.80078125
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 42116,
+                "name": "RuntimeBroker.exe",
+                "vms": 8.3359375
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 8216,
+                "name": "chrome.exe",
+                "vms": 7.98828125
+            },
+            {
+                "username": null,
+                "pid": 27376,
+                "name": "NisSrv.exe",
+                "vms": 7.6171875
+            },
+            {
+                "username": null,
+                "pid": 4628,
+                "name": "atkexComSvc.exe",
+                "vms": 7.57421875
+            },
+            {
+                "username": null,
+                "pid": 11104,
+                "name": "svchost.exe",
+                "vms": 7.54296875
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 23040,
+                "name": "svchost.exe",
+                "vms": 7.31640625
+            },
+            {
+                "username": null,
+                "pid": 45608,
+                "name": "sppsvc.exe",
+                "vms": 7.2890625
+            },
+            {
+                "username": null,
+                "pid": 46100,
+                "name": "fontdrvhost.exe",
+                "vms": 7.2578125
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 31476,
+                "name": "Battle.net.exe",
+                "vms": 7.03125
+            },
+            {
+                "username": null,
+                "pid": 1548,
+                "name": "svchost.exe",
+                "vms": 6.75390625
+            },
+            {
+                "username": null,
+                "pid": 40416,
+                "name": "svchost.exe",
+                "vms": 6.68359375
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 47808,
+                "name": "conhost.exe",
+                "vms": 6.58984375
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 15340,
+                "name": "conhost.exe",
+                "vms": 6.58203125
+            },
+            {
+                "username": null,
+                "pid": 8268,
+                "name": "conhost.exe",
+                "vms": 6.46875
+            },
+            {
+                "username": null,
+                "pid": 9028,
+                "name": "svchost.exe",
+                "vms": 6.4296875
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 39664,
+                "name": "sihost.exe",
+                "vms": 6.3515625
+            },
+            {
+                "username": null,
+                "pid": 5944,
+                "name": "omtsreco.exe",
+                "vms": 6.328125
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 46036,
+                "name": "conhost.exe",
+                "vms": 6.2578125
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 25268,
+                "name": "conhost.exe",
+                "vms": 6.23046875
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 51444,
+                "name": "conhost.exe",
+                "vms": 6.22265625
+            },
+            {
+                "username": null,
+                "pid": 17672,
+                "name": "conhost.exe",
+                "vms": 6.14453125
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 38224,
+                "name": "svchost.exe",
+                "vms": 5.828125
+            },
+            {
+                "username": null,
+                "pid": 9436,
+                "name": "svchost.exe",
+                "vms": 5.8203125
+            },
+            {
+                "username": null,
+                "pid": 6108,
+                "name": "oravssw.exe",
+                "vms": 5.70703125
+            },
+            {
+                "username": null,
+                "pid": 2212,
+                "name": "svchost.exe",
+                "vms": 5.4765625
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 16484,
+                "name": "browser_assistant.exe",
+                "vms": 5.15234375
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 51540,
+                "name": "RtkNGUI64.exe",
+                "vms": 4.890625
+            },
+            {
+                "username": null,
+                "pid": 5324,
+                "name": "svchost.exe",
+                "vms": 4.84765625
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 27772,
+                "name": "RuntimeBroker.exe",
+                "vms": 4.83984375
+            },
+            {
+                "username": null,
+                "pid": 3320,
+                "name": "svchost.exe",
+                "vms": 4.75390625
+            },
+            {
+                "username": null,
+                "pid": 43948,
+                "name": "svchost.exe",
+                "vms": 4.73046875
+            },
+            {
+                "username": null,
+                "pid": 2720,
+                "name": "svchost.exe",
+                "vms": 4.671875
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 9456,
+                "name": "ctfmon.exe",
+                "vms": 4.47265625
+            },
+            {
+                "username": null,
+                "pid": 11792,
+                "name": "svchost.exe",
+                "vms": 4.390625
+            },
+            {
+                "username": null,
+                "pid": 1976,
+                "name": "svchost.exe",
+                "vms": 4.30859375
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 13004,
+                "name": "GalaxyCommunication.exe",
+                "vms": 4.296875
+            },
+            {
+                "username": null,
+                "pid": 1436,
+                "name": "svchost.exe",
+                "vms": 4.23828125
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 27204,
+                "name": "RuntimeBroker.exe",
+                "vms": 4.23828125
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 22488,
+                "name": "svchost.exe",
+                "vms": 4.1640625
+            },
+            {
+                "username": null,
+                "pid": 2596,
+                "name": "svchost.exe",
+                "vms": 4.09765625
+            },
+            {
+                "username": null,
+                "pid": 7260,
+                "name": "svchost.exe",
+                "vms": 4.04296875
+            },
+            {
+                "username": null,
+                "pid": 40124,
+                "name": "csrss.exe",
+                "vms": 4.015625
+            },
+            {
+                "username": null,
+                "pid": 1256,
+                "name": "svchost.exe",
+                "vms": 3.90625
+            },
+            {
+                "username": null,
+                "pid": 9064,
+                "name": "dllhost.exe",
+                "vms": 3.8203125
+            },
+            {
+                "username": null,
+                "pid": 2324,
+                "name": "svchost.exe",
+                "vms": 3.7734375
+            },
+            {
+                "username": null,
+                "pid": 3416,
+                "name": "svchost.exe",
+                "vms": 3.7734375
+            },
+            {
+                "username": null,
+                "pid": 18428,
+                "name": "svchost.exe",
+                "vms": 3.7734375
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 7172,
+                "name": "dllhost.exe",
+                "vms": 3.75
+            },
+            {
+                "username": null,
+                "pid": 37044,
+                "name": "gameinputsvc.exe",
+                "vms": 3.64453125
+            },
+            {
+                "username": null,
+                "pid": 6156,
+                "name": "svchost.exe",
+                "vms": 3.63671875
+            },
+            {
+                "username": null,
+                "pid": 16528,
+                "name": "LMS.exe",
+                "vms": 3.5703125
+            },
+            {
+                "username": null,
+                "pid": 28472,
+                "name": "svchost.exe",
+                "vms": 3.46875
+            },
+            {
+                "username": null,
+                "pid": 7472,
+                "name": "postgres.exe",
+                "vms": 3.40234375
+            },
+            {
+                "username": null,
+                "pid": 8260,
+                "name": "postgres.exe",
+                "vms": 3.34765625
+            },
+            {
+                "username": null,
+                "pid": 3500,
+                "name": "MemCompression",
+                "vms": 3.33984375
+            },
+            {
+                "username": null,
+                "pid": 4144,
+                "name": "svchost.exe",
+                "vms": 3.30859375
+            },
+            {
+                "username": null,
+                "pid": 23576,
+                "name": "svchost.exe",
+                "vms": 3.2421875
+            },
+            {
+                "username": null,
+                "pid": 11828,
+                "name": "svchost.exe",
+                "vms": 3.2109375
+            },
+            {
+                "username": null,
+                "pid": 4804,
+                "name": "RzSDKServer.exe",
+                "vms": 3.1796875
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 50576,
+                "name": "RuntimeBroker.exe",
+                "vms": 3.125
+            },
+            {
+                "username": null,
+                "pid": 2388,
+                "name": "svchost.exe",
+                "vms": 3.1171875
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 44392,
+                "name": "browser_assistant.exe",
+                "vms": 3.078125
+            },
+            {
+                "username": null,
+                "pid": 4420,
+                "name": "svchost.exe",
+                "vms": 3.046875
+            },
+            {
+                "username": null,
+                "pid": 18988,
+                "name": "postgres.exe",
+                "vms": 3.04296875
+            },
+            {
+                "username": null,
+                "pid": 2032,
+                "name": "svchost.exe",
+                "vms": 2.99609375
+            },
+            {
+                "username": null,
+                "pid": 3252,
+                "name": "svchost.exe",
+                "vms": 2.98046875
+            },
+            {
+                "username": null,
+                "pid": 18488,
+                "name": "svchost.exe",
+                "vms": 2.9609375
+            },
+            {
+                "username": null,
+                "pid": 10336,
+                "name": "svchost.exe",
+                "vms": 2.92578125
+            },
+            {
+                "username": null,
+                "pid": 6096,
+                "name": "dasHost.exe",
+                "vms": 2.8828125
+            },
+            {
+                "username": null,
+                "pid": 2008,
+                "name": "svchost.exe",
+                "vms": 2.87890625
+            },
+            {
+                "username": null,
+                "pid": 3716,
+                "name": "vmcompute.exe",
+                "vms": 2.875
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 42160,
+                "name": "notepad.exe",
+                "vms": 2.8515625
+            },
+            {
+                "username": null,
+                "pid": 4816,
+                "name": "svchost.exe",
+                "vms": 2.84375
+            },
+            {
+                "username": null,
+                "pid": 10356,
+                "name": "svchost.exe",
+                "vms": 2.8046875
+            },
+            {
+                "username": null,
+                "pid": 37052,
+                "name": "winlogon.exe",
+                "vms": 2.6015625
+            },
+            {
+                "username": null,
+                "pid": 1624,
+                "name": "svchost.exe",
+                "vms": 2.55859375
+            },
+            {
+                "username": null,
+                "pid": 5568,
+                "name": "svchost.exe",
+                "vms": 2.53125
+            },
+            {
+                "username": null,
+                "pid": 19028,
+                "name": "postgres.exe",
+                "vms": 2.52734375
+            },
+            {
+                "username": null,
+                "pid": 19340,
+                "name": "postgres.exe",
+                "vms": 2.51953125
+            },
+            {
+                "username": null,
+                "pid": 2936,
+                "name": "svchost.exe",
+                "vms": 2.5
+            },
+            {
+                "username": null,
+                "pid": 2604,
+                "name": "svchost.exe",
+                "vms": 2.4921875
+            },
+            {
+                "username": null,
+                "pid": 47160,
+                "name": "svchost.exe",
+                "vms": 2.46484375
+            },
+            {
+                "username": null,
+                "pid": 9128,
+                "name": "postgres.exe",
+                "vms": 2.45703125
+            },
+            {
+                "username": null,
+                "pid": 3424,
+                "name": "svchost.exe",
+                "vms": 2.44921875
+            },
+            {
+                "username": null,
+                "pid": 1632,
+                "name": "svchost.exe",
+                "vms": 2.4453125
+            },
+            {
+                "username": null,
+                "pid": 5192,
+                "name": "svchost.exe",
+                "vms": 2.4296875
+            },
+            {
+                "username": null,
+                "pid": 4080,
+                "name": "svchost.exe",
+                "vms": 2.41796875
+            },
+            {
+                "username": null,
+                "pid": 6592,
+                "name": "svchost.exe",
+                "vms": 2.40234375
+            },
+            {
+                "username": null,
+                "pid": 8644,
+                "name": "MpCopyAccelerator.exe",
+                "vms": 2.375
+            },
+            {
+                "username": null,
+                "pid": 37180,
+                "name": "AppVShNotify.exe",
+                "vms": 2.3671875
+            },
+            {
+                "username": null,
+                "pid": 4612,
+                "name": "mDNSResponder.exe",
+                "vms": 2.35546875
+            },
+            {
+                "username": null,
+                "pid": 760,
+                "name": "csrss.exe",
+                "vms": 2.34765625
+            },
+            {
+                "username": null,
+                "pid": 35136,
+                "name": "svchost.exe",
+                "vms": 2.34375
+            },
+            {
+                "username": null,
+                "pid": 19452,
+                "name": "postgres.exe",
+                "vms": 2.26953125
+            },
+            {
+                "username": null,
+                "pid": 5300,
+                "name": "sqlwriter.exe",
+                "vms": 2.23046875
+            },
+            {
+                "username": null,
+                "pid": 3028,
+                "name": "svchost.exe",
+                "vms": 2.22265625
+            },
+            {
+                "username": null,
+                "pid": 6508,
+                "name": "svchost.exe",
+                "vms": 2.21875
+            },
+            {
+                "username": null,
+                "pid": 4916,
+                "name": "IPROSetMonitor.exe",
+                "vms": 2.19921875
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 42512,
+                "name": "chrome.exe",
+                "vms": 2.1953125
+            },
+            {
+                "username": null,
+                "pid": 9200,
+                "name": "postgres.exe",
+                "vms": 2.19140625
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 45776,
+                "name": "rundll32.exe",
+                "vms": 2.19140625
+            },
+            {
+                "username": null,
+                "pid": 2252,
+                "name": "svchost.exe",
+                "vms": 2.16796875
+            },
+            {
+                "username": null,
+                "pid": 5248,
+                "name": "RzChromaStreamServer.exe",
+                "vms": 2.16015625
+            },
+            {
+                "username": null,
+                "pid": 43564,
+                "name": "SppExtComObj.Exe",
+                "vms": 2.15234375
+            },
+            {
+                "username": null,
+                "pid": 2560,
+                "name": "svchost.exe",
+                "vms": 2.11328125
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 37980,
+                "name": "SecurityHealthSystray.exe",
+                "vms": 2.06640625
+            },
+            {
+                "username": null,
+                "pid": 1784,
+                "name": "svchost.exe",
+                "vms": 2.03125
+            },
+            {
+                "username": null,
+                "pid": 17816,
+                "name": "svchost.exe",
+                "vms": 2.0234375
+            },
+            {
+                "username": null,
+                "pid": 2708,
+                "name": "QMEmulatorService.exe",
+                "vms": 2.01171875
+            },
+            {
+                "username": null,
+                "pid": 7704,
+                "name": "gamingservicesnet.exe",
+                "vms": 2.01171875
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 31632,
+                "name": "msedge.exe",
+                "vms": 2.01171875
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 45780,
+                "name": "UserOOBEBroker.exe",
+                "vms": 2.01171875
+            },
+            {
+                "username": null,
+                "pid": 848,
+                "name": "wininit.exe",
+                "vms": 1.98828125
+            },
+            {
+                "username": null,
+                "pid": 3336,
+                "name": "svchost.exe",
+                "vms": 1.984375
+            },
+            {
+                "username": null,
+                "pid": 7316,
+                "name": "svchost.exe",
+                "vms": 1.92578125
+            },
+            {
+                "username": null,
+                "pid": 688,
+                "name": "WUDFHost.exe",
+                "vms": 1.921875
+            },
+            {
+                "username": null,
+                "pid": 2828,
+                "name": "svchost.exe",
+                "vms": 1.87109375
+            },
+            {
+                "username": null,
+                "pid": 4680,
+                "name": "svchost.exe",
+                "vms": 1.7734375
+            },
+            {
+                "username": null,
+                "pid": 3232,
+                "name": "svchost.exe",
+                "vms": 1.75390625
+            },
+            {
+                "username": null,
+                "pid": 14112,
+                "name": "svchost.exe",
+                "vms": 1.75
+            },
+            {
+                "username": null,
+                "pid": 28044,
+                "name": "svchost.exe",
+                "vms": 1.72265625
+            },
+            {
+                "username": null,
+                "pid": 4772,
+                "name": "HPPrintScanDoctorService.exe",
+                "vms": 1.703125
+            },
+            {
+                "username": null,
+                "pid": 2352,
+                "name": "svchost.exe",
+                "vms": 1.67578125
+            },
+            {
+                "username": null,
+                "pid": 5556,
+                "name": "svchost.exe",
+                "vms": 1.65625
+            },
+            {
+                "username": null,
+                "pid": 1556,
+                "name": "svchost.exe",
+                "vms": 1.63671875
+            },
+            {
+                "username": null,
+                "pid": 1028,
+                "name": "fontdrvhost.exe",
+                "vms": 1.625
+            },
+            {
+                "username": null,
+                "pid": 2808,
+                "name": "svchost.exe",
+                "vms": 1.59765625
+            },
+            {
+                "username": null,
+                "pid": 5128,
+                "name": "svchost.exe",
+                "vms": 1.59375
+            },
+            {
+                "username": null,
+                "pid": 5260,
+                "name": "svchost.exe",
+                "vms": 1.53125
+            },
+            {
+                "username": null,
+                "pid": 5072,
+                "name": "PnkBstrA.exe",
+                "vms": 1.39453125
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 36516,
+                "name": "unsecapp.exe",
+                "vms": 1.390625
+            },
+            {
+                "username": null,
+                "pid": 18540,
+                "name": "jhi_service.exe",
+                "vms": 1.359375
+            },
+            {
+                "username": null,
+                "pid": 3328,
+                "name": "svchost.exe",
+                "vms": 1.3125
+            },
+            {
+                "username": null,
+                "pid": 5836,
+                "name": "svchost.exe",
+                "vms": 1.3046875
+            },
+            {
+                "username": null,
+                "pid": 4640,
+                "name": "AsSysCtrlService.exe",
+                "vms": 1.30078125
+            },
+            {
+                "username": null,
+                "pid": 4712,
+                "name": "gameinputsvc.exe",
+                "vms": 1.2734375
+            },
+            {
+                "username": null,
+                "pid": 7388,
+                "name": "svchost.exe",
+                "vms": 1.2265625
+            },
+            {
+                "username": null,
+                "pid": 1464,
+                "name": "svchost.exe",
+                "vms": 1.16796875
+            },
+            {
+                "username": null,
+                "pid": 480,
+                "name": "smss.exe",
+                "vms": 1.1015625
+            },
+            {
+                "username": null,
+                "pid": 940,
+                "name": "LsaIso.exe",
+                "vms": 0.859375
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 43880,
+                "name": "python.exe",
+                "vms": 0.79296875
+            },
+            {
+                "username": "DESKTOP-DSS6TDT\\A",
+                "pid": 45616,
+                "name": "fsnotifier.exe",
+                "vms": 0.6328125
+            },
+            {
+                "username": "NT AUTHORITY\\SYSTEM",
+                "pid": 4,
+                "name": "System",
+                "vms": 0.2109375
+            },
+            {
+                "username": null,
+                "pid": 72,
+                "name": "",
+                "vms": 0.1796875
+            },
+            {
+                "username": "NT AUTHORITY\\SYSTEM",
+                "pid": 0,
+                "name": "System Idle Process",
+                "vms": 0.05859375
+            }
+        ]
+    }
+}
