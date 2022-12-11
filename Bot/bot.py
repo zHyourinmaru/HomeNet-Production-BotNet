@@ -11,7 +11,7 @@ import threading
 PORT = 6969
 CLIENT = socket.gethostbyname(socket.gethostname())
 FORMAT = 'utf-8'
-MASTER_ADDRESS = 'localhost'  # Inserire ip del master
+MASTER_ADDRESS = '192.168.1.64'  # Inserire ip del master
 SUCCESSFUL_RESPONSE = 'ok'
 
 
