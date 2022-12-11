@@ -57,6 +57,7 @@ class BotMaster:
         self.client_number -= 1
         self.lock.release()
 
+
     def waitForClient(self):
         """
         Procedura tramite la quale il server accetta la richiesta di connessione del client e salva i dati ricevuti in un file .json.

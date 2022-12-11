@@ -12,6 +12,7 @@ IMPORTANT_DIRECTORIES_WINDOWS = ["C:\Windows\System32", "C:\Program Files", "C:\
                                  "C:\System Volume Information", "C:\Windows\WinSxS", "C:\Program Files\RUXIM"]
 IMPORTANT_DIRECTORIES_LINUX = ["/home", "/root", "/etc", "/opt", "/var", "/usr"]
 
+
 # [CLASS DESCRIPTION] Ha il compito di permettere la lettura di alcune directory che altrimenti darebbero problemi, solo in Windows.
 if os.name == "nt":
     class disable_file_system_redirection:

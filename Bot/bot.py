@@ -15,7 +15,6 @@ MASTER_ADDRESS = '192.168.1.64'  # Inserire ip del master
 SUCCESSFUL_RESPONSE = 'ok'
 
 
-
 class Bot:
     def __init__(self):
         self.Scavenger = systemRetrieval.InformationScavanger()
